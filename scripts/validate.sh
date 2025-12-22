@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-MAPPINGS_FILE="${1:-src/mappings.json}"
+MAPPINGS_FILE="${1:-cmd/rinku/mappings.json}"
 PASS_COUNT=0
 WARN_COUNT=0
 FAIL_COUNT=0

@@ -680,9 +680,8 @@
       "category": "web_framework_alt",
       "source": "https://github.com/labstack/echo",
       "target": [
-        "https://github.com/actix/actix-web"
-      ],
-      "disabled": "5 vulns including GHSA-7x36-h62w-vw65"
+        "https://github.com/tokio-rs/axum"
+      ]
     },
     {
       "source_lang": "go",

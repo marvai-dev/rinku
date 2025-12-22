@@ -65,3 +65,26 @@ func TestBuildIndexes_NormalizesURLs(t *testing.T) {
 		t.Errorf("expected normalized key 'rust:github.com/foo/bar', got keys: %v", index)
 	}
 }
+
+func TestBuildIndexes_ConsolidationAndCase(t *testing.T) {
+	mappings := []Mapping{
+		{
+			TargetLang: "Rust",
+			Source:     "github.com/foo/bar",
+			Target:     []string{"target1"},
+		},
+		{
+			TargetLang: "rust",
+			Source:     "https://github.com/foo/bar",
+			Target:     []string{"target2"},
+		},
+	}
+
+	index, _, _ := BuildIndexes(mappings)
+
+	// Should lowercase "Rust" to "rust" and combine targets
+	want := []string{"target1", "target2"}
+	if got := index["rust:github.com/foo/bar"]; !reflect.DeepEqual(got, want) {
+		t.Errorf("index[\"rust:github.com/foo/bar\"] = %v, want %v", got, want)
+	}
+}

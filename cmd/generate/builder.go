@@ -1,6 +1,8 @@
 package main
 
 import (
+	"strings"
+
 	"github.com/stephan/rinku/internal/url"
 )
 
@@ -11,10 +13,10 @@ func BuildIndexes(mappings []Mapping) (index, indexAll map[string][]string, disa
 	indexAll = make(map[string][]string)
 
 	for _, mapping := range mappings {
-		key := mapping.TargetLang + ":" + url.Normalize(mapping.Source)
-		indexAll[key] = mapping.Target
+		key := strings.ToLower(mapping.TargetLang) + ":" + url.Normalize(mapping.Source)
+		indexAll[key] = append(indexAll[key], mapping.Target...)
 		if mapping.Disabled == "" {
-			index[key] = mapping.Target
+			index[key] = append(index[key], mapping.Target...)
 		} else {
 			disabledCount++
 		}

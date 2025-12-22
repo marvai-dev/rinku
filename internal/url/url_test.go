@@ -12,7 +12,8 @@ func TestNormalize(t *testing.T) {
 		{"strips http prefix", "http://github.com/foo/bar", "github.com/foo/bar"},
 		{"strips trailing slash", "github.com/foo/bar/", "github.com/foo/bar"},
 		{"lowercases URL", "GitHub.com/Foo/Bar", "github.com/foo/bar"},
-		{"handles all transformations", "HTTPS://GitHub.com/Foo/Bar/", "github.com/foo/bar"},
+		{"strips www prefix", "www.github.com/foo/bar", "github.com/foo/bar"},
+		{"handles all transformations", "HTTPS://www.GitHub.com/Foo/Bar/", "github.com/foo/bar"},
 		{"no changes needed", "github.com/foo/bar", "github.com/foo/bar"},
 	}
 

@@ -8,6 +8,7 @@ func Normalize(url string) string {
 	url = strings.ToLower(url)
 	url = strings.TrimPrefix(url, "https://")
 	url = strings.TrimPrefix(url, "http://")
+	url = strings.TrimPrefix(url, "www.")
 	url = strings.TrimSuffix(url, "/")
 	return url
 }

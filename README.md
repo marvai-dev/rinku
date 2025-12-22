@@ -97,7 +97,7 @@ This checks all Rust library targets for:
 
 | Category | Examples |
 |----------|----------|
-| Web Frameworks | gin → axum, echo → actix-web |
+| Web Frameworks | gin → axum, echo → axum |
 | CLI | cobra → clap, viper → config-rs |
 | Database | gorm → diesel, sqlx → sqlx |
 | Serialization | json → serde, protobuf → prost |

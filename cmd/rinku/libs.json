@@ -1,0 +1,1091 @@
+{
+  "libs": {
+    "go:Azure/azure-sdk-for-go": {
+      "url": "https://github.com/Azure/azure-sdk-for-go",
+      "lang": "go"
+    },
+    "go:BurntSushi/toml": {
+      "url": "https://github.com/BurntSushi/toml",
+      "lang": "go"
+    },
+    "go:JohannesKaufmann/html-to-markdown": {
+      "url": "https://github.com/JohannesKaufmann/html-to-markdown",
+      "lang": "go"
+    },
+    "go:MakeNowJust/heredoc": {
+      "url": "https://github.com/MakeNowJust/heredoc",
+      "lang": "go"
+    },
+    "go:Microsoft/go-winio": {
+      "url": "https://github.com/Microsoft/go-winio",
+      "lang": "go"
+    },
+    "go:PuerkitoBio/goquery": {
+      "url": "https://github.com/PuerkitoBio/goquery",
+      "lang": "go"
+    },
+    "go:alecthomas/chroma": {
+      "url": "https://github.com/alecthomas/chroma",
+      "lang": "go"
+    },
+    "go:alecthomas/kong": {
+      "url": "https://github.com/alecthomas/kong",
+      "lang": "go"
+    },
+    "go:atotto/clipboard": {
+      "url": "https://github.com/atotto/clipboard",
+      "lang": "go"
+    },
+    "go:aws/aws-sdk-go-v2": {
+      "url": "https://github.com/aws/aws-sdk-go-v2",
+      "lang": "go"
+    },
+    "go:aymanbagabas/go-udiff": {
+      "url": "https://github.com/aymanbagabas/go-udiff",
+      "lang": "go"
+    },
+    "go:beorn7/perks": {
+      "url": "https://github.com/beorn7/perks",
+      "lang": "go"
+    },
+    "go:bmatcuk/doublestar": {
+      "url": "https://github.com/bmatcuk/doublestar",
+      "lang": "go"
+    },
+    "go:bytedance/sonic": {
+      "url": "https://github.com/bytedance/sonic",
+      "lang": "go"
+    },
+    "go:cespare/xxhash": {
+      "url": "https://github.com/cespare/xxhash",
+      "lang": "go"
+    },
+    "go:charlievieth/fastwalk": {
+      "url": "https://github.com/charlievieth/fastwalk",
+      "lang": "go"
+    },
+    "go:charmbracelet/bubbles": {
+      "url": "https://github.com/charmbracelet/bubbles",
+      "lang": "go"
+    },
+    "go:charmbracelet/bubbletea": {
+      "url": "https://github.com/charmbracelet/bubbletea",
+      "lang": "go"
+    },
+    "go:charmbracelet/colorprofile": {
+      "url": "https://github.com/charmbracelet/colorprofile",
+      "lang": "go"
+    },
+    "go:charmbracelet/glamour": {
+      "url": "https://github.com/charmbracelet/glamour",
+      "lang": "go"
+    },
+    "go:charmbracelet/lipgloss": {
+      "url": "https://github.com/charmbracelet/lipgloss",
+      "lang": "go"
+    },
+    "go:charmbracelet/log": {
+      "url": "https://github.com/charmbracelet/log",
+      "lang": "go"
+    },
+    "go:charmbracelet/x": {
+      "url": "https://github.com/charmbracelet/x",
+      "lang": "go"
+    },
+    "go:cloudflare/cfssl": {
+      "url": "https://github.com/cloudflare/cfssl",
+      "lang": "go"
+    },
+    "go:containerd/containerd": {
+      "url": "https://github.com/containerd/containerd",
+      "lang": "go"
+    },
+    "go:coreos/go-systemd": {
+      "url": "https://github.com/coreos/go-systemd",
+      "lang": "go"
+    },
+    "go:darccio/mergo": {
+      "url": "https://github.com/darccio/mergo",
+      "lang": "go"
+    },
+    "go:denisbrodbeck/machineid": {
+      "url": "https://github.com/denisbrodbeck/machineid",
+      "lang": "go"
+    },
+    "go:disintegration/gift": {
+      "url": "https://github.com/disintegration/gift",
+      "lang": "go"
+    },
+    "go:disintegration/imageorient": {
+      "url": "https://github.com/disintegration/imageorient",
+      "lang": "go"
+    },
+    "go:dlclark/regexp2": {
+      "url": "https://github.com/dlclark/regexp2",
+      "lang": "go"
+    },
+    "go:docker/docker": {
+      "url": "https://github.com/docker/docker",
+      "lang": "go"
+    },
+    "go:docker/go-units": {
+      "url": "https://github.com/docker/go-units",
+      "lang": "go"
+    },
+    "go:dustin/go-humanize": {
+      "url": "https://github.com/dustin/go-humanize",
+      "lang": "go"
+    },
+    "go:etcd-io/bbolt": {
+      "url": "https://github.com/etcd-io/bbolt",
+      "lang": "go"
+    },
+    "go:etcd-io/etcd": {
+      "url": "https://github.com/etcd-io/etcd",
+      "lang": "go"
+    },
+    "go:fatih/color": {
+      "url": "https://github.com/fatih/color",
+      "lang": "go"
+    },
+    "go:felixge/httpsnoop": {
+      "url": "https://github.com/felixge/httpsnoop",
+      "lang": "go"
+    },
+    "go:fsnotify/fsnotify": {
+      "url": "https://github.com/fsnotify/fsnotify",
+      "lang": "go"
+    },
+    "go:gin-gonic/gin": {
+      "url": "https://github.com/gin-gonic/gin",
+      "lang": "go"
+    },
+    "go:go-chi/chi": {
+      "url": "https://github.com/go-chi/chi",
+      "lang": "go"
+    },
+    "go:go-gorm/gorm": {
+      "url": "https://github.com/go-gorm/gorm",
+      "lang": "go"
+    },
+    "go:go-ini/ini": {
+      "url": "https://github.com/go-ini/ini",
+      "lang": "go"
+    },
+    "go:go-logr/logr": {
+      "url": "https://github.com/go-logr/logr",
+      "lang": "go"
+    },
+    "go:go-logr/stdr": {
+      "url": "https://github.com/go-logr/stdr",
+      "lang": "go"
+    },
+    "go:go-openapi/jsonpointer": {
+      "url": "https://github.com/go-openapi/jsonpointer",
+      "lang": "go"
+    },
+    "go:go-openapi/swag": {
+      "url": "https://github.com/go-openapi/swag",
+      "lang": "go"
+    },
+    "go:go-redis/redis": {
+      "url": "https://github.com/go-redis/redis",
+      "lang": "go"
+    },
+    "go:go-yaml/yaml": {
+      "url": "https://github.com/go-yaml/yaml",
+      "lang": "go"
+    },
+    "go:goccy/go-json": {
+      "url": "https://github.com/goccy/go-json",
+      "lang": "go"
+    },
+    "go:goccy/go-yaml": {
+      "url": "https://github.com/goccy/go-yaml",
+      "lang": "go"
+    },
+    "go:gogo/protobuf": {
+      "url": "https://github.com/gogo/protobuf",
+      "lang": "go"
+    },
+    "go:golang-jwt/jwt": {
+      "url": "https://github.com/golang-jwt/jwt",
+      "lang": "go"
+    },
+    "go:golang/crypto": {
+      "url": "https://github.com/golang/crypto",
+      "lang": "go"
+    },
+    "go:golang/image": {
+      "url": "https://github.com/golang/image",
+      "lang": "go"
+    },
+    "go:golang/mock": {
+      "url": "https://github.com/golang/mock",
+      "lang": "go"
+    },
+    "go:golang/mod": {
+      "url": "https://github.com/golang/mod",
+      "lang": "go"
+    },
+    "go:golang/net": {
+      "url": "https://github.com/golang/net",
+      "lang": "go"
+    },
+    "go:golang/oauth2": {
+      "url": "https://github.com/golang/oauth2",
+      "lang": "go"
+    },
+    "go:golang/protobuf": {
+      "url": "https://github.com/golang/protobuf",
+      "lang": "go"
+    },
+    "go:golang/snappy": {
+      "url": "https://github.com/golang/snappy",
+      "lang": "go"
+    },
+    "go:golang/sync": {
+      "url": "https://github.com/golang/sync",
+      "lang": "go"
+    },
+    "go:golang/sys": {
+      "url": "https://github.com/golang/sys",
+      "lang": "go"
+    },
+    "go:golang/term": {
+      "url": "https://github.com/golang/term",
+      "lang": "go"
+    },
+    "go:golang/text": {
+      "url": "https://github.com/golang/text",
+      "lang": "go"
+    },
+    "go:golang/time": {
+      "url": "https://github.com/golang/time",
+      "lang": "go"
+    },
+    "go:golang/tools": {
+      "url": "https://github.com/golang/tools",
+      "lang": "go"
+    },
+    "go:google/go-cmp": {
+      "url": "https://github.com/google/go-cmp",
+      "lang": "go"
+    },
+    "go:google/pprof": {
+      "url": "https://github.com/google/pprof",
+      "lang": "go"
+    },
+    "go:google/uuid": {
+      "url": "https://github.com/google/uuid",
+      "lang": "go"
+    },
+    "go:googleapis/gax-go": {
+      "url": "https://github.com/googleapis/gax-go",
+      "lang": "go"
+    },
+    "go:googleapis/go-genproto": {
+      "url": "https://github.com/googleapis/go-genproto",
+      "lang": "go"
+    },
+    "go:googleapis/google-api-go-client": {
+      "url": "https://github.com/googleapis/google-api-go-client",
+      "lang": "go"
+    },
+    "go:googleapis/google-cloud-go": {
+      "url": "https://github.com/googleapis/google-cloud-go",
+      "lang": "go"
+    },
+    "go:gorilla/css": {
+      "url": "https://github.com/gorilla/css",
+      "lang": "go"
+    },
+    "go:gorilla/mux": {
+      "url": "https://github.com/gorilla/mux",
+      "lang": "go"
+    },
+    "go:gorilla/websocket": {
+      "url": "https://github.com/gorilla/websocket",
+      "lang": "go"
+    },
+    "go:grpc-ecosystem/grpc-gateway": {
+      "url": "https://github.com/grpc-ecosystem/grpc-gateway",
+      "lang": "go"
+    },
+    "go:grpc/grpc-go": {
+      "url": "https://github.com/grpc/grpc-go",
+      "lang": "go"
+    },
+    "go:hashicorp/go-memdb": {
+      "url": "https://github.com/hashicorp/go-memdb",
+      "lang": "go"
+    },
+    "go:hashicorp/golang-lru": {
+      "url": "https://github.com/hashicorp/golang-lru",
+      "lang": "go"
+    },
+    "go:invopop/jsonschema": {
+      "url": "https://github.com/invopop/jsonschema",
+      "lang": "go"
+    },
+    "go:joho/godotenv": {
+      "url": "https://github.com/joho/godotenv",
+      "lang": "go"
+    },
+    "go:josharian/intern": {
+      "url": "https://github.com/josharian/intern",
+      "lang": "go"
+    },
+    "go:json-iterator/go": {
+      "url": "https://github.com/json-iterator/go",
+      "lang": "go"
+    },
+    "go:klauspost/compress": {
+      "url": "https://github.com/klauspost/compress",
+      "lang": "go"
+    },
+    "go:klauspost/cpuid": {
+      "url": "https://github.com/klauspost/cpuid",
+      "lang": "go"
+    },
+    "go:kolesa-team/go-webp": {
+      "url": "https://github.com/kolesa-team/go-webp",
+      "lang": "go"
+    },
+    "go:kubernetes-sigs/yaml": {
+      "url": "https://github.com/kubernetes-sigs/yaml",
+      "lang": "go"
+    },
+    "go:kubernetes/api": {
+      "url": "https://github.com/kubernetes/api",
+      "lang": "go"
+    },
+    "go:kubernetes/apimachinery": {
+      "url": "https://github.com/kubernetes/apimachinery",
+      "lang": "go"
+    },
+    "go:kubernetes/client-go": {
+      "url": "https://github.com/kubernetes/client-go",
+      "lang": "go"
+    },
+    "go:labstack/echo": {
+      "url": "https://github.com/labstack/echo",
+      "lang": "go"
+    },
+    "go:lucasb-eyer/go-colorful": {
+      "url": "https://github.com/lucasb-eyer/go-colorful",
+      "lang": "go"
+    },
+    "go:mailru/easyjson": {
+      "url": "https://github.com/mailru/easyjson",
+      "lang": "go"
+    },
+    "go:mattn/go-colorable": {
+      "url": "https://github.com/mattn/go-colorable",
+      "lang": "go"
+    },
+    "go:mattn/go-isatty": {
+      "url": "https://github.com/mattn/go-isatty",
+      "lang": "go"
+    },
+    "go:mattn/go-runewidth": {
+      "url": "https://github.com/mattn/go-runewidth",
+      "lang": "go"
+    },
+    "go:mattn/go-sqlite3": {
+      "url": "https://github.com/mattn/go-sqlite3",
+      "lang": "go"
+    },
+    "go:microcosm-cc/bluemonday": {
+      "url": "https://github.com/microcosm-cc/bluemonday",
+      "lang": "go"
+    },
+    "go:miekg/dns": {
+      "url": "https://github.com/miekg/dns",
+      "lang": "go"
+    },
+    "go:mitchellh/mapstructure": {
+      "url": "https://github.com/mitchellh/mapstructure",
+      "lang": "go"
+    },
+    "go:moby/buildkit": {
+      "url": "https://github.com/moby/buildkit",
+      "lang": "go"
+    },
+    "go:modelcontextprotocol/go-sdk": {
+      "url": "https://github.com/modelcontextprotocol/go-sdk",
+      "lang": "go"
+    },
+    "go:modern-go/concurrent": {
+      "url": "https://github.com/modern-go/concurrent",
+      "lang": "go"
+    },
+    "go:muesli/termenv": {
+      "url": "https://github.com/muesli/termenv",
+      "lang": "go"
+    },
+    "go:munnerz/goautoneg": {
+      "url": "https://github.com/munnerz/goautoneg",
+      "lang": "go"
+    },
+    "go:mvdan/sh": {
+      "url": "https://github.com/mvdan/sh",
+      "lang": "go"
+    },
+    "go:natefinch/lumberjack": {
+      "url": "https://github.com/natefinch/lumberjack",
+      "lang": "go"
+    },
+    "go:ncruces/go-sqlite3": {
+      "url": "https://github.com/ncruces/go-sqlite3",
+      "lang": "go"
+    },
+    "go:nfnt/resize": {
+      "url": "https://github.com/nfnt/resize",
+      "lang": "go"
+    },
+    "go:nxadm/tail": {
+      "url": "https://github.com/nxadm/tail",
+      "lang": "go"
+    },
+    "go:olekukonko/tablewriter": {
+      "url": "https://github.com/olekukonko/tablewriter",
+      "lang": "go"
+    },
+    "go:ollama/ollama": {
+      "url": "https://github.com/ollama/ollama",
+      "lang": "go"
+    },
+    "go:onsi/ginkgo": {
+      "url": "https://github.com/onsi/ginkgo",
+      "lang": "go"
+    },
+    "go:onsi/gomega": {
+      "url": "https://github.com/onsi/gomega",
+      "lang": "go"
+    },
+    "go:open-telemetry/opentelemetry-go": {
+      "url": "https://github.com/open-telemetry/opentelemetry-go",
+      "lang": "go"
+    },
+    "go:openai/openai-go": {
+      "url": "https://github.com/openai/openai-go",
+      "lang": "go"
+    },
+    "go:opencontainers/go-digest": {
+      "url": "https://github.com/opencontainers/go-digest",
+      "lang": "go"
+    },
+    "go:opencontainers/image-spec": {
+      "url": "https://github.com/opencontainers/image-spec",
+      "lang": "go"
+    },
+    "go:pelletier/go-toml": {
+      "url": "https://github.com/pelletier/go-toml",
+      "lang": "go"
+    },
+    "go:pierrec/lz4": {
+      "url": "https://github.com/pierrec/lz4",
+      "lang": "go"
+    },
+    "go:pires/go-proxyproto": {
+      "url": "https://github.com/pires/go-proxyproto",
+      "lang": "go"
+    },
+    "go:pkg/browser": {
+      "url": "https://github.com/pkg/browser",
+      "lang": "go"
+    },
+    "go:pkg/errors": {
+      "url": "https://github.com/pkg/errors",
+      "lang": "go"
+    },
+    "go:pmezard/go-difflib": {
+      "url": "https://github.com/pmezard/go-difflib",
+      "lang": "go"
+    },
+    "go:posthog/posthog-go": {
+      "url": "https://github.com/posthog/posthog-go",
+      "lang": "go"
+    },
+    "go:pressly/goose": {
+      "url": "https://github.com/pressly/goose",
+      "lang": "go"
+    },
+    "go:prometheus/client_golang": {
+      "url": "https://github.com/prometheus/client_golang",
+      "lang": "go"
+    },
+    "go:prometheus/client_model": {
+      "url": "https://github.com/prometheus/client_model",
+      "lang": "go"
+    },
+    "go:prometheus/common": {
+      "url": "https://github.com/prometheus/common",
+      "lang": "go"
+    },
+    "go:prometheus/procfs": {
+      "url": "https://github.com/prometheus/procfs",
+      "lang": "go"
+    },
+    "go:protocolbuffers/protobuf-go": {
+      "url": "https://github.com/protocolbuffers/protobuf-go",
+      "lang": "go"
+    },
+    "go:quic-go/quic-go": {
+      "url": "https://github.com/quic-go/quic-go",
+      "lang": "go"
+    },
+    "go:rivo/uniseg": {
+      "url": "https://github.com/rivo/uniseg",
+      "lang": "go"
+    },
+    "go:rs/zerolog": {
+      "url": "https://github.com/rs/zerolog",
+      "lang": "go"
+    },
+    "go:russross/blackfriday": {
+      "url": "https://github.com/russross/blackfriday",
+      "lang": "go"
+    },
+    "go:sabhiram/go-gitignore": {
+      "url": "https://github.com/sabhiram/go-gitignore",
+      "lang": "go"
+    },
+    "go:sahilm/fuzzy": {
+      "url": "https://github.com/sahilm/fuzzy",
+      "lang": "go"
+    },
+    "go:samber/lo": {
+      "url": "https://github.com/samber/lo",
+      "lang": "go"
+    },
+    "go:sashabaranov/go-openai": {
+      "url": "https://github.com/sashabaranov/go-openai",
+      "lang": "go"
+    },
+    "go:sergi/go-diff": {
+      "url": "https://github.com/sergi/go-diff",
+      "lang": "go"
+    },
+    "go:sirupsen/logrus": {
+      "url": "https://github.com/sirupsen/logrus",
+      "lang": "go"
+    },
+    "go:sourcegraph/jsonrpc2": {
+      "url": "https://github.com/sourcegraph/jsonrpc2",
+      "lang": "go"
+    },
+    "go:spf13/afero": {
+      "url": "https://github.com/spf13/afero",
+      "lang": "go"
+    },
+    "go:spf13/cast": {
+      "url": "https://github.com/spf13/cast",
+      "lang": "go"
+    },
+    "go:spf13/cobra": {
+      "url": "https://github.com/spf13/cobra",
+      "lang": "go"
+    },
+    "go:spf13/pflag": {
+      "url": "https://github.com/spf13/pflag",
+      "lang": "go"
+    },
+    "go:spf13/viper": {
+      "url": "https://github.com/spf13/viper",
+      "lang": "go"
+    },
+    "go:srwiley/oksvg": {
+      "url": "https://github.com/srwiley/oksvg",
+      "lang": "go"
+    },
+    "go:srwiley/rasterx": {
+      "url": "https://github.com/srwiley/rasterx",
+      "lang": "go"
+    },
+    "go:stretchr/testify": {
+      "url": "https://github.com/stretchr/testify",
+      "lang": "go"
+    },
+    "go:tdewolff/minify": {
+      "url": "https://github.com/tdewolff/minify",
+      "lang": "go"
+    },
+    "go:tetratelabs/wazero": {
+      "url": "https://github.com/tetratelabs/wazero",
+      "lang": "go"
+    },
+    "go:tidwall/gjson": {
+      "url": "https://github.com/tidwall/gjson",
+      "lang": "go"
+    },
+    "go:tidwall/sjson": {
+      "url": "https://github.com/tidwall/sjson",
+      "lang": "go"
+    },
+    "go:tmc/langchaingo": {
+      "url": "https://github.com/tmc/langchaingo",
+      "lang": "go"
+    },
+    "go:uber-go/multierr": {
+      "url": "https://github.com/uber-go/multierr",
+      "lang": "go"
+    },
+    "go:uber-go/zap": {
+      "url": "https://github.com/uber-go/zap",
+      "lang": "go"
+    },
+    "go:valyala/fasthttp": {
+      "url": "https://github.com/valyala/fasthttp",
+      "lang": "go"
+    },
+    "go:vishvananda/netlink": {
+      "url": "https://github.com/vishvananda/netlink",
+      "lang": "go"
+    },
+    "go:yuin/goldmark": {
+      "url": "https://github.com/yuin/goldmark",
+      "lang": "go"
+    },
+    "go:zeebo/xxh3": {
+      "url": "https://github.com/zeebo/xxh3",
+      "lang": "go"
+    },
+    "rust:1Password/arboard": {
+      "url": "https://github.com/1Password/arboard",
+      "lang": "rust"
+    },
+    "rust:64bit/async-openai": {
+      "url": "https://github.com/64bit/async-openai",
+      "lang": "rust"
+    },
+    "rust:Abraxas-365/langchain-rust": {
+      "url": "https://github.com/Abraxas-365/langchain-rust",
+      "lang": "rust"
+    },
+    "rust:Azure/azure-sdk-for-rust": {
+      "url": "https://github.com/Azure/azure-sdk-for-rust",
+      "lang": "rust"
+    },
+    "rust:BurntSushi/globset": {
+      "url": "https://github.com/BurntSushi/globset",
+      "lang": "rust"
+    },
+    "rust:BurntSushi/ripgrep/tree/master/crates/ignore": {
+      "url": "https://github.com/BurntSushi/ripgrep/tree/master/crates/ignore",
+      "lang": "rust",
+      "unsafe": "1 vuln: GHSA-g4xg-fxmg-vcg5"
+    },
+    "rust:BurntSushi/rust-snappy": {
+      "url": "https://github.com/BurntSushi/rust-snappy",
+      "lang": "rust"
+    },
+    "rust:BurntSushi/termcolor": {
+      "url": "https://github.com/BurntSushi/termcolor",
+      "lang": "rust"
+    },
+    "rust:BurntSushi/walkdir": {
+      "url": "https://github.com/BurntSushi/walkdir",
+      "lang": "rust"
+    },
+    "rust:GREsau/schemars": {
+      "url": "https://github.com/GREsau/schemars",
+      "lang": "rust"
+    },
+    "rust:GuillaumeGomez/minifier-rs": {
+      "url": "https://github.com/GuillaumeGomez/minifier-rs",
+      "lang": "rust"
+    },
+    "rust:Hanaasagi/machine-uid": {
+      "url": "https://github.com/Hanaasagi/machine-uid",
+      "lang": "rust"
+    },
+    "rust:Ogeon/palette": {
+      "url": "https://github.com/Ogeon/palette",
+      "lang": "rust"
+    },
+    "rust:PSeitz/lz4_flex": {
+      "url": "https://github.com/PSeitz/lz4_flex",
+      "lang": "rust"
+    },
+    "rust:RustCrypto/traits": {
+      "url": "https://github.com/RustCrypto/traits",
+      "lang": "rust"
+    },
+    "rust:SeaQL/sea-orm": {
+      "url": "https://github.com/SeaQL/sea-orm",
+      "lang": "rust"
+    },
+    "rust:allan2/dotenvy": {
+      "url": "https://github.com/allan2/dotenvy",
+      "lang": "rust"
+    },
+    "rust:amodm/webbrowser-rs": {
+      "url": "https://github.com/amodm/webbrowser-rs",
+      "lang": "rust"
+    },
+    "rust:asomers/mockall": {
+      "url": "https://github.com/asomers/mockall",
+      "lang": "rust"
+    },
+    "rust:awslabs/aws-sdk-rust": {
+      "url": "https://github.com/awslabs/aws-sdk-rust",
+      "lang": "rust"
+    },
+    "rust:bytecodealliance/wasmtime": {
+      "url": "https://github.com/bytecodealliance/wasmtime",
+      "lang": "rust",
+      "unsafe": "45 vulns including GHSA-44mr-8vmm-wjhg"
+    },
+    "rust:cberner/redb": {
+      "url": "https://github.com/cberner/redb",
+      "lang": "rust"
+    },
+    "rust:chanced/json-pointer": {
+      "url": "https://github.com/chanced/json-pointer",
+      "lang": "rust"
+    },
+    "rust:chronotope/chrono": {
+      "url": "https://github.com/chronotope/chrono",
+      "lang": "rust"
+    },
+    "rust:chronotope/humantime": {
+      "url": "https://github.com/chronotope/humantime",
+      "lang": "rust"
+    },
+    "rust:clap-rs/clap": {
+      "url": "https://github.com/clap-rs/clap",
+      "lang": "rust"
+    },
+    "rust:cloudwego/sonic-rs": {
+      "url": "https://github.com/cloudwego/sonic-rs",
+      "lang": "rust"
+    },
+    "rust:containerd/rust-extensions": {
+      "url": "https://github.com/containerd/rust-extensions",
+      "lang": "rust"
+    },
+    "rust:containers/oci-spec-rs": {
+      "url": "https://github.com/containers/oci-spec-rs",
+      "lang": "rust"
+    },
+    "rust:crossterm-rs/crossterm": {
+      "url": "https://github.com/crossterm-rs/crossterm",
+      "lang": "rust"
+    },
+    "rust:droundy/internment": {
+      "url": "https://github.com/droundy/internment",
+      "lang": "rust"
+    },
+    "rust:dtolnay/anyhow": {
+      "url": "https://github.com/dtolnay/anyhow",
+      "lang": "rust"
+    },
+    "rust:dtolnay/serde-yaml": {
+      "url": "https://github.com/dtolnay/serde-yaml",
+      "lang": "rust"
+    },
+    "rust:etcdv3/etcd-client": {
+      "url": "https://github.com/etcdv3/etcd-client",
+      "lang": "rust"
+    },
+    "rust:fancy-regex/fancy-regex": {
+      "url": "https://github.com/fancy-regex/fancy-regex",
+      "lang": "rust"
+    },
+    "rust:fussybeaver/bollard": {
+      "url": "https://github.com/fussybeaver/bollard",
+      "lang": "rust"
+    },
+    "rust:googleapis/google-cloud-rust": {
+      "url": "https://github.com/googleapis/google-cloud-rust",
+      "lang": "rust"
+    },
+    "rust:gyscos/zstd-rs": {
+      "url": "https://github.com/gyscos/zstd-rs",
+      "lang": "rust"
+    },
+    "rust:hickory-dns/hickory-dns": {
+      "url": "https://github.com/hickory-dns/hickory-dns",
+      "lang": "rust"
+    },
+    "rust:http-rs/accept-header": {
+      "url": "https://github.com/http-rs/accept-header",
+      "lang": "rust"
+    },
+    "rust:hyperium/hyper": {
+      "url": "https://github.com/hyperium/hyper",
+      "lang": "rust",
+      "unsafe": "14 vulns including GHSA-5h46-h7hh-c6x9"
+    },
+    "rust:hyperium/tonic": {
+      "url": "https://github.com/hyperium/tonic",
+      "lang": "rust"
+    },
+    "rust:image-rs/image": {
+      "url": "https://github.com/image-rs/image",
+      "lang": "rust",
+      "unsafe": "4 vulns including GHSA-9wgh-vjj7-7433"
+    },
+    "rust:image-rs/image-webp": {
+      "url": "https://github.com/image-rs/image-webp",
+      "lang": "rust"
+    },
+    "rust:image-rs/imageproc": {
+      "url": "https://github.com/image-rs/imageproc",
+      "lang": "rust"
+    },
+    "rust:jeromefroe/lru-rs": {
+      "url": "https://github.com/jeromefroe/lru-rs",
+      "lang": "rust"
+    },
+    "rust:jmagnuson/linemux": {
+      "url": "https://github.com/jmagnuson/linemux",
+      "lang": "rust"
+    },
+    "rust:juhaku/utoipa": {
+      "url": "https://github.com/juhaku/utoipa",
+      "lang": "rust"
+    },
+    "rust:keats/jsonwebtoken": {
+      "url": "https://github.com/keats/jsonwebtoken",
+      "lang": "rust"
+    },
+    "rust:kivikakk/comrak": {
+      "url": "https://github.com/kivikakk/comrak",
+      "lang": "rust"
+    },
+    "rust:kube-rs/kube": {
+      "url": "https://github.com/kube-rs/kube",
+      "lang": "rust"
+    },
+    "rust:linebender/resvg": {
+      "url": "https://github.com/linebender/resvg",
+      "lang": "rust"
+    },
+    "rust:lotabout/fuzzy-matcher": {
+      "url": "https://github.com/lotabout/fuzzy-matcher",
+      "lang": "rust"
+    },
+    "rust:lucab/libsystemd-rs": {
+      "url": "https://github.com/lucab/libsystemd-rs",
+      "lang": "rust"
+    },
+    "rust:manuel-woelker/rust-vfs": {
+      "url": "https://github.com/manuel-woelker/rust-vfs",
+      "lang": "rust"
+    },
+    "rust:microsoft/windows-rs": {
+      "url": "https://github.com/microsoft/windows-rs",
+      "lang": "rust"
+    },
+    "rust:misalcedo/ppp": {
+      "url": "https://github.com/misalcedo/ppp",
+      "lang": "rust"
+    },
+    "rust:mitsuhiko/similar": {
+      "url": "https://github.com/mitsuhiko/similar",
+      "lang": "rust"
+    },
+    "rust:notify-rs/notify": {
+      "url": "https://github.com/notify-rs/notify",
+      "lang": "rust"
+    },
+    "rust:nushell/nushell/tree/main/crates/nu-parser": {
+      "url": "https://github.com/nushell/nushell/tree/main/crates/nu-parser",
+      "lang": "rust"
+    },
+    "rust:ogham/rust-ansi-term": {
+      "url": "https://github.com/ogham/rust-ansi-term",
+      "lang": "rust"
+    },
+    "rust:open-telemetry/opentelemetry-rust": {
+      "url": "https://github.com/open-telemetry/opentelemetry-rust",
+      "lang": "rust"
+    },
+    "rust:parched/cupid": {
+      "url": "https://github.com/parched/cupid",
+      "lang": "rust"
+    },
+    "rust:paritytech/jsonrpsee": {
+      "url": "https://github.com/paritytech/jsonrpsee",
+      "lang": "rust"
+    },
+    "rust:pascalkuthe/imara-diff": {
+      "url": "https://github.com/pascalkuthe/imara-diff",
+      "lang": "rust"
+    },
+    "rust:pepperoni21/ollama-rs": {
+      "url": "https://github.com/pepperoni21/ollama-rs",
+      "lang": "rust"
+    },
+    "rust:phsym/prettytable-rs": {
+      "url": "https://github.com/phsym/prettytable-rs",
+      "lang": "rust"
+    },
+    "rust:prometheus/client_rust": {
+      "url": "https://github.com/prometheus/client_rust",
+      "lang": "rust"
+    },
+    "rust:prometheus/procfs-rs": {
+      "url": "https://github.com/prometheus/procfs-rs",
+      "lang": "rust"
+    },
+    "rust:pulldown-cmark/pulldown-cmark": {
+      "url": "https://github.com/pulldown-cmark/pulldown-cmark",
+      "lang": "rust"
+    },
+    "rust:quinn-rs/quinn": {
+      "url": "https://github.com/quinn-rs/quinn",
+      "lang": "rust",
+      "unsafe": "2 vulns including GHSA-fhv4-fx3v-77w6"
+    },
+    "rust:ramosbugs/oauth2-rs": {
+      "url": "https://github.com/ramosbugs/oauth2-rs",
+      "lang": "rust"
+    },
+    "rust:ratatui/ratatui": {
+      "url": "https://github.com/ratatui/ratatui",
+      "lang": "rust"
+    },
+    "rust:redis-rs/redis-rs": {
+      "url": "https://github.com/redis-rs/redis-rs",
+      "lang": "rust"
+    },
+    "rust:rosetta-rs/struct-patch": {
+      "url": "https://github.com/rosetta-rs/struct-patch",
+      "lang": "rust"
+    },
+    "rust:rusqlite/rusqlite": {
+      "url": "https://github.com/rusqlite/rusqlite",
+      "lang": "rust",
+      "unsafe": "18 vulns including GHSA-28ph-f7gx-fqj8"
+    },
+    "rust:rust-ammonia/ammonia": {
+      "url": "https://github.com/rust-ammonia/ammonia",
+      "lang": "rust",
+      "unsafe": "8 vulns including GHSA-5325-xw5m-phm3"
+    },
+    "rust:rust-cli/config-rs": {
+      "url": "https://github.com/rust-cli/config-rs",
+      "lang": "rust"
+    },
+    "rust:rust-db/refinery": {
+      "url": "https://github.com/rust-db/refinery",
+      "lang": "rust"
+    },
+    "rust:rust-itertools/itertools": {
+      "url": "https://github.com/rust-itertools/itertools",
+      "lang": "rust"
+    },
+    "rust:rust-lang/libc": {
+      "url": "https://github.com/rust-lang/libc",
+      "lang": "rust"
+    },
+    "rust:rust-netlink/netlink": {
+      "url": "https://github.com/rust-netlink/netlink",
+      "lang": "rust"
+    },
+    "rust:rust-scraper/scraper": {
+      "url": "https://github.com/rust-scraper/scraper",
+      "lang": "rust"
+    },
+    "rust:rustls/rustls": {
+      "url": "https://github.com/rustls/rustls",
+      "lang": "rust",
+      "unsafe": "4 vulns including GHSA-6g7w-8wpp-frhj"
+    },
+    "rust:serde-rs/json": {
+      "url": "https://github.com/serde-rs/json",
+      "lang": "rust"
+    },
+    "rust:serde-rs/serde": {
+      "url": "https://github.com/serde-rs/serde",
+      "lang": "rust"
+    },
+    "rust:servo/rust-cssparser": {
+      "url": "https://github.com/servo/rust-cssparser",
+      "lang": "rust"
+    },
+    "rust:shepmaster/twox-hash": {
+      "url": "https://github.com/shepmaster/twox-hash",
+      "lang": "rust"
+    },
+    "rust:snapview/tokio-tungstenite": {
+      "url": "https://github.com/snapview/tokio-tungstenite",
+      "lang": "rust"
+    },
+    "rust:softprops/atty": {
+      "url": "https://github.com/softprops/atty",
+      "lang": "rust"
+    },
+    "rust:tikv/pprof-rs": {
+      "url": "https://github.com/tikv/pprof-rs",
+      "lang": "rust"
+    },
+    "rust:tokio-rs/axum": {
+      "url": "https://github.com/tokio-rs/axum",
+      "lang": "rust"
+    },
+    "rust:tokio-rs/prost": {
+      "url": "https://github.com/tokio-rs/prost",
+      "lang": "rust",
+      "unsafe": "2 vulns including GHSA-gv73-9mwv-fwgq"
+    },
+    "rust:tokio-rs/tokio": {
+      "url": "https://github.com/tokio-rs/tokio",
+      "lang": "rust",
+      "unsafe": "10 vulns including GHSA-2grh-hm3w-w7hv"
+    },
+    "rust:tokio-rs/tracing": {
+      "url": "https://github.com/tokio-rs/tracing",
+      "lang": "rust"
+    },
+    "rust:tokio-rs/tracing/tree/master/tracing-appender": {
+      "url": "https://github.com/tokio-rs/tracing/tree/master/tracing-appender",
+      "lang": "rust"
+    },
+    "rust:toml-rs/toml": {
+      "url": "https://github.com/toml-rs/toml",
+      "lang": "rust"
+    },
+    "rust:tower-rs/tower-http": {
+      "url": "https://github.com/tower-rs/tower-http",
+      "lang": "rust",
+      "unsafe": "3 vulns including GHSA-qrqq-9c63-xfrg"
+    },
+    "rust:trishume/syntect": {
+      "url": "https://github.com/trishume/syntect",
+      "lang": "rust"
+    },
+    "rust:unicode-rs/unicode-normalization": {
+      "url": "https://github.com/unicode-rs/unicode-normalization",
+      "lang": "rust"
+    },
+    "rust:unicode-rs/unicode-segmentation": {
+      "url": "https://github.com/unicode-rs/unicode-segmentation",
+      "lang": "rust"
+    },
+    "rust:unicode-rs/unicode-width": {
+      "url": "https://github.com/unicode-rs/unicode-width",
+      "lang": "rust"
+    },
+    "rust:uom/uom": {
+      "url": "https://github.com/uom/uom",
+      "lang": "rust"
+    },
+    "rust:uuid-rs/uuid": {
+      "url": "https://github.com/uuid-rs/uuid",
+      "lang": "rust"
+    },
+    "rust:wilsonzlin/minify-html": {
+      "url": "https://github.com/wilsonzlin/minify-html",
+      "lang": "rust"
+    },
+    "rust:zonyitoo/rust-ini": {
+      "url": "https://github.com/zonyitoo/rust-ini",
+      "lang": "rust"
+    }
+  }
+}

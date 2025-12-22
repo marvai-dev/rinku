@@ -1,1228 +1,1146 @@
 {
-  "description": "Directional library mappings",
   "mappings": [
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "azure_sdk",
-      "source": "https://github.com/Azure/azure-sdk-for-go",
-      "target": [
-        "https://github.com/Azure/azure-sdk-for-rust"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "toml",
-      "source": "https://github.com/BurntSushi/toml",
-      "target": [
-        "https://github.com/toml-rs/toml"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "html_to_markdown",
-      "source": "https://github.com/JohannesKaufmann/html-to-markdown",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "heredoc",
-      "source": "https://github.com/MakeNowJust/heredoc",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "html_parsing",
-      "source": "https://github.com/PuerkitoBio/goquery",
-      "target": [
-        "https://github.com/rust-scraper/scraper"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "syntax_highlighting",
-      "source": "https://github.com/alecthomas/chroma",
-      "target": [
-        "https://github.com/trishume/syntect"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "kong_cli",
-      "source": "https://github.com/alecthomas/kong",
-      "target": [
-        "https://github.com/clap-rs/clap"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "clipboard",
-      "source": "https://github.com/atotto/clipboard",
-      "target": [
-        "https://github.com/1Password/arboard"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "aws_sdk",
-      "source": "https://github.com/aws/aws-sdk-go-v2",
-      "target": [
-        "https://github.com/awslabs/aws-sdk-rust"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "unified_diff",
-      "source": "https://github.com/aymanbagabas/go-udiff",
-      "target": [
-        "https://github.com/pascalkuthe/imara-diff"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "glob_matching",
-      "source": "https://github.com/bmatcuk/doublestar",
-      "target": [
-        "https://github.com/BurntSushi/globset"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "simd_json",
-      "source": "https://github.com/bytedance/sonic",
-      "target": [
-        "https://github.com/cloudwego/sonic-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "xxhash",
-      "source": "https://github.com/cespare/xxhash",
-      "target": [
-        "https://github.com/shepmaster/twox-hash"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "directory_walking",
-      "source": "https://github.com/charlievieth/fastwalk",
-      "target": [
-        "https://github.com/BurntSushi/walkdir"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "tui_components",
-      "source": "https://github.com/charmbracelet/bubbles",
-      "target": [
-        "https://github.com/ratatui/ratatui"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "tui_framework",
-      "source": "https://github.com/charmbracelet/bubbletea",
-      "target": [
-        "https://github.com/ratatui/ratatui"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "terminal_detection",
-      "source": "https://github.com/charmbracelet/colorprofile",
-      "target": [
-        "https://github.com/crossterm-rs/crossterm"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "markdown_rendering",
-      "source": "https://github.com/charmbracelet/glamour",
-      "target": [
-        "https://github.com/kivikakk/comrak"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "tui_styling",
-      "source": "https://github.com/charmbracelet/lipgloss",
-      "target": [
-        "https://github.com/ratatui/ratatui"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "logging",
-      "source": "https://github.com/charmbracelet/log",
-      "target": [
-        "https://github.com/tokio-rs/tracing"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "ansi_sequences",
-      "source": "https://github.com/charmbracelet/x",
-      "target": [
-        "https://github.com/crossterm-rs/crossterm"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "pki_tls",
-      "source": "https://github.com/cloudflare/cfssl",
-      "target": [
-        "https://github.com/rustls/rustls"
+      "source": "go:Azure/azure-sdk-for-go",
+      "targets": [
+        "rust:Azure/azure-sdk-for-rust"
       ],
-      "disabled": "4 vulns including GHSA-6g7w-8wpp-frhj"
+      "category": "azure_sdk"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "containerd",
-      "source": "https://github.com/containerd/containerd",
-      "target": [
-        "https://github.com/containerd/rust-extensions"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "systemd",
-      "source": "https://github.com/coreos/go-systemd",
-      "target": [
-        "https://github.com/lucab/libsystemd-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "machine_id",
-      "source": "https://github.com/denisbrodbeck/machineid",
-      "target": [
-        "https://github.com/Hanaasagi/machine-uid"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "image_filter",
-      "source": "https://github.com/disintegration/gift",
-      "target": [
-        "https://github.com/image-rs/imageproc"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "exif_orientation",
-      "source": "https://github.com/disintegration/imageorient",
-      "target": [
-        "https://github.com/image-rs/image"
+      "source": "go:BurntSushi/toml",
+      "targets": [
+        "rust:toml-rs/toml"
       ],
-      "disabled": "4 vulns including GHSA-9wgh-vjj7-7433"
+      "category": "toml"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "regex",
-      "source": "https://github.com/dlclark/regexp2",
-      "target": [
-        "https://github.com/fancy-regex/fancy-regex"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "docker",
-      "source": "https://github.com/docker/docker",
-      "target": [
-        "https://github.com/fussybeaver/bollard"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "humanize",
-      "source": "https://github.com/dustin/go-humanize",
-      "target": [
-        "https://github.com/chronotope/humantime"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "embedded_kv",
-      "source": "https://github.com/etcd-io/bbolt",
-      "target": [
-        "https://github.com/cberner/redb"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "etcd_client",
-      "source": "https://github.com/etcd-io/etcd",
-      "target": [
-        "https://github.com/etcdv3/etcd-client"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "color_output",
-      "source": "https://github.com/fatih/color",
-      "target": [
-        "https://github.com/ogham/rust-ansi-term"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "http_snoop",
-      "source": "https://github.com/felixge/httpsnoop",
-      "target": [
-        "https://github.com/tower-rs/tower-http"
+      "source": "go:JohannesKaufmann/html-to-markdown",
+      "targets": [
+        "\u003cNone\u003e"
       ],
-      "disabled": "3 vulns including GHSA-qrqq-9c63-xfrg"
+      "category": "html_to_markdown"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "fsnotify",
-      "source": "https://github.com/fsnotify/fsnotify",
-      "target": [
-        "https://github.com/notify-rs/notify"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "web_framework",
-      "source": "https://github.com/gin-gonic/gin",
-      "target": [
-        "https://github.com/tokio-rs/axum"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "lightweight_router",
-      "source": "https://github.com/go-chi/chi",
-      "target": [
-        "https://github.com/tokio-rs/axum"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "orm",
-      "source": "https://github.com/go-gorm/gorm",
-      "target": [
-        "https://github.com/SeaQL/sea-orm"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "ini",
-      "source": "https://github.com/go-ini/ini",
-      "target": [
-        "https://github.com/zonyitoo/rust-ini"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "redis_client",
-      "source": "https://github.com/go-redis/redis",
-      "target": [
-        "https://github.com/redis-rs/redis-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "yaml",
-      "source": "https://github.com/go-yaml/yaml",
-      "target": [
-        "https://github.com/dtolnay/serde-yaml"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "fast_json",
-      "source": "https://github.com/goccy/go-json",
-      "target": [
-        "https://github.com/cloudwego/sonic-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "yaml",
-      "source": "https://github.com/goccy/go-yaml",
-      "target": [
-        "https://github.com/dtolnay/serde-yaml"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "protobuf_alt",
-      "source": "https://github.com/gogo/protobuf",
-      "target": [
-        "https://github.com/tokio-rs/prost"
+      "source": "go:MakeNowJust/heredoc",
+      "targets": [
+        "\u003cNone\u003e"
       ],
-      "disabled": "2 vulns including GHSA-gv73-9mwv-fwgq"
+      "category": "heredoc"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "crypto",
-      "source": "https://github.com/golang/crypto",
-      "target": [
-        "https://github.com/RustCrypto/traits"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "image_processing",
-      "source": "https://github.com/golang/image",
-      "target": [
-        "https://github.com/image-rs/image"
+      "source": "go:PuerkitoBio/goquery",
+      "targets": [
+        "rust:rust-scraper/scraper"
       ],
-      "disabled": "4 vulns including GHSA-9wgh-vjj7-7433"
+      "category": "html_parsing"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "mock_generation",
-      "source": "https://github.com/golang/mock",
-      "target": [
-        "https://github.com/asomers/mockall"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "module_utilities",
-      "source": "https://github.com/golang/mod",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "http_client",
-      "source": "https://github.com/golang/net",
-      "target": [
-        "https://github.com/hyperium/hyper"
+      "source": "go:alecthomas/chroma",
+      "targets": [
+        "rust:trishume/syntect"
       ],
-      "disabled": "14 vulns including GHSA-5h46-h7hh-c6x9"
+      "category": "syntax_highlighting"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "oauth2",
-      "source": "https://github.com/golang/oauth2",
-      "target": [
-        "https://github.com/ramosbugs/oauth2-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "sync_primitives",
-      "source": "https://github.com/golang/sync",
-      "target": [
-        "https://github.com/tokio-rs/tokio"
+      "source": "go:alecthomas/kong",
+      "targets": [
+        "rust:clap-rs/clap"
       ],
-      "disabled": "10 vulns including GHSA-2grh-hm3w-w7hv"
+      "category": "kong_cli"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "system_calls",
-      "source": "https://github.com/golang/sys",
-      "target": [
-        "https://github.com/rust-lang/libc"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "terminal",
-      "source": "https://github.com/golang/term",
-      "target": [
-        "https://github.com/crossterm-rs/crossterm"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "text_processing",
-      "source": "https://github.com/golang/text",
-      "target": [
-        "https://github.com/unicode-rs/unicode-normalization"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "time_utilities",
-      "source": "https://github.com/golang/time",
-      "target": [
-        "https://github.com/chronotope/chrono"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "dev_tools",
-      "source": "https://github.com/golang/tools",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "comparison",
-      "source": "https://github.com/google/go-cmp",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "uuid",
-      "source": "https://github.com/google/uuid",
-      "target": [
-        "https://github.com/uuid-rs/uuid"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "google_api",
-      "source": "https://github.com/googleapis/google-api-go-client",
-      "target": [
-        "https://github.com/googleapis/google-cloud-rust"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "gcp_sdk",
-      "source": "https://github.com/googleapis/google-cloud-go",
-      "target": [
-        "https://github.com/googleapis/google-cloud-rust"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "css_parsing",
-      "source": "https://github.com/gorilla/css",
-      "target": [
-        "https://github.com/servo/rust-cssparser"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "http_router",
-      "source": "https://github.com/gorilla/mux",
-      "target": [
-        "https://github.com/tokio-rs/axum"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "websocket",
-      "source": "https://github.com/gorilla/websocket",
-      "target": [
-        "https://github.com/snapview/tokio-tungstenite"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "grpc",
-      "source": "https://github.com/grpc/grpc-go",
-      "target": [
-        "https://github.com/hyperium/tonic"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "in_memory_db",
-      "source": "https://github.com/hashicorp/go-memdb",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "lru_cache",
-      "source": "https://github.com/hashicorp/golang-lru",
-      "target": [
-        "https://github.com/jeromefroe/lru-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "json_schema",
-      "source": "https://github.com/invopop/jsonschema",
-      "target": [
-        "https://github.com/GREsau/schemars"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "dotenv",
-      "source": "https://github.com/joho/godotenv",
-      "target": [
-        "https://github.com/allan2/dotenvy"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "json_iterator",
-      "source": "https://github.com/json-iterator/go",
-      "target": [
-        "https://github.com/serde-rs/json"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "compression_zstd",
-      "source": "https://github.com/klauspost/compress",
-      "target": [
-        "https://github.com/gyscos/zstd-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "webp_encoding",
-      "source": "https://github.com/kolesa-team/go-webp",
-      "target": [
-        "https://github.com/image-rs/image-webp"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "kubernetes_api",
-      "source": "https://github.com/kubernetes/api",
-      "target": [
-        "https://github.com/kube-rs/kube"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "kubernetes_types",
-      "source": "https://github.com/kubernetes/apimachinery",
-      "target": [
-        "https://github.com/kube-rs/kube"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "kubernetes_client",
-      "source": "https://github.com/kubernetes/client-go",
-      "target": [
-        "https://github.com/kube-rs/kube"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "web_framework_alt",
-      "source": "https://github.com/labstack/echo",
-      "target": [
-        "https://github.com/tokio-rs/axum"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "color_manipulation",
-      "source": "https://github.com/lucasb-eyer/go-colorful",
-      "target": [
-        "https://github.com/Ogeon/palette"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "terminal_isatty",
-      "source": "https://github.com/mattn/go-isatty",
-      "target": [
-        "https://github.com/softprops/atty"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "runewidth",
-      "source": "https://github.com/mattn/go-runewidth",
-      "target": [
-        "https://github.com/unicode-rs/unicode-width"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "sqlite",
-      "source": "https://github.com/mattn/go-sqlite3",
-      "target": [
-        "https://github.com/rusqlite/rusqlite"
+      "source": "go:atotto/clipboard",
+      "targets": [
+        "rust:1Password/arboard"
       ],
-      "disabled": "18 vulns including GHSA-28ph-f7gx-fqj8"
+      "category": "clipboard"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "html_sanitization",
-      "source": "https://github.com/microcosm-cc/bluemonday",
-      "target": [
-        "https://github.com/rust-ammonia/ammonia"
+      "source": "go:aws/aws-sdk-go-v2",
+      "targets": [
+        "rust:awslabs/aws-sdk-rust"
       ],
-      "disabled": "8 vulns including GHSA-5325-xw5m-phm3"
+      "category": "aws_sdk"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "dns",
-      "source": "https://github.com/miekg/dns",
-      "target": [
-        "https://github.com/hickory-dns/hickory-dns"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "struct_mapping",
-      "source": "https://github.com/mitchellh/mapstructure",
-      "target": [
-        "https://github.com/serde-rs/serde"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "buildkit",
-      "source": "https://github.com/moby/buildkit",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "mcp_sdk",
-      "source": "https://github.com/modelcontextprotocol/go-sdk",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "terminal_environment",
-      "source": "https://github.com/muesli/termenv",
-      "target": [
-        "https://github.com/crossterm-rs/crossterm"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "shell_parser",
-      "source": "https://github.com/mvdan/sh",
-      "target": [
-        "https://github.com/nushell/nushell/tree/main/crates/nu-parser"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "log_rotation",
-      "source": "https://github.com/natefinch/lumberjack",
-      "target": [
-        "https://github.com/tokio-rs/tracing/tree/master/tracing-appender"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "sqlite",
-      "source": "https://github.com/ncruces/go-sqlite3",
-      "target": [
-        "https://github.com/rusqlite/rusqlite"
+      "source": "go:aymanbagabas/go-udiff",
+      "targets": [
+        "rust:pascalkuthe/imara-diff"
       ],
-      "disabled": "18 vulns including GHSA-28ph-f7gx-fqj8"
+      "category": "unified_diff"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "image_resizing",
-      "source": "https://github.com/nfnt/resize",
-      "target": [
-        "https://github.com/image-rs/image"
+      "source": "go:bmatcuk/doublestar",
+      "targets": [
+        "rust:BurntSushi/globset"
       ],
-      "disabled": "4 vulns including GHSA-9wgh-vjj7-7433"
+      "category": "glob_matching"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "file_tailing",
-      "source": "https://github.com/nxadm/tail",
-      "target": [
-        "https://github.com/jmagnuson/linemux"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "table_writer",
-      "source": "https://github.com/olekukonko/tablewriter",
-      "target": [
-        "https://github.com/phsym/prettytable-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "ollama_api",
-      "source": "https://github.com/ollama/ollama",
-      "target": [
-        "https://github.com/pepperoni21/ollama-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "bdd_testing",
-      "source": "https://github.com/onsi/ginkgo",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "test_matchers",
-      "source": "https://github.com/onsi/gomega",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "opentelemetry",
-      "source": "https://github.com/open-telemetry/opentelemetry-go",
-      "target": [
-        "https://github.com/open-telemetry/opentelemetry-rust"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "openai_client",
-      "source": "https://github.com/openai/openai-go",
-      "target": [
-        "https://github.com/64bit/async-openai"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "oci_image_spec",
-      "source": "https://github.com/opencontainers/image-spec",
-      "target": [
-        "https://github.com/containers/oci-spec-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "toml_parsing",
-      "source": "https://github.com/pelletier/go-toml",
-      "target": [
-        "https://github.com/toml-rs/toml"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "compression_lz4",
-      "source": "https://github.com/pierrec/lz4",
-      "target": [
-        "https://github.com/PSeitz/lz4_flex"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "proxy_protocol",
-      "source": "https://github.com/pires/go-proxyproto",
-      "target": [
-        "https://github.com/misalcedo/ppp"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "open_browser",
-      "source": "https://github.com/pkg/browser",
-      "target": [
-        "https://github.com/amodm/webbrowser-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "errors",
-      "source": "https://github.com/pkg/errors",
-      "target": [
-        "https://github.com/dtolnay/anyhow"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "analytics",
-      "source": "https://github.com/posthog/posthog-go",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "database_migrations",
-      "source": "https://github.com/pressly/goose",
-      "target": [
-        "https://github.com/rust-db/refinery"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "metrics",
-      "source": "https://github.com/prometheus/client_golang",
-      "target": [
-        "https://github.com/prometheus/client_rust"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "protobuf",
-      "source": "https://github.com/protocolbuffers/protobuf-go",
-      "target": [
-        "https://github.com/tokio-rs/prost"
+      "source": "go:bytedance/sonic",
+      "targets": [
+        "rust:cloudwego/sonic-rs"
       ],
-      "disabled": "2 vulns including GHSA-gv73-9mwv-fwgq"
+      "category": "simd_json"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "quic_protocol",
-      "source": "https://github.com/quic-go/quic-go",
-      "target": [
-        "https://github.com/quinn-rs/quinn"
+      "source": "go:cespare/xxhash",
+      "targets": [
+        "rust:shepmaster/twox-hash"
       ],
-      "disabled": "2 vulns including GHSA-fhv4-fx3v-77w6"
+      "category": "xxhash"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "unicode_segmentation",
-      "source": "https://github.com/rivo/uniseg",
-      "target": [
-        "https://github.com/unicode-rs/unicode-segmentation"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "zero_alloc_logging",
-      "source": "https://github.com/rs/zerolog",
-      "target": [
-        "https://github.com/tokio-rs/tracing"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "gitignore_parsing",
-      "source": "https://github.com/sabhiram/go-gitignore",
-      "target": [
-        "https://github.com/BurntSushi/ripgrep/tree/master/crates/ignore"
+      "source": "go:charlievieth/fastwalk",
+      "targets": [
+        "rust:BurntSushi/walkdir"
       ],
-      "disabled": "1 vuln: GHSA-g4xg-fxmg-vcg5"
+      "category": "directory_walking"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "fuzzy_matching",
-      "source": "https://github.com/sahilm/fuzzy",
-      "target": [
-        "https://github.com/lotabout/fuzzy-matcher"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "functional",
-      "source": "https://github.com/samber/lo",
-      "target": [
-        "https://github.com/rust-itertools/itertools"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "openai_client",
-      "source": "https://github.com/sashabaranov/go-openai",
-      "target": [
-        "https://github.com/64bit/async-openai"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "diff",
-      "source": "https://github.com/sergi/go-diff",
-      "target": [
-        "https://github.com/pascalkuthe/imara-diff"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "logging",
-      "source": "https://github.com/sirupsen/logrus",
-      "target": [
-        "https://github.com/tokio-rs/tracing"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "jsonrpc",
-      "source": "https://github.com/sourcegraph/jsonrpc2",
-      "target": [
-        "https://github.com/paritytech/jsonrpsee"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "filesystem_abstraction",
-      "source": "https://github.com/spf13/afero",
-      "target": [
-        "https://github.com/manuel-woelker/rust-vfs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "type_casting",
-      "source": "https://github.com/spf13/cast",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "cli_framework",
-      "source": "https://github.com/spf13/cobra",
-      "target": [
-        "https://github.com/clap-rs/clap"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "cli_flags",
-      "source": "https://github.com/spf13/pflag",
-      "target": [
-        "https://github.com/clap-rs/clap"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "config_management",
-      "source": "https://github.com/spf13/viper",
-      "target": [
-        "https://github.com/rust-cli/config-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "svg_parsing",
-      "source": "https://github.com/srwiley/oksvg",
-      "target": [
-        "https://github.com/linebender/resvg"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "svg_rasterization",
-      "source": "https://github.com/srwiley/rasterx",
-      "target": [
-        "https://github.com/linebender/resvg"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "testing",
-      "source": "https://github.com/stretchr/testify",
-      "target": [
-        "<None>"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "minification",
-      "source": "https://github.com/tdewolff/minify",
-      "target": [
-        "https://github.com/wilsonzlin/minify-html",
-        "https://github.com/GuillaumeGomez/minifier-rs"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "wasm_runtime",
-      "source": "https://github.com/tetratelabs/wazero",
-      "target": [
-        "https://github.com/bytecodealliance/wasmtime"
+      "source": "go:charmbracelet/bubbles",
+      "targets": [
+        "rust:ratatui/ratatui"
       ],
-      "disabled": "45 vulns including GHSA-44mr-8vmm-wjhg"
+      "category": "tui_components"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "json_parsing",
-      "source": "https://github.com/tidwall/gjson",
-      "target": [
-        "https://github.com/serde-rs/json"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "json_modification",
-      "source": "https://github.com/tidwall/sjson",
-      "target": [
-        "https://github.com/serde-rs/json"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "langchain",
-      "source": "https://github.com/tmc/langchaingo",
-      "target": [
-        "https://github.com/Abraxas-365/langchain-rust"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "high_perf_logging",
-      "source": "https://github.com/uber-go/zap",
-      "target": [
-        "https://github.com/tokio-rs/tracing"
-      ]
-    },
-    {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "fast_http",
-      "source": "https://github.com/valyala/fasthttp",
-      "target": [
-        "https://github.com/hyperium/hyper"
+      "source": "go:charmbracelet/bubbletea",
+      "targets": [
+        "rust:ratatui/ratatui"
       ],
-      "disabled": "14 vulns including GHSA-5h46-h7hh-c6x9"
+      "category": "tui_framework"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "linux_networking",
-      "source": "https://github.com/vishvananda/netlink",
-      "target": [
-        "https://github.com/rust-netlink/netlink"
-      ]
+      "source": "go:charmbracelet/colorprofile",
+      "targets": [
+        "rust:crossterm-rs/crossterm"
+      ],
+      "category": "terminal_detection"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "markdown_parser",
-      "source": "https://github.com/yuin/goldmark",
-      "target": [
-        "https://github.com/pulldown-cmark/pulldown-cmark"
-      ]
+      "source": "go:charmbracelet/glamour",
+      "targets": [
+        "rust:kivikakk/comrak"
+      ],
+      "category": "markdown_rendering"
     },
     {
-      "source_lang": "go",
-      "target_lang": "rust",
-      "category": "xxhash",
-      "source": "https://github.com/zeebo/xxh3",
-      "target": [
-        "https://github.com/shepmaster/twox-hash"
-      ]
+      "source": "go:charmbracelet/lipgloss",
+      "targets": [
+        "rust:ratatui/ratatui"
+      ],
+      "category": "tui_styling"
+    },
+    {
+      "source": "go:charmbracelet/log",
+      "targets": [
+        "rust:tokio-rs/tracing"
+      ],
+      "category": "logging"
+    },
+    {
+      "source": "go:charmbracelet/x",
+      "targets": [
+        "rust:crossterm-rs/crossterm"
+      ],
+      "category": "ansi_sequences"
+    },
+    {
+      "source": "go:cloudflare/cfssl",
+      "targets": [
+        "rust:rustls/rustls"
+      ],
+      "category": "pki_tls"
+    },
+    {
+      "source": "go:containerd/containerd",
+      "targets": [
+        "rust:containerd/rust-extensions"
+      ],
+      "category": "containerd"
+    },
+    {
+      "source": "go:coreos/go-systemd",
+      "targets": [
+        "rust:lucab/libsystemd-rs"
+      ],
+      "category": "systemd"
+    },
+    {
+      "source": "go:denisbrodbeck/machineid",
+      "targets": [
+        "rust:Hanaasagi/machine-uid"
+      ],
+      "category": "machine_id"
+    },
+    {
+      "source": "go:disintegration/gift",
+      "targets": [
+        "rust:image-rs/imageproc"
+      ],
+      "category": "image_filter"
+    },
+    {
+      "source": "go:disintegration/imageorient",
+      "targets": [
+        "rust:image-rs/image"
+      ],
+      "category": "exif_orientation"
+    },
+    {
+      "source": "go:dlclark/regexp2",
+      "targets": [
+        "rust:fancy-regex/fancy-regex"
+      ],
+      "category": "regex"
+    },
+    {
+      "source": "go:docker/docker",
+      "targets": [
+        "rust:fussybeaver/bollard"
+      ],
+      "category": "docker"
+    },
+    {
+      "source": "go:dustin/go-humanize",
+      "targets": [
+        "rust:chronotope/humantime"
+      ],
+      "category": "humanize"
+    },
+    {
+      "source": "go:etcd-io/bbolt",
+      "targets": [
+        "rust:cberner/redb"
+      ],
+      "category": "embedded_kv"
+    },
+    {
+      "source": "go:etcd-io/etcd",
+      "targets": [
+        "rust:etcdv3/etcd-client"
+      ],
+      "category": "etcd_client"
+    },
+    {
+      "source": "go:fatih/color",
+      "targets": [
+        "rust:ogham/rust-ansi-term"
+      ],
+      "category": "color_output"
+    },
+    {
+      "source": "go:felixge/httpsnoop",
+      "targets": [
+        "rust:tower-rs/tower-http"
+      ],
+      "category": "http_snoop"
+    },
+    {
+      "source": "go:fsnotify/fsnotify",
+      "targets": [
+        "rust:notify-rs/notify"
+      ],
+      "category": "fsnotify"
+    },
+    {
+      "source": "go:gin-gonic/gin",
+      "targets": [
+        "rust:tokio-rs/axum"
+      ],
+      "category": "web_framework"
+    },
+    {
+      "source": "go:go-chi/chi",
+      "targets": [
+        "rust:tokio-rs/axum"
+      ],
+      "category": "lightweight_router"
+    },
+    {
+      "source": "go:go-gorm/gorm",
+      "targets": [
+        "rust:SeaQL/sea-orm"
+      ],
+      "category": "orm"
+    },
+    {
+      "source": "go:go-ini/ini",
+      "targets": [
+        "rust:zonyitoo/rust-ini"
+      ],
+      "category": "ini"
+    },
+    {
+      "source": "go:go-redis/redis",
+      "targets": [
+        "rust:redis-rs/redis-rs"
+      ],
+      "category": "redis_client"
+    },
+    {
+      "source": "go:go-yaml/yaml",
+      "targets": [
+        "rust:dtolnay/serde-yaml"
+      ],
+      "category": "yaml"
+    },
+    {
+      "source": "go:goccy/go-json",
+      "targets": [
+        "rust:cloudwego/sonic-rs"
+      ],
+      "category": "fast_json"
+    },
+    {
+      "source": "go:goccy/go-yaml",
+      "targets": [
+        "rust:dtolnay/serde-yaml"
+      ],
+      "category": "yaml"
+    },
+    {
+      "source": "go:gogo/protobuf",
+      "targets": [
+        "rust:tokio-rs/prost"
+      ],
+      "category": "protobuf_alt"
+    },
+    {
+      "source": "go:golang/crypto",
+      "targets": [
+        "rust:RustCrypto/traits"
+      ],
+      "category": "crypto"
+    },
+    {
+      "source": "go:golang/image",
+      "targets": [
+        "rust:image-rs/image"
+      ],
+      "category": "image_processing"
+    },
+    {
+      "source": "go:golang/mock",
+      "targets": [
+        "rust:asomers/mockall"
+      ],
+      "category": "mock_generation"
+    },
+    {
+      "source": "go:golang/mod",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "module_utilities"
+    },
+    {
+      "source": "go:golang/net",
+      "targets": [
+        "rust:hyperium/hyper"
+      ],
+      "category": "http_client"
+    },
+    {
+      "source": "go:golang/oauth2",
+      "targets": [
+        "rust:ramosbugs/oauth2-rs"
+      ],
+      "category": "oauth2"
+    },
+    {
+      "source": "go:golang/sync",
+      "targets": [
+        "rust:tokio-rs/tokio"
+      ],
+      "category": "sync_primitives"
+    },
+    {
+      "source": "go:golang/sys",
+      "targets": [
+        "rust:rust-lang/libc"
+      ],
+      "category": "system_calls"
+    },
+    {
+      "source": "go:golang/term",
+      "targets": [
+        "rust:crossterm-rs/crossterm"
+      ],
+      "category": "terminal"
+    },
+    {
+      "source": "go:golang/text",
+      "targets": [
+        "rust:unicode-rs/unicode-normalization"
+      ],
+      "category": "text_processing"
+    },
+    {
+      "source": "go:golang/time",
+      "targets": [
+        "rust:chronotope/chrono"
+      ],
+      "category": "time_utilities"
+    },
+    {
+      "source": "go:golang/tools",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "dev_tools"
+    },
+    {
+      "source": "go:google/go-cmp",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "comparison"
+    },
+    {
+      "source": "go:google/uuid",
+      "targets": [
+        "rust:uuid-rs/uuid"
+      ],
+      "category": "uuid"
+    },
+    {
+      "source": "go:googleapis/google-api-go-client",
+      "targets": [
+        "rust:googleapis/google-cloud-rust"
+      ],
+      "category": "google_api"
+    },
+    {
+      "source": "go:googleapis/google-cloud-go",
+      "targets": [
+        "rust:googleapis/google-cloud-rust"
+      ],
+      "category": "gcp_sdk"
+    },
+    {
+      "source": "go:gorilla/css",
+      "targets": [
+        "rust:servo/rust-cssparser"
+      ],
+      "category": "css_parsing"
+    },
+    {
+      "source": "go:gorilla/mux",
+      "targets": [
+        "rust:tokio-rs/axum"
+      ],
+      "category": "http_router"
+    },
+    {
+      "source": "go:gorilla/websocket",
+      "targets": [
+        "rust:snapview/tokio-tungstenite"
+      ],
+      "category": "websocket"
+    },
+    {
+      "source": "go:grpc/grpc-go",
+      "targets": [
+        "rust:hyperium/tonic"
+      ],
+      "category": "grpc"
+    },
+    {
+      "source": "go:hashicorp/go-memdb",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "in_memory_db"
+    },
+    {
+      "source": "go:hashicorp/golang-lru",
+      "targets": [
+        "rust:jeromefroe/lru-rs"
+      ],
+      "category": "lru_cache"
+    },
+    {
+      "source": "go:invopop/jsonschema",
+      "targets": [
+        "rust:GREsau/schemars"
+      ],
+      "category": "json_schema"
+    },
+    {
+      "source": "go:joho/godotenv",
+      "targets": [
+        "rust:allan2/dotenvy"
+      ],
+      "category": "dotenv"
+    },
+    {
+      "source": "go:json-iterator/go",
+      "targets": [
+        "rust:serde-rs/json"
+      ],
+      "category": "json_iterator"
+    },
+    {
+      "source": "go:klauspost/compress",
+      "targets": [
+        "rust:gyscos/zstd-rs"
+      ],
+      "category": "compression_zstd"
+    },
+    {
+      "source": "go:kolesa-team/go-webp",
+      "targets": [
+        "rust:image-rs/image-webp"
+      ],
+      "category": "webp_encoding"
+    },
+    {
+      "source": "go:kubernetes/api",
+      "targets": [
+        "rust:kube-rs/kube"
+      ],
+      "category": "kubernetes_api"
+    },
+    {
+      "source": "go:kubernetes/apimachinery",
+      "targets": [
+        "rust:kube-rs/kube"
+      ],
+      "category": "kubernetes_types"
+    },
+    {
+      "source": "go:kubernetes/client-go",
+      "targets": [
+        "rust:kube-rs/kube"
+      ],
+      "category": "kubernetes_client"
+    },
+    {
+      "source": "go:labstack/echo",
+      "targets": [
+        "rust:tokio-rs/axum"
+      ],
+      "category": "web_framework_alt"
+    },
+    {
+      "source": "go:lucasb-eyer/go-colorful",
+      "targets": [
+        "rust:Ogeon/palette"
+      ],
+      "category": "color_manipulation"
+    },
+    {
+      "source": "go:mattn/go-isatty",
+      "targets": [
+        "rust:softprops/atty"
+      ],
+      "category": "terminal_isatty"
+    },
+    {
+      "source": "go:mattn/go-runewidth",
+      "targets": [
+        "rust:unicode-rs/unicode-width"
+      ],
+      "category": "runewidth"
+    },
+    {
+      "source": "go:mattn/go-sqlite3",
+      "targets": [
+        "rust:rusqlite/rusqlite"
+      ],
+      "category": "sqlite"
+    },
+    {
+      "source": "go:microcosm-cc/bluemonday",
+      "targets": [
+        "rust:rust-ammonia/ammonia"
+      ],
+      "category": "html_sanitization"
+    },
+    {
+      "source": "go:miekg/dns",
+      "targets": [
+        "rust:hickory-dns/hickory-dns"
+      ],
+      "category": "dns"
+    },
+    {
+      "source": "go:mitchellh/mapstructure",
+      "targets": [
+        "rust:serde-rs/serde"
+      ],
+      "category": "struct_mapping"
+    },
+    {
+      "source": "go:moby/buildkit",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "buildkit"
+    },
+    {
+      "source": "go:modelcontextprotocol/go-sdk",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "mcp_sdk"
+    },
+    {
+      "source": "go:muesli/termenv",
+      "targets": [
+        "rust:crossterm-rs/crossterm"
+      ],
+      "category": "terminal_environment"
+    },
+    {
+      "source": "go:mvdan/sh",
+      "targets": [
+        "rust:nushell/nushell/tree/main/crates/nu-parser"
+      ],
+      "category": "shell_parser"
+    },
+    {
+      "source": "go:natefinch/lumberjack",
+      "targets": [
+        "rust:tokio-rs/tracing/tree/master/tracing-appender"
+      ],
+      "category": "log_rotation"
+    },
+    {
+      "source": "go:ncruces/go-sqlite3",
+      "targets": [
+        "rust:rusqlite/rusqlite"
+      ],
+      "category": "sqlite"
+    },
+    {
+      "source": "go:nfnt/resize",
+      "targets": [
+        "rust:image-rs/image"
+      ],
+      "category": "image_resizing"
+    },
+    {
+      "source": "go:nxadm/tail",
+      "targets": [
+        "rust:jmagnuson/linemux"
+      ],
+      "category": "file_tailing"
+    },
+    {
+      "source": "go:olekukonko/tablewriter",
+      "targets": [
+        "rust:phsym/prettytable-rs"
+      ],
+      "category": "table_writer"
+    },
+    {
+      "source": "go:ollama/ollama",
+      "targets": [
+        "rust:pepperoni21/ollama-rs"
+      ],
+      "category": "ollama_api"
+    },
+    {
+      "source": "go:onsi/ginkgo",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "bdd_testing"
+    },
+    {
+      "source": "go:onsi/gomega",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "test_matchers"
+    },
+    {
+      "source": "go:open-telemetry/opentelemetry-go",
+      "targets": [
+        "rust:open-telemetry/opentelemetry-rust"
+      ],
+      "category": "opentelemetry"
+    },
+    {
+      "source": "go:openai/openai-go",
+      "targets": [
+        "rust:64bit/async-openai"
+      ],
+      "category": "openai_client"
+    },
+    {
+      "source": "go:opencontainers/image-spec",
+      "targets": [
+        "rust:containers/oci-spec-rs"
+      ],
+      "category": "oci_image_spec"
+    },
+    {
+      "source": "go:pelletier/go-toml",
+      "targets": [
+        "rust:toml-rs/toml"
+      ],
+      "category": "toml_parsing"
+    },
+    {
+      "source": "go:pierrec/lz4",
+      "targets": [
+        "rust:PSeitz/lz4_flex"
+      ],
+      "category": "compression_lz4"
+    },
+    {
+      "source": "go:pires/go-proxyproto",
+      "targets": [
+        "rust:misalcedo/ppp"
+      ],
+      "category": "proxy_protocol"
+    },
+    {
+      "source": "go:pkg/browser",
+      "targets": [
+        "rust:amodm/webbrowser-rs"
+      ],
+      "category": "open_browser"
+    },
+    {
+      "source": "go:pkg/errors",
+      "targets": [
+        "rust:dtolnay/anyhow"
+      ],
+      "category": "errors"
+    },
+    {
+      "source": "go:posthog/posthog-go",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "analytics"
+    },
+    {
+      "source": "go:pressly/goose",
+      "targets": [
+        "rust:rust-db/refinery"
+      ],
+      "category": "database_migrations"
+    },
+    {
+      "source": "go:prometheus/client_golang",
+      "targets": [
+        "rust:prometheus/client_rust"
+      ],
+      "category": "metrics"
+    },
+    {
+      "source": "go:protocolbuffers/protobuf-go",
+      "targets": [
+        "rust:tokio-rs/prost"
+      ],
+      "category": "protobuf"
+    },
+    {
+      "source": "go:quic-go/quic-go",
+      "targets": [
+        "rust:quinn-rs/quinn"
+      ],
+      "category": "quic_protocol"
+    },
+    {
+      "source": "go:rivo/uniseg",
+      "targets": [
+        "rust:unicode-rs/unicode-segmentation"
+      ],
+      "category": "unicode_segmentation"
+    },
+    {
+      "source": "go:rs/zerolog",
+      "targets": [
+        "rust:tokio-rs/tracing"
+      ],
+      "category": "zero_alloc_logging"
+    },
+    {
+      "source": "go:sabhiram/go-gitignore",
+      "targets": [
+        "rust:BurntSushi/ripgrep/tree/master/crates/ignore"
+      ],
+      "category": "gitignore_parsing"
+    },
+    {
+      "source": "go:sahilm/fuzzy",
+      "targets": [
+        "rust:lotabout/fuzzy-matcher"
+      ],
+      "category": "fuzzy_matching"
+    },
+    {
+      "source": "go:samber/lo",
+      "targets": [
+        "rust:rust-itertools/itertools"
+      ],
+      "category": "functional"
+    },
+    {
+      "source": "go:sashabaranov/go-openai",
+      "targets": [
+        "rust:64bit/async-openai"
+      ],
+      "category": "openai_client"
+    },
+    {
+      "source": "go:sergi/go-diff",
+      "targets": [
+        "rust:pascalkuthe/imara-diff"
+      ],
+      "category": "diff"
+    },
+    {
+      "source": "go:sirupsen/logrus",
+      "targets": [
+        "rust:tokio-rs/tracing"
+      ],
+      "category": "logging"
+    },
+    {
+      "source": "go:sourcegraph/jsonrpc2",
+      "targets": [
+        "rust:paritytech/jsonrpsee"
+      ],
+      "category": "jsonrpc"
+    },
+    {
+      "source": "go:spf13/afero",
+      "targets": [
+        "rust:manuel-woelker/rust-vfs"
+      ],
+      "category": "filesystem_abstraction"
+    },
+    {
+      "source": "go:spf13/cast",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "type_casting"
+    },
+    {
+      "source": "go:spf13/cobra",
+      "targets": [
+        "rust:clap-rs/clap"
+      ],
+      "category": "cli_framework"
+    },
+    {
+      "source": "go:spf13/pflag",
+      "targets": [
+        "rust:clap-rs/clap"
+      ],
+      "category": "cli_flags"
+    },
+    {
+      "source": "go:spf13/viper",
+      "targets": [
+        "rust:rust-cli/config-rs"
+      ],
+      "category": "config_management"
+    },
+    {
+      "source": "go:srwiley/oksvg",
+      "targets": [
+        "rust:linebender/resvg"
+      ],
+      "category": "svg_parsing"
+    },
+    {
+      "source": "go:srwiley/rasterx",
+      "targets": [
+        "rust:linebender/resvg"
+      ],
+      "category": "svg_rasterization"
+    },
+    {
+      "source": "go:stretchr/testify",
+      "targets": [
+        "\u003cNone\u003e"
+      ],
+      "category": "testing"
+    },
+    {
+      "source": "go:tdewolff/minify",
+      "targets": [
+        "rust:wilsonzlin/minify-html",
+        "rust:GuillaumeGomez/minifier-rs"
+      ],
+      "category": "minification"
+    },
+    {
+      "source": "go:tetratelabs/wazero",
+      "targets": [
+        "rust:bytecodealliance/wasmtime"
+      ],
+      "category": "wasm_runtime"
+    },
+    {
+      "source": "go:tidwall/gjson",
+      "targets": [
+        "rust:serde-rs/json"
+      ],
+      "category": "json_parsing"
+    },
+    {
+      "source": "go:tidwall/sjson",
+      "targets": [
+        "rust:serde-rs/json"
+      ],
+      "category": "json_modification"
+    },
+    {
+      "source": "go:tmc/langchaingo",
+      "targets": [
+        "rust:Abraxas-365/langchain-rust"
+      ],
+      "category": "langchain"
+    },
+    {
+      "source": "go:uber-go/zap",
+      "targets": [
+        "rust:tokio-rs/tracing"
+      ],
+      "category": "high_perf_logging"
+    },
+    {
+      "source": "go:valyala/fasthttp",
+      "targets": [
+        "rust:hyperium/hyper"
+      ],
+      "category": "fast_http"
+    },
+    {
+      "source": "go:vishvananda/netlink",
+      "targets": [
+        "rust:rust-netlink/netlink"
+      ],
+      "category": "linux_networking"
+    },
+    {
+      "source": "go:yuin/goldmark",
+      "targets": [
+        "rust:pulldown-cmark/pulldown-cmark"
+      ],
+      "category": "markdown_parser"
+    },
+    {
+      "source": "go:zeebo/xxh3",
+      "targets": [
+        "rust:shepmaster/twox-hash"
+      ],
+      "category": "xxhash"
+    },
+    {
+      "source": "go:pmezard/go-difflib",
+      "targets": [
+        "rust:mitsuhiko/similar"
+      ],
+      "category": "diff"
+    },
+    {
+      "source": "go:mattn/go-colorable",
+      "targets": [
+        "rust:BurntSushi/termcolor"
+      ],
+      "category": "terminal"
+    },
+    {
+      "source": "go:go-logr/logr",
+      "targets": [
+        "rust:tokio-rs/tracing"
+      ],
+      "category": "logging"
+    },
+    {
+      "source": "go:go-logr/stdr",
+      "targets": [
+        "rust:tokio-rs/tracing"
+      ],
+      "category": "logging"
+    },
+    {
+      "source": "go:googleapis/go-genproto",
+      "targets": [
+        "rust:hyperium/tonic"
+      ],
+      "category": "general"
+    },
+    {
+      "source": "go:beorn7/perks",
+      "targets": [
+        "rust:prometheus/client_rust"
+      ],
+      "category": "general"
+    },
+    {
+      "source": "go:prometheus/client_model",
+      "targets": [
+        "rust:prometheus/client_rust"
+      ],
+      "category": "metrics"
+    },
+    {
+      "source": "go:prometheus/procfs",
+      "targets": [
+        "rust:prometheus/procfs-rs"
+      ],
+      "category": "metrics"
+    },
+    {
+      "source": "go:prometheus/common",
+      "targets": [
+        "rust:prometheus/client_rust"
+      ],
+      "category": "metrics"
+    },
+    {
+      "source": "go:munnerz/goautoneg",
+      "targets": [
+        "rust:http-rs/accept-header"
+      ],
+      "category": "general"
+    },
+    {
+      "source": "go:golang/protobuf",
+      "targets": [
+        "rust:tokio-rs/prost"
+      ],
+      "category": "protobuf"
+    },
+    {
+      "source": "go:golang-jwt/jwt",
+      "targets": [
+        "rust:keats/jsonwebtoken"
+      ],
+      "category": "jwt"
+    },
+    {
+      "source": "go:modern-go/concurrent",
+      "targets": [
+        "rust:tokio-rs/tokio"
+      ],
+      "category": "general"
+    },
+    {
+      "source": "go:uber-go/multierr",
+      "targets": [
+        "rust:dtolnay/anyhow"
+      ],
+      "category": "general"
+    },
+    {
+      "source": "go:klauspost/cpuid",
+      "targets": [
+        "rust:parched/cupid"
+      ],
+      "category": "cpu_detection"
+    },
+    {
+      "source": "go:Microsoft/go-winio",
+      "targets": [
+        "rust:microsoft/windows-rs"
+      ],
+      "category": "windows"
+    },
+    {
+      "source": "go:mailru/easyjson",
+      "targets": [
+        "rust:serde-rs/json"
+      ],
+      "category": "json"
+    },
+    {
+      "source": "go:golang/snappy",
+      "targets": [
+        "rust:BurntSushi/rust-snappy"
+      ],
+      "category": "compression"
+    },
+    {
+      "source": "go:docker/go-units",
+      "targets": [
+        "rust:uom/uom"
+      ],
+      "category": "units"
+    },
+    {
+      "source": "go:opencontainers/go-digest",
+      "targets": [
+        "rust:RustCrypto/traits"
+      ],
+      "category": "crypto"
+    },
+    {
+      "source": "go:grpc-ecosystem/grpc-gateway",
+      "targets": [
+        "rust:hyperium/tonic"
+      ],
+      "category": "grpc"
+    },
+    {
+      "source": "go:kubernetes-sigs/yaml",
+      "targets": [
+        "rust:dtolnay/serde-yaml"
+      ],
+      "category": "yaml"
+    },
+    {
+      "source": "go:josharian/intern",
+      "targets": [
+        "rust:droundy/internment"
+      ],
+      "category": "string_interning"
+    },
+    {
+      "source": "go:russross/blackfriday",
+      "targets": [
+        "rust:pulldown-cmark/pulldown-cmark"
+      ],
+      "category": "general"
+    },
+    {
+      "source": "go:go-openapi/jsonpointer",
+      "targets": [
+        "rust:chanced/json-pointer"
+      ],
+      "category": "openapi"
+    },
+    {
+      "source": "go:google/pprof",
+      "targets": [
+        "rust:tikv/pprof-rs"
+      ],
+      "category": "profiling"
+    },
+    {
+      "source": "go:darccio/mergo",
+      "targets": [
+        "rust:rosetta-rs/struct-patch"
+      ],
+      "category": "struct_merge"
+    },
+    {
+      "source": "go:go-openapi/swag",
+      "targets": [
+        "rust:juhaku/utoipa"
+      ],
+      "category": "openapi"
+    },
+    {
+      "source": "go:googleapis/gax-go",
+      "targets": [
+        "rust:googleapis/google-cloud-rust"
+      ],
+      "category": "general"
     }
   ]
 }

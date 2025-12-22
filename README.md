@@ -2,7 +2,7 @@
 
 ![Rinku Mascot](rinku-mascot.webp)
 
-**130+ curated Go-to-Rust library mappings** — one of the largest open database of equivalent libraries for migrating Go projects to Rust.
+**160+ curated Go-to-Rust library mappings** — one of the largest open databases of equivalent libraries for migrating Go projects to Rust.
 
 A CLI tool that instantly finds Rust equivalents for Go libraries. Give it a GitHub URL, get back the best Rust alternative.
 
@@ -44,7 +44,7 @@ make build
 ## Usage
 
 ```bash
-rinku <github-url> <target-language> [flags]
+rinku <github-url> [flags]
 ```
 
 ### Flags
@@ -59,21 +59,21 @@ rinku <github-url> <target-language> [flags]
 Find the Rust equivalent of a Go CLI framework:
 
 ```bash
-rinku https://github.com/spf13/cobra rust
+rinku https://github.com/spf13/cobra
 # Output: https://github.com/clap-rs/clap
 ```
 
 Find the Rust equivalent of a Go web framework:
 
 ```bash
-rinku https://github.com/gin-gonic/gin rust
+rinku https://github.com/gin-gonic/gin
 # Output: https://github.com/tokio-rs/axum
 ```
 
 Include libraries with known vulnerabilities:
 
 ```bash
-rinku https://github.com/golang/net rust --unsafe
+rinku https://github.com/golang/net --unsafe
 # Output: https://github.com/hyperium/hyper
 ```
 
@@ -93,19 +93,19 @@ This checks all Rust library targets for:
 
 ## Coverage
 
-**130+ library mappings** across 25+ categories:
+**160+ library mappings** covering 270+ libraries across 25+ categories:
 
 | Category | Examples |
 |----------|----------|
 | Web Frameworks | gin → axum, echo → axum |
 | CLI | cobra → clap, viper → config-rs |
-| Database | gorm → diesel, sqlx → sqlx |
-| Serialization | json → serde, protobuf → prost |
-| HTTP Clients | net/http → reqwest, resty → ureq |
+| Serialization | yaml → serde-yaml, json → serde-json, protobuf → prost |
+| Observability | opentelemetry → opentelemetry-rust, prometheus → client_rust |
+| Logging | zap → tracing, logrus → tracing, zerolog → tracing |
+| HTTP/gRPC | grpc-go → tonic, net/http → hyper |
+| Database | gorm → sea-orm, sqlx → sqlx |
 | Async/Concurrency | goroutines → tokio, channels → crossbeam |
-| Testing | testify → assert, gomock → mockall |
-| Logging | zap → tracing, logrus → log |
-| ...and more | crypto, compression, encoding, validation, etc. |
+| ...and more | crypto, compression, kubernetes, docker, etc. |
 
 ## License
 

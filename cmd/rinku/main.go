@@ -11,21 +11,22 @@ import (
 
 // CLI defines the command-line interface
 var CLI struct {
-	GithubURL      string `arg:"" help:"GitHub URL of the library to look up."`
-	TargetLanguage string `arg:"" help:"Target language (go, rust)."`
-	Unsafe         bool   `help:"Include libraries with known vulnerabilities in results."`
+	URL      string `arg:"" help:"GitHub URL of the Go library to look up."`
+	Language string `arg:"" default:"rust" help:"Target language to find equivalents in (currently only rust is supported)."`
+	Unsafe   bool   `help:"Include libraries with known vulnerabilities in results."`
 }
 
 func main() {
 	kong.Parse(&CLI,
 		kong.Name("rinku"),
-		kong.Description("Look up equivalent libraries across programming languages."),
+		kong.Description("Find equivalent Rust libraries for Go dependencies."),
 		kong.UsageOnError(),
 	)
 
-	r := rinku.New(index, indexAll)
-	targets := r.Lookup(CLI.GithubURL, CLI.TargetLanguage, CLI.Unsafe)
-	for _, target := range targets {
-		fmt.Println(target)
+	r := rinku.New(index, indexAll, reverseIndex, reverseIndexAll)
+	results := r.Lookup(CLI.URL, CLI.Language, CLI.Unsafe)
+
+	for _, result := range results {
+		fmt.Println(result)
 	}
 }

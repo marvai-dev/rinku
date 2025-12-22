@@ -41,3 +41,12 @@ release:
   github:
     owner: marvai-dev
     name: rinku
+
+brews:
+  - name: rinku
+    homepage: https://github.com/marvai-dev/rinku
+    description: "CLI tool that finds Rust equivalents for Go libraries"
+    license: "FSL-1.1-MIT"
+    repository:
+      owner: marvai-dev
+      name: homebrew-rinku

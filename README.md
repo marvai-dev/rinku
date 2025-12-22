@@ -8,11 +8,34 @@ A CLI tool that instantly finds Rust equivalents for Go libraries. Give it a Git
 
 ## Installation
 
-```shell
-go install github.com/marvai-dev/rinku@latest
+### Homebrew (macOS/Linux)
+
+```bash
+brew tap marvai-dev/rinku
+brew install rinku
 ```
 
-Or build from source:
+### Download Binary
+
+Download from [GitHub Releases](https://github.com/marvai-dev/rinku/releases), or:
+
+```bash
+# Linux (amd64)
+curl -sL https://github.com/marvai-dev/rinku/releases/latest/download/rinku_linux_amd64.tar.gz | tar xz
+sudo mv rinku /usr/local/bin/
+
+# macOS (Apple Silicon)
+curl -sL https://github.com/marvai-dev/rinku/releases/latest/download/rinku_darwin_arm64.tar.gz | tar xz
+sudo mv rinku /usr/local/bin/
+```
+
+### With Go
+
+```bash
+go install github.com/marvai-dev/rinku/cmd/rinku@latest
+```
+
+### From Source
 
 ```bash
 make build

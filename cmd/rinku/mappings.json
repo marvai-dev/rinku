@@ -17,14 +17,14 @@
     {
       "source": "go:JohannesKaufmann/html-to-markdown",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "html_to_markdown"
     },
     {
       "source": "go:MakeNowJust/heredoc",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "heredoc"
     },
@@ -332,7 +332,7 @@
     {
       "source": "go:golang/mod",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "module_utilities"
     },
@@ -388,14 +388,14 @@
     {
       "source": "go:golang/tools",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "dev_tools"
     },
     {
       "source": "go:google/go-cmp",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "comparison"
     },
@@ -451,7 +451,7 @@
     {
       "source": "go:hashicorp/go-memdb",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "in_memory_db"
     },
@@ -577,14 +577,14 @@
     {
       "source": "go:moby/buildkit",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "buildkit"
     },
     {
       "source": "go:modelcontextprotocol/go-sdk",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "mcp_sdk"
     },
@@ -647,14 +647,14 @@
     {
       "source": "go:onsi/ginkgo",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "bdd_testing"
     },
     {
       "source": "go:onsi/gomega",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "test_matchers"
     },
@@ -717,7 +717,7 @@
     {
       "source": "go:posthog/posthog-go",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "analytics"
     },
@@ -822,7 +822,7 @@
     {
       "source": "go:spf13/cast",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "type_casting"
     },
@@ -864,7 +864,7 @@
     {
       "source": "go:stretchr/testify",
       "targets": [
-        "\u003cNone\u003e"
+        "<None>"
       ],
       "category": "testing"
     },
@@ -1141,6 +1141,126 @@
         "rust:googleapis/google-cloud-rust"
       ],
       "category": "general"
+    },
+    {
+      "source": "js:expressjs/express",
+      "targets": [
+        "go:labstack/echo"
+      ]
+    },
+    {
+      "source": "js:fastify/fastify",
+      "targets": [
+        "go:gofiber/fiber"
+      ]
+    },
+    {
+      "source": "js:nestjs/nest",
+      "targets": [
+        "go:uber-go/fx"
+      ]
+    },
+    {
+      "source": "js:prisma/prisma",
+      "targets": [
+        "go:ent/ent"
+      ]
+    },
+    {
+      "source": "js:typeorm/typeorm",
+      "targets": [
+        "go:go-gorm/gorm"
+      ]
+    },
+    {
+      "source": "js:knex/knex",
+      "targets": [
+        "go:Masterminds/squirrel"
+      ]
+    },
+    {
+      "source": "js:brianc/node-postgres",
+      "targets": [
+        "go:jackc/pgx"
+      ]
+    },
+    {
+      "source": "js:colinhacks/zod",
+      "targets": [
+        "go:go-playground/validator"
+      ]
+    },
+    {
+      "source": "js:lodash/lodash",
+      "targets": [
+        "go:samber/lo"
+      ]
+    },
+    {
+      "source": "js:moment/moment",
+      "targets": [
+        "go:dromara/carbon"
+      ]
+    },
+    {
+      "source": "js:jestjs/jest",
+      "targets": [
+        "go:stretchr/testify"
+      ]
+    },
+    {
+      "source": "js:winstonjs/winston",
+      "targets": [
+        "go:golang/go"
+      ]
+    },
+    {
+      "source": "js:pinojs/pino",
+      "targets": [
+        "go:rs/zerolog"
+      ]
+    },
+    {
+      "source": "js:taskforcesh/bullmq",
+      "targets": [
+        "go:hibiken/asynq"
+      ]
+    },
+    {
+      "source": "js:motdotla/dotenv",
+      "targets": [
+        "go:joho/godotenv"
+      ]
+    },
+    {
+      "source": "js:lorenwest/node-config",
+      "targets": [
+        "go:knadh/koanf"
+      ]
+    },
+    {
+      "source": "js:axios/axios",
+      "targets": [
+        "go:go-resty/resty"
+      ]
+    },
+    {
+      "source": "js:socketio/socket.io",
+      "targets": [
+        "go:olahol/melody"
+      ]
+    },
+    {
+      "source": "js:jaredhanson/passport",
+      "targets": [
+        "go:markbates/goth"
+      ]
+    },
+    {
+      "source": "js:auth0/node-jsonwebtoken",
+      "targets": [
+        "go:golang-jwt/jwt"
+      ]
     }
   ]
 }

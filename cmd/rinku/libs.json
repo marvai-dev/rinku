@@ -1355,6 +1355,171 @@
       "url": "https://github.com/zonyitoo/rust-ini",
       "lang": "rust",
       "stars": 338
+    },
+    "go:Masterminds/squirrel": {
+      "lang": "go",
+      "url": "https://github.com/Masterminds/squirrel",
+      "stars": 7818
+    },
+    "go:ent/ent": {
+      "lang": "go",
+      "url": "https://github.com/ent/ent",
+      "stars": 16792
+    },
+    "go:go-playground/validator": {
+      "lang": "go",
+      "url": "https://github.com/go-playground/validator",
+      "stars": 19493
+    },
+    "go:go-resty/resty": {
+      "lang": "go",
+      "url": "https://github.com/go-resty/resty",
+      "stars": 11427
+    },
+    "go:gofiber/fiber": {
+      "lang": "go",
+      "url": "https://github.com/gofiber/fiber",
+      "stars": 38800
+    },
+    "go:golang/go": {
+      "lang": "go",
+      "url": "https://github.com/golang/go",
+      "stars": 131559
+    },
+    "go:hibiken/asynq": {
+      "lang": "go",
+      "url": "https://github.com/hibiken/asynq",
+      "stars": 12636
+    },
+    "go:jackc/pgx": {
+      "lang": "go",
+      "url": "https://github.com/jackc/pgx",
+      "stars": 13053
+    },
+    "go:knadh/koanf": {
+      "lang": "go",
+      "url": "https://github.com/knadh/koanf",
+      "stars": 3685
+    },
+    "go:markbates/goth": {
+      "lang": "go",
+      "url": "https://github.com/markbates/goth",
+      "stars": 6380
+    },
+    "go:olahol/melody": {
+      "lang": "go",
+      "url": "https://github.com/olahol/melody",
+      "stars": 4035
+    },
+    "go:uber-go/fx": {
+      "lang": "go",
+      "url": "https://github.com/uber-go/fx",
+      "stars": 7149
+    },
+    "js:auth0/node-jsonwebtoken": {
+      "lang": "js",
+      "stars": 7000,
+      "url": "https://github.com/auth0/node-jsonwebtoken"
+    },
+    "js:axios/axios": {
+      "lang": "js",
+      "stars": 11000,
+      "url": "https://github.com/axios/axios"
+    },
+    "js:brianc/node-postgres": {
+      "lang": "js",
+      "stars": 11000,
+      "url": "https://github.com/brianc/node-postgres"
+    },
+    "js:colinhacks/zod": {
+      "lang": "js",
+      "stars": 16000,
+      "url": "https://github.com/colinhacks/zod"
+    },
+    "js:expressjs/express": {
+      "lang": "js",
+      "stars": 32000,
+      "url": "https://github.com/expressjs/express"
+    },
+    "js:fastify/fastify": {
+      "lang": "js",
+      "stars": 39000,
+      "url": "https://github.com/fastify/fastify"
+    },
+    "js:jaredhanson/passport": {
+      "lang": "js",
+      "stars": 5000,
+      "url": "https://github.com/jaredhanson/passport"
+    },
+    "js:jestjs/jest": {
+      "lang": "js",
+      "stars": 26000,
+      "url": "https://github.com/jestjs/jest"
+    },
+    "js:knex/knex": {
+      "lang": "js",
+      "stars": 7000,
+      "url": "https://github.com/knex/knex"
+    },
+    "js:lodash/lodash": {
+      "lang": "js",
+      "stars": 21000,
+      "url": "https://github.com/lodash/lodash"
+    },
+    "js:lorenwest/node-config": {
+      "lang": "js",
+      "stars": 4000,
+      "url": "https://github.com/lorenwest/node-config"
+    },
+    "js:moment/moment": {
+      "lang": "js",
+      "stars": 5000,
+      "url": "https://github.com/moment/moment"
+    },
+    "js:motdotla/dotenv": {
+      "lang": "js",
+      "stars": 8000,
+      "url": "https://github.com/motdotla/dotenv"
+    },
+    "js:nestjs/nest": {
+      "lang": "js",
+      "stars": 5000,
+      "url": "https://github.com/nestjs/nest"
+    },
+    "js:pinojs/pino": {
+      "lang": "js",
+      "stars": 12000,
+      "url": "https://github.com/pinojs/pino"
+    },
+    "js:prisma/prisma": {
+      "lang": "js",
+      "stars": 17000,
+      "url": "https://github.com/prisma/prisma"
+    },
+    "js:socketio/socket.io": {
+      "lang": "js",
+      "stars": 4000,
+      "url": "https://github.com/socketio/socket.io"
+    },
+    "js:taskforcesh/bullmq": {
+      "lang": "js",
+      "stars": 13000,
+      "url": "https://github.com/taskforcesh/bullmq"
+    },
+    "js:typeorm/typeorm": {
+      "lang": "js",
+      "stars": 39000,
+      "url": "https://github.com/typeorm/typeorm"
+    },
+    "js:winstonjs/winston": {
+      "lang": "js",
+      "stars": 24255,
+      "url": "https://github.com/winstonjs/winston"
+    },
+    "go:dromara/carbon": {
+      "url": "https://github.com/dromara/carbon",
+      "lang": "go",
+      "stars": 5190
     }
   }
 }

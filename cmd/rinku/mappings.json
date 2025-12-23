@@ -991,7 +991,7 @@
     {
       "source": "go:prometheus/procfs",
       "targets": [
-        "rust:prometheus/procfs-rs"
+        "rust:eminence/procfs"
       ],
       "category": "metrics"
     },
@@ -1005,7 +1005,7 @@
     {
       "source": "go:munnerz/goautoneg",
       "targets": [
-        "rust:http-rs/accept-header"
+        "rust:hyperium/headers"
       ],
       "category": "general"
     },
@@ -1040,7 +1040,7 @@
     {
       "source": "go:klauspost/cpuid",
       "targets": [
-        "rust:parched/cupid"
+        "rust:gz/rust-cpuid"
       ],
       "category": "cpu_detection"
     },
@@ -1068,7 +1068,7 @@
     {
       "source": "go:docker/go-units",
       "targets": [
-        "rust:uom/uom"
+        "rust:iliekturtles/uom"
       ],
       "category": "units"
     },
@@ -1110,7 +1110,7 @@
     {
       "source": "go:go-openapi/jsonpointer",
       "targets": [
-        "rust:chanced/json-pointer"
+        "rust:chanced/jsonptr"
       ],
       "category": "openapi"
     },
@@ -1124,7 +1124,7 @@
     {
       "source": "go:darccio/mergo",
       "targets": [
-        "rust:rosetta-rs/struct-patch"
+        "rust:yanganto/struct-patch"
       ],
       "category": "struct_merge"
     },

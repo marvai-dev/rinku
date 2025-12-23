@@ -927,10 +927,10 @@
       "lang": "rust",
       "stars": 4109
     },
-    "rust:chanced/json-pointer": {
-      "url": "https://github.com/chanced/json-pointer",
+    "rust:chanced/jsonptr": {
+      "url": "https://github.com/chanced/jsonptr",
       "lang": "rust",
-      "stars": null
+      "stars": 47
     },
     "rust:chronotope/chrono": {
       "url": "https://github.com/chronotope/chrono",
@@ -1012,10 +1012,10 @@
       "lang": "rust",
       "stars": 4880
     },
-    "rust:http-rs/accept-header": {
-      "url": "https://github.com/http-rs/accept-header",
+    "rust:hyperium/headers": {
+      "url": "https://github.com/hyperium/headers",
       "lang": "rust",
-      "stars": null
+      "stars": 189
     },
     "rust:hyperium/hyper": {
       "url": "https://github.com/hyperium/hyper",
@@ -1129,10 +1129,10 @@
       "lang": "rust",
       "stars": 2406
     },
-    "rust:parched/cupid": {
-      "url": "https://github.com/parched/cupid",
+    "rust:gz/rust-cpuid": {
+      "url": "https://github.com/gz/rust-cpuid",
       "lang": "rust",
-      "stars": null
+      "stars": 174
     },
     "rust:paritytech/jsonrpsee": {
       "url": "https://github.com/paritytech/jsonrpsee",
@@ -1159,10 +1159,10 @@
       "lang": "rust",
       "stars": 577
     },
-    "rust:prometheus/procfs-rs": {
-      "url": "https://github.com/prometheus/procfs-rs",
+    "rust:eminence/procfs": {
+      "url": "https://github.com/eminence/procfs",
       "lang": "rust",
-      "stars": null
+      "stars": 428
     },
     "rust:pulldown-cmark/pulldown-cmark": {
       "url": "https://github.com/pulldown-cmark/pulldown-cmark",
@@ -1190,10 +1190,10 @@
       "lang": "rust",
       "stars": 4127
     },
-    "rust:rosetta-rs/struct-patch": {
-      "url": "https://github.com/rosetta-rs/struct-patch",
+    "rust:yanganto/struct-patch": {
+      "url": "https://github.com/yanganto/struct-patch",
       "lang": "rust",
-      "stars": null
+      "stars": 39
     },
     "rust:rusqlite/rusqlite": {
       "url": "https://github.com/rusqlite/rusqlite",
@@ -1336,10 +1336,10 @@
       "lang": "rust",
       "stars": 282
     },
-    "rust:uom/uom": {
-      "url": "https://github.com/uom/uom",
+    "rust:iliekturtles/uom": {
+      "url": "https://github.com/iliekturtles/uom",
       "lang": "rust",
-      "stars": null
+      "stars": 1192
     },
     "rust:uuid-rs/uuid": {
       "url": "https://github.com/uuid-rs/uuid",

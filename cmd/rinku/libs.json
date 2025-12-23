@@ -2,1090 +2,1359 @@
   "libs": {
     "go:Azure/azure-sdk-for-go": {
       "url": "https://github.com/Azure/azure-sdk-for-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1779
     },
     "go:BurntSushi/toml": {
       "url": "https://github.com/BurntSushi/toml",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4865
     },
     "go:JohannesKaufmann/html-to-markdown": {
       "url": "https://github.com/JohannesKaufmann/html-to-markdown",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3277
     },
     "go:MakeNowJust/heredoc": {
       "url": "https://github.com/MakeNowJust/heredoc",
-      "lang": "go"
+      "lang": "go",
+      "stars": 178
     },
     "go:Microsoft/go-winio": {
       "url": "https://github.com/Microsoft/go-winio",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1046
     },
     "go:PuerkitoBio/goquery": {
       "url": "https://github.com/PuerkitoBio/goquery",
-      "lang": "go"
+      "lang": "go",
+      "stars": 14850
     },
     "go:alecthomas/chroma": {
       "url": "https://github.com/alecthomas/chroma",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4787
     },
     "go:alecthomas/kong": {
       "url": "https://github.com/alecthomas/kong",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2883
     },
     "go:atotto/clipboard": {
       "url": "https://github.com/atotto/clipboard",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1341
     },
     "go:aws/aws-sdk-go-v2": {
       "url": "https://github.com/aws/aws-sdk-go-v2",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3395
     },
     "go:aymanbagabas/go-udiff": {
       "url": "https://github.com/aymanbagabas/go-udiff",
-      "lang": "go"
+      "lang": "go",
+      "stars": 215
     },
     "go:beorn7/perks": {
       "url": "https://github.com/beorn7/perks",
-      "lang": "go"
+      "lang": "go",
+      "stars": 110
     },
     "go:bmatcuk/doublestar": {
       "url": "https://github.com/bmatcuk/doublestar",
-      "lang": "go"
+      "lang": "go",
+      "stars": 653
     },
     "go:bytedance/sonic": {
       "url": "https://github.com/bytedance/sonic",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8973
     },
     "go:cespare/xxhash": {
       "url": "https://github.com/cespare/xxhash",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2054
     },
     "go:charlievieth/fastwalk": {
       "url": "https://github.com/charlievieth/fastwalk",
-      "lang": "go"
+      "lang": "go",
+      "stars": 112
     },
     "go:charmbracelet/bubbles": {
       "url": "https://github.com/charmbracelet/bubbles",
-      "lang": "go"
+      "lang": "go",
+      "stars": 7406
     },
     "go:charmbracelet/bubbletea": {
       "url": "https://github.com/charmbracelet/bubbletea",
-      "lang": "go"
+      "lang": "go",
+      "stars": 37558
     },
     "go:charmbracelet/colorprofile": {
       "url": "https://github.com/charmbracelet/colorprofile",
-      "lang": "go"
+      "lang": "go",
+      "stars": 102
     },
     "go:charmbracelet/glamour": {
       "url": "https://github.com/charmbracelet/glamour",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3137
     },
     "go:charmbracelet/lipgloss": {
       "url": "https://github.com/charmbracelet/lipgloss",
-      "lang": "go"
+      "lang": "go",
+      "stars": 10181
     },
     "go:charmbracelet/log": {
       "url": "https://github.com/charmbracelet/log",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3043
     },
     "go:charmbracelet/x": {
       "url": "https://github.com/charmbracelet/x",
-      "lang": "go"
+      "lang": "go",
+      "stars": 252
     },
     "go:cloudflare/cfssl": {
       "url": "https://github.com/cloudflare/cfssl",
-      "lang": "go"
+      "lang": "go",
+      "stars": 9315
     },
     "go:containerd/containerd": {
       "url": "https://github.com/containerd/containerd",
-      "lang": "go"
+      "lang": "go",
+      "stars": 20024
     },
     "go:coreos/go-systemd": {
       "url": "https://github.com/coreos/go-systemd",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2616
     },
     "go:darccio/mergo": {
       "url": "https://github.com/darccio/mergo",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3078
     },
     "go:denisbrodbeck/machineid": {
       "url": "https://github.com/denisbrodbeck/machineid",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1127
     },
     "go:disintegration/gift": {
       "url": "https://github.com/disintegration/gift",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1787
     },
     "go:disintegration/imageorient": {
       "url": "https://github.com/disintegration/imageorient",
-      "lang": "go"
+      "lang": "go",
+      "stars": 76
     },
     "go:dlclark/regexp2": {
       "url": "https://github.com/dlclark/regexp2",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1135
     },
     "go:docker/docker": {
       "url": "https://github.com/docker/docker",
-      "lang": "go"
+      "lang": "go",
+      "stars": 71257
     },
     "go:docker/go-units": {
       "url": "https://github.com/docker/go-units",
-      "lang": "go"
+      "lang": "go",
+      "stars": 235
     },
     "go:dustin/go-humanize": {
       "url": "https://github.com/dustin/go-humanize",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4748
     },
     "go:etcd-io/bbolt": {
       "url": "https://github.com/etcd-io/bbolt",
-      "lang": "go"
+      "lang": "go",
+      "stars": 9270
     },
     "go:etcd-io/etcd": {
       "url": "https://github.com/etcd-io/etcd",
-      "lang": "go"
+      "lang": "go",
+      "stars": 51044
     },
     "go:fatih/color": {
       "url": "https://github.com/fatih/color",
-      "lang": "go"
+      "lang": "go",
+      "stars": 7830
     },
     "go:felixge/httpsnoop": {
       "url": "https://github.com/felixge/httpsnoop",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1138
     },
     "go:fsnotify/fsnotify": {
       "url": "https://github.com/fsnotify/fsnotify",
-      "lang": "go"
+      "lang": "go",
+      "stars": 10476
     },
     "go:gin-gonic/gin": {
       "url": "https://github.com/gin-gonic/gin",
-      "lang": "go"
+      "lang": "go",
+      "stars": 87448
     },
     "go:go-chi/chi": {
       "url": "https://github.com/go-chi/chi",
-      "lang": "go"
+      "lang": "go",
+      "stars": 21197
     },
     "go:go-gorm/gorm": {
       "url": "https://github.com/go-gorm/gorm",
-      "lang": "go"
+      "lang": "go",
+      "stars": 39284
     },
     "go:go-ini/ini": {
       "url": "https://github.com/go-ini/ini",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3534
     },
     "go:go-logr/logr": {
       "url": "https://github.com/go-logr/logr",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1380
     },
     "go:go-logr/stdr": {
       "url": "https://github.com/go-logr/stdr",
-      "lang": "go"
+      "lang": "go",
+      "stars": 36
     },
     "go:go-openapi/jsonpointer": {
       "url": "https://github.com/go-openapi/jsonpointer",
-      "lang": "go"
+      "lang": "go",
+      "stars": 47
     },
     "go:go-openapi/swag": {
       "url": "https://github.com/go-openapi/swag",
-      "lang": "go"
+      "lang": "go",
+      "stars": 216
     },
     "go:go-redis/redis": {
       "url": "https://github.com/go-redis/redis",
-      "lang": "go"
+      "lang": "go",
+      "stars": 21760
     },
     "go:go-yaml/yaml": {
       "url": "https://github.com/go-yaml/yaml",
-      "lang": "go"
+      "lang": "go",
+      "stars": 7038
     },
     "go:goccy/go-json": {
       "url": "https://github.com/goccy/go-json",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3577
     },
     "go:goccy/go-yaml": {
       "url": "https://github.com/goccy/go-yaml",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2057
     },
     "go:gogo/protobuf": {
       "url": "https://github.com/gogo/protobuf",
-      "lang": "go"
+      "lang": "go",
+      "stars": 5686
     },
     "go:golang-jwt/jwt": {
       "url": "https://github.com/golang-jwt/jwt",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8785
     },
     "go:golang/crypto": {
       "url": "https://github.com/golang/crypto",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3268
     },
     "go:golang/image": {
       "url": "https://github.com/golang/image",
-      "lang": "go"
+      "lang": "go",
+      "stars": 541
     },
     "go:golang/mock": {
       "url": "https://github.com/golang/mock",
-      "lang": "go"
+      "lang": "go",
+      "stars": 9383
     },
     "go:golang/mod": {
       "url": "https://github.com/golang/mod",
-      "lang": "go"
+      "lang": "go",
+      "stars": 206
     },
     "go:golang/net": {
       "url": "https://github.com/golang/net",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2971
     },
     "go:golang/oauth2": {
       "url": "https://github.com/golang/oauth2",
-      "lang": "go"
+      "lang": "go",
+      "stars": 5781
     },
     "go:golang/protobuf": {
       "url": "https://github.com/golang/protobuf",
-      "lang": "go"
+      "lang": "go",
+      "stars": 10050
     },
     "go:golang/snappy": {
       "url": "https://github.com/golang/snappy",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1570
     },
     "go:golang/sync": {
       "url": "https://github.com/golang/sync",
-      "lang": "go"
+      "lang": "go",
+      "stars": 907
     },
     "go:golang/sys": {
       "url": "https://github.com/golang/sys",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1328
     },
     "go:golang/term": {
       "url": "https://github.com/golang/term",
-      "lang": "go"
+      "lang": "go",
+      "stars": 300
     },
     "go:golang/text": {
       "url": "https://github.com/golang/text",
-      "lang": "go"
+      "lang": "go",
+      "stars": 790
     },
     "go:golang/time": {
       "url": "https://github.com/golang/time",
-      "lang": "go"
+      "lang": "go",
+      "stars": 410
     },
     "go:golang/tools": {
       "url": "https://github.com/golang/tools",
-      "lang": "go"
+      "lang": "go",
+      "stars": 7847
     },
     "go:google/go-cmp": {
       "url": "https://github.com/google/go-cmp",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4567
     },
     "go:google/pprof": {
       "url": "https://github.com/google/pprof",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8949
     },
     "go:google/uuid": {
       "url": "https://github.com/google/uuid",
-      "lang": "go"
+      "lang": "go",
+      "stars": 5933
     },
     "go:googleapis/gax-go": {
       "url": "https://github.com/googleapis/gax-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 214
     },
     "go:googleapis/go-genproto": {
       "url": "https://github.com/googleapis/go-genproto",
-      "lang": "go"
+      "lang": "go",
+      "stars": 616
     },
     "go:googleapis/google-api-go-client": {
       "url": "https://github.com/googleapis/google-api-go-client",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4362
     },
     "go:googleapis/google-cloud-go": {
       "url": "https://github.com/googleapis/google-cloud-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4384
     },
     "go:gorilla/css": {
       "url": "https://github.com/gorilla/css",
-      "lang": "go"
+      "lang": "go",
+      "stars": 88
     },
     "go:gorilla/mux": {
       "url": "https://github.com/gorilla/mux",
-      "lang": "go"
+      "lang": "go",
+      "stars": 21745
     },
     "go:gorilla/websocket": {
       "url": "https://github.com/gorilla/websocket",
-      "lang": "go"
+      "lang": "go",
+      "stars": 24340
     },
     "go:grpc-ecosystem/grpc-gateway": {
       "url": "https://github.com/grpc-ecosystem/grpc-gateway",
-      "lang": "go"
+      "lang": "go",
+      "stars": 19734
     },
     "go:grpc/grpc-go": {
       "url": "https://github.com/grpc/grpc-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 22667
     },
     "go:hashicorp/go-memdb": {
       "url": "https://github.com/hashicorp/go-memdb",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3417
     },
     "go:hashicorp/golang-lru": {
       "url": "https://github.com/hashicorp/golang-lru",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4897
     },
     "go:invopop/jsonschema": {
       "url": "https://github.com/invopop/jsonschema",
-      "lang": "go"
+      "lang": "go",
+      "stars": 884
     },
     "go:joho/godotenv": {
       "url": "https://github.com/joho/godotenv",
-      "lang": "go"
+      "lang": "go",
+      "stars": 10085
     },
     "go:josharian/intern": {
       "url": "https://github.com/josharian/intern",
-      "lang": "go"
+      "lang": "go",
+      "stars": 97
     },
     "go:json-iterator/go": {
       "url": "https://github.com/json-iterator/go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 13926
     },
     "go:klauspost/compress": {
       "url": "https://github.com/klauspost/compress",
-      "lang": "go"
+      "lang": "go",
+      "stars": 5349
     },
     "go:klauspost/cpuid": {
       "url": "https://github.com/klauspost/cpuid",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1180
     },
     "go:kolesa-team/go-webp": {
       "url": "https://github.com/kolesa-team/go-webp",
-      "lang": "go"
+      "lang": "go",
+      "stars": 294
     },
     "go:kubernetes-sigs/yaml": {
       "url": "https://github.com/kubernetes-sigs/yaml",
-      "lang": "go"
+      "lang": "go",
+      "stars": 340
     },
     "go:kubernetes/api": {
       "url": "https://github.com/kubernetes/api",
-      "lang": "go"
+      "lang": "go",
+      "stars": 733
     },
     "go:kubernetes/apimachinery": {
       "url": "https://github.com/kubernetes/apimachinery",
-      "lang": "go"
+      "lang": "go",
+      "stars": 897
     },
     "go:kubernetes/client-go": {
       "url": "https://github.com/kubernetes/client-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 9726
     },
     "go:labstack/echo": {
       "url": "https://github.com/labstack/echo",
-      "lang": "go"
+      "lang": "go",
+      "stars": 31946
     },
     "go:lucasb-eyer/go-colorful": {
       "url": "https://github.com/lucasb-eyer/go-colorful",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1219
     },
     "go:mailru/easyjson": {
       "url": "https://github.com/mailru/easyjson",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4834
     },
     "go:mattn/go-colorable": {
       "url": "https://github.com/mattn/go-colorable",
-      "lang": "go"
+      "lang": "go",
+      "stars": 804
     },
     "go:mattn/go-isatty": {
       "url": "https://github.com/mattn/go-isatty",
-      "lang": "go"
+      "lang": "go",
+      "stars": 881
     },
     "go:mattn/go-runewidth": {
       "url": "https://github.com/mattn/go-runewidth",
-      "lang": "go"
+      "lang": "go",
+      "stars": 672
     },
     "go:mattn/go-sqlite3": {
       "url": "https://github.com/mattn/go-sqlite3",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8872
     },
     "go:microcosm-cc/bluemonday": {
       "url": "https://github.com/microcosm-cc/bluemonday",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3583
     },
     "go:miekg/dns": {
       "url": "https://github.com/miekg/dns",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8597
     },
     "go:mitchellh/mapstructure": {
       "url": "https://github.com/mitchellh/mapstructure",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8050
     },
     "go:moby/buildkit": {
       "url": "https://github.com/moby/buildkit",
-      "lang": "go"
+      "lang": "go",
+      "stars": 9617
     },
     "go:modelcontextprotocol/go-sdk": {
       "url": "https://github.com/modelcontextprotocol/go-sdk",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3473
     },
     "go:modern-go/concurrent": {
       "url": "https://github.com/modern-go/concurrent",
-      "lang": "go"
+      "lang": "go",
+      "stars": 305
     },
     "go:muesli/termenv": {
       "url": "https://github.com/muesli/termenv",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1949
     },
     "go:munnerz/goautoneg": {
       "url": "https://github.com/munnerz/goautoneg",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8
     },
     "go:mvdan/sh": {
       "url": "https://github.com/mvdan/sh",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8324
     },
     "go:natefinch/lumberjack": {
       "url": "https://github.com/natefinch/lumberjack",
-      "lang": "go"
+      "lang": "go",
+      "stars": 5334
     },
     "go:ncruces/go-sqlite3": {
       "url": "https://github.com/ncruces/go-sqlite3",
-      "lang": "go"
+      "lang": "go",
+      "stars": 879
     },
     "go:nfnt/resize": {
       "url": "https://github.com/nfnt/resize",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3050
     },
     "go:nxadm/tail": {
       "url": "https://github.com/nxadm/tail",
-      "lang": "go"
+      "lang": "go",
+      "stars": 388
     },
     "go:olekukonko/tablewriter": {
       "url": "https://github.com/olekukonko/tablewriter",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4733
     },
     "go:ollama/ollama": {
       "url": "https://github.com/ollama/ollama",
-      "lang": "go"
+      "lang": "go",
+      "stars": 158079
     },
     "go:onsi/ginkgo": {
       "url": "https://github.com/onsi/ginkgo",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8903
     },
     "go:onsi/gomega": {
       "url": "https://github.com/onsi/gomega",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2321
     },
     "go:open-telemetry/opentelemetry-go": {
       "url": "https://github.com/open-telemetry/opentelemetry-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 6210
     },
     "go:openai/openai-go": {
       "url": "https://github.com/openai/openai-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2811
     },
     "go:opencontainers/go-digest": {
       "url": "https://github.com/opencontainers/go-digest",
-      "lang": "go"
+      "lang": "go",
+      "stars": 213
     },
     "go:opencontainers/image-spec": {
       "url": "https://github.com/opencontainers/image-spec",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4066
     },
     "go:pelletier/go-toml": {
       "url": "https://github.com/pelletier/go-toml",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1890
     },
     "go:pierrec/lz4": {
       "url": "https://github.com/pierrec/lz4",
-      "lang": "go"
+      "lang": "go",
+      "stars": 942
     },
     "go:pires/go-proxyproto": {
       "url": "https://github.com/pires/go-proxyproto",
-      "lang": "go"
+      "lang": "go",
+      "stars": 588
     },
     "go:pkg/browser": {
       "url": "https://github.com/pkg/browser",
-      "lang": "go"
+      "lang": "go",
+      "stars": 600
     },
     "go:pkg/errors": {
       "url": "https://github.com/pkg/errors",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8244
     },
     "go:pmezard/go-difflib": {
       "url": "https://github.com/pmezard/go-difflib",
-      "lang": "go"
+      "lang": "go",
+      "stars": 427
     },
     "go:posthog/posthog-go": {
       "url": "https://github.com/posthog/posthog-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 41
     },
     "go:pressly/goose": {
       "url": "https://github.com/pressly/goose",
-      "lang": "go"
+      "lang": "go",
+      "stars": 9651
     },
     "go:prometheus/client_golang": {
       "url": "https://github.com/prometheus/client_golang",
-      "lang": "go"
+      "lang": "go",
+      "stars": 5862
     },
     "go:prometheus/client_model": {
       "url": "https://github.com/prometheus/client_model",
-      "lang": "go"
+      "lang": "go",
+      "stars": 77
     },
     "go:prometheus/common": {
       "url": "https://github.com/prometheus/common",
-      "lang": "go"
+      "lang": "go",
+      "stars": 288
     },
     "go:prometheus/procfs": {
       "url": "https://github.com/prometheus/procfs",
-      "lang": "go"
+      "lang": "go",
+      "stars": 848
     },
     "go:protocolbuffers/protobuf-go": {
       "url": "https://github.com/protocolbuffers/protobuf-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3276
     },
     "go:quic-go/quic-go": {
       "url": "https://github.com/quic-go/quic-go",
-      "lang": "go"
+      "lang": "go",
+      "stars": 11265
     },
     "go:rivo/uniseg": {
       "url": "https://github.com/rivo/uniseg",
-      "lang": "go"
+      "lang": "go",
+      "stars": 692
     },
     "go:rs/zerolog": {
       "url": "https://github.com/rs/zerolog",
-      "lang": "go"
+      "lang": "go",
+      "stars": 12053
     },
     "go:russross/blackfriday": {
       "url": "https://github.com/russross/blackfriday",
-      "lang": "go"
+      "lang": "go",
+      "stars": 5610
     },
     "go:sabhiram/go-gitignore": {
       "url": "https://github.com/sabhiram/go-gitignore",
-      "lang": "go"
+      "lang": "go",
+      "stars": 160
     },
     "go:sahilm/fuzzy": {
       "url": "https://github.com/sahilm/fuzzy",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1384
     },
     "go:samber/lo": {
       "url": "https://github.com/samber/lo",
-      "lang": "go"
+      "lang": "go",
+      "stars": 20789
     },
     "go:sashabaranov/go-openai": {
       "url": "https://github.com/sashabaranov/go-openai",
-      "lang": "go"
+      "lang": "go",
+      "stars": 10470
     },
     "go:sergi/go-diff": {
       "url": "https://github.com/sergi/go-diff",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2028
     },
     "go:sirupsen/logrus": {
       "url": "https://github.com/sirupsen/logrus",
-      "lang": "go"
+      "lang": "go",
+      "stars": 25626
     },
     "go:sourcegraph/jsonrpc2": {
       "url": "https://github.com/sourcegraph/jsonrpc2",
-      "lang": "go"
+      "lang": "go",
+      "stars": 235
     },
     "go:spf13/afero": {
       "url": "https://github.com/spf13/afero",
-      "lang": "go"
+      "lang": "go",
+      "stars": 6498
     },
     "go:spf13/cast": {
       "url": "https://github.com/spf13/cast",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3902
     },
     "go:spf13/cobra": {
       "url": "https://github.com/spf13/cobra",
-      "lang": "go"
+      "lang": "go",
+      "stars": 42704
     },
     "go:spf13/pflag": {
       "url": "https://github.com/spf13/pflag",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2677
     },
     "go:spf13/viper": {
       "url": "https://github.com/spf13/viper",
-      "lang": "go"
+      "lang": "go",
+      "stars": 29721
     },
     "go:srwiley/oksvg": {
       "url": "https://github.com/srwiley/oksvg",
-      "lang": "go"
+      "lang": "go",
+      "stars": 178
     },
     "go:srwiley/rasterx": {
       "url": "https://github.com/srwiley/rasterx",
-      "lang": "go"
+      "lang": "go",
+      "stars": 144
     },
     "go:stretchr/testify": {
       "url": "https://github.com/stretchr/testify",
-      "lang": "go"
+      "lang": "go",
+      "stars": 25551
     },
     "go:tdewolff/minify": {
       "url": "https://github.com/tdewolff/minify",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4034
     },
     "go:tetratelabs/wazero": {
       "url": "https://github.com/tetratelabs/wazero",
-      "lang": "go"
+      "lang": "go",
+      "stars": 5808
     },
     "go:tidwall/gjson": {
       "url": "https://github.com/tidwall/gjson",
-      "lang": "go"
+      "lang": "go",
+      "stars": 15375
     },
     "go:tidwall/sjson": {
       "url": "https://github.com/tidwall/sjson",
-      "lang": "go"
+      "lang": "go",
+      "stars": 2669
     },
     "go:tmc/langchaingo": {
       "url": "https://github.com/tmc/langchaingo",
-      "lang": "go"
+      "lang": "go",
+      "stars": 8282
     },
     "go:uber-go/multierr": {
       "url": "https://github.com/uber-go/multierr",
-      "lang": "go"
+      "lang": "go",
+      "stars": 1164
     },
     "go:uber-go/zap": {
       "url": "https://github.com/uber-go/zap",
-      "lang": "go"
+      "lang": "go",
+      "stars": 24061
     },
     "go:valyala/fasthttp": {
       "url": "https://github.com/valyala/fasthttp",
-      "lang": "go"
+      "lang": "go",
+      "stars": 23155
     },
     "go:vishvananda/netlink": {
       "url": "https://github.com/vishvananda/netlink",
-      "lang": "go"
+      "lang": "go",
+      "stars": 3174
     },
     "go:yuin/goldmark": {
       "url": "https://github.com/yuin/goldmark",
-      "lang": "go"
+      "lang": "go",
+      "stars": 4466
     },
     "go:zeebo/xxh3": {
       "url": "https://github.com/zeebo/xxh3",
-      "lang": "go"
+      "lang": "go",
+      "stars": 509
     },
     "rust:1Password/arboard": {
       "url": "https://github.com/1Password/arboard",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 866
     },
     "rust:64bit/async-openai": {
       "url": "https://github.com/64bit/async-openai",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1704
     },
     "rust:Abraxas-365/langchain-rust": {
       "url": "https://github.com/Abraxas-365/langchain-rust",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1186
     },
     "rust:Azure/azure-sdk-for-rust": {
       "url": "https://github.com/Azure/azure-sdk-for-rust",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 861
     },
     "rust:BurntSushi/globset": {
       "url": "https://github.com/BurntSushi/globset",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 44
     },
     "rust:BurntSushi/ripgrep/tree/master/crates/ignore": {
       "url": "https://github.com/BurntSushi/ripgrep/tree/master/crates/ignore",
       "lang": "rust",
-      "unsafe": "1 vuln: GHSA-g4xg-fxmg-vcg5"
+      "unsafe": "1 vuln: GHSA-g4xg-fxmg-vcg5",
+      "stars": 58285
     },
     "rust:BurntSushi/rust-snappy": {
       "url": "https://github.com/BurntSushi/rust-snappy",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 505
     },
     "rust:BurntSushi/termcolor": {
       "url": "https://github.com/BurntSushi/termcolor",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 487
     },
     "rust:BurntSushi/walkdir": {
       "url": "https://github.com/BurntSushi/walkdir",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1458
     },
     "rust:GREsau/schemars": {
       "url": "https://github.com/GREsau/schemars",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1233
     },
     "rust:GuillaumeGomez/minifier-rs": {
       "url": "https://github.com/GuillaumeGomez/minifier-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 88
     },
     "rust:Hanaasagi/machine-uid": {
       "url": "https://github.com/Hanaasagi/machine-uid",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 41
     },
     "rust:Ogeon/palette": {
       "url": "https://github.com/Ogeon/palette",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 809
     },
     "rust:PSeitz/lz4_flex": {
       "url": "https://github.com/PSeitz/lz4_flex",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 552
     },
     "rust:RustCrypto/traits": {
       "url": "https://github.com/RustCrypto/traits",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 695
     },
     "rust:SeaQL/sea-orm": {
       "url": "https://github.com/SeaQL/sea-orm",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 9165
     },
     "rust:allan2/dotenvy": {
       "url": "https://github.com/allan2/dotenvy",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1097
     },
     "rust:amodm/webbrowser-rs": {
       "url": "https://github.com/amodm/webbrowser-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 318
     },
     "rust:asomers/mockall": {
       "url": "https://github.com/asomers/mockall",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1753
     },
     "rust:awslabs/aws-sdk-rust": {
       "url": "https://github.com/awslabs/aws-sdk-rust",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3257
     },
     "rust:bytecodealliance/wasmtime": {
       "url": "https://github.com/bytecodealliance/wasmtime",
       "lang": "rust",
-      "unsafe": "45 vulns including GHSA-44mr-8vmm-wjhg"
+      "unsafe": "45 vulns including GHSA-44mr-8vmm-wjhg",
+      "stars": 17331
     },
     "rust:cberner/redb": {
       "url": "https://github.com/cberner/redb",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 4109
     },
     "rust:chanced/json-pointer": {
       "url": "https://github.com/chanced/json-pointer",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": null
     },
     "rust:chronotope/chrono": {
       "url": "https://github.com/chronotope/chrono",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3739
     },
     "rust:chronotope/humantime": {
       "url": "https://github.com/chronotope/humantime",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 362
     },
     "rust:clap-rs/clap": {
       "url": "https://github.com/clap-rs/clap",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 15868
     },
     "rust:cloudwego/sonic-rs": {
       "url": "https://github.com/cloudwego/sonic-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 780
     },
     "rust:containerd/rust-extensions": {
       "url": "https://github.com/containerd/rust-extensions",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 221
     },
     "rust:containers/oci-spec-rs": {
       "url": "https://github.com/containers/oci-spec-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 265
     },
     "rust:crossterm-rs/crossterm": {
       "url": "https://github.com/crossterm-rs/crossterm",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3836
     },
     "rust:droundy/internment": {
       "url": "https://github.com/droundy/internment",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 115
     },
     "rust:dtolnay/anyhow": {
       "url": "https://github.com/dtolnay/anyhow",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 6341
     },
     "rust:dtolnay/serde-yaml": {
       "url": "https://github.com/dtolnay/serde-yaml",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1009
     },
     "rust:etcdv3/etcd-client": {
       "url": "https://github.com/etcdv3/etcd-client",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 247
     },
     "rust:fancy-regex/fancy-regex": {
       "url": "https://github.com/fancy-regex/fancy-regex",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 553
     },
     "rust:fussybeaver/bollard": {
       "url": "https://github.com/fussybeaver/bollard",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1164
     },
     "rust:googleapis/google-cloud-rust": {
       "url": "https://github.com/googleapis/google-cloud-rust",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 857
     },
     "rust:gyscos/zstd-rs": {
       "url": "https://github.com/gyscos/zstd-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 613
     },
     "rust:hickory-dns/hickory-dns": {
       "url": "https://github.com/hickory-dns/hickory-dns",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 4880
     },
     "rust:http-rs/accept-header": {
       "url": "https://github.com/http-rs/accept-header",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": null
     },
     "rust:hyperium/hyper": {
       "url": "https://github.com/hyperium/hyper",
       "lang": "rust",
-      "unsafe": "14 vulns including GHSA-5h46-h7hh-c6x9"
+      "unsafe": "14 vulns including GHSA-5h46-h7hh-c6x9",
+      "stars": 15787
     },
     "rust:hyperium/tonic": {
       "url": "https://github.com/hyperium/tonic",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 11641
     },
     "rust:image-rs/image": {
       "url": "https://github.com/image-rs/image",
       "lang": "rust",
-      "unsafe": "4 vulns including GHSA-9wgh-vjj7-7433"
+      "unsafe": "4 vulns including GHSA-9wgh-vjj7-7433",
+      "stars": 5580
     },
     "rust:image-rs/image-webp": {
       "url": "https://github.com/image-rs/image-webp",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 64
     },
     "rust:image-rs/imageproc": {
       "url": "https://github.com/image-rs/imageproc",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 910
     },
     "rust:jeromefroe/lru-rs": {
       "url": "https://github.com/jeromefroe/lru-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 763
     },
     "rust:jmagnuson/linemux": {
       "url": "https://github.com/jmagnuson/linemux",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 50
     },
     "rust:juhaku/utoipa": {
       "url": "https://github.com/juhaku/utoipa",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3536
     },
     "rust:keats/jsonwebtoken": {
       "url": "https://github.com/keats/jsonwebtoken",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1974
     },
     "rust:kivikakk/comrak": {
       "url": "https://github.com/kivikakk/comrak",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1469
     },
     "rust:kube-rs/kube": {
       "url": "https://github.com/kube-rs/kube",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3542
     },
     "rust:linebender/resvg": {
       "url": "https://github.com/linebender/resvg",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3525
     },
     "rust:lotabout/fuzzy-matcher": {
       "url": "https://github.com/lotabout/fuzzy-matcher",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 293
     },
     "rust:lucab/libsystemd-rs": {
       "url": "https://github.com/lucab/libsystemd-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 134
     },
     "rust:manuel-woelker/rust-vfs": {
       "url": "https://github.com/manuel-woelker/rust-vfs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 461
     },
     "rust:microsoft/windows-rs": {
       "url": "https://github.com/microsoft/windows-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 11759
     },
     "rust:misalcedo/ppp": {
       "url": "https://github.com/misalcedo/ppp",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 36
     },
     "rust:mitsuhiko/similar": {
       "url": "https://github.com/mitsuhiko/similar",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1190
     },
     "rust:notify-rs/notify": {
       "url": "https://github.com/notify-rs/notify",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3177
     },
     "rust:nushell/nushell/tree/main/crates/nu-parser": {
       "url": "https://github.com/nushell/nushell/tree/main/crates/nu-parser",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 37600
     },
     "rust:ogham/rust-ansi-term": {
       "url": "https://github.com/ogham/rust-ansi-term",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 480
     },
     "rust:open-telemetry/opentelemetry-rust": {
       "url": "https://github.com/open-telemetry/opentelemetry-rust",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 2406
     },
     "rust:parched/cupid": {
       "url": "https://github.com/parched/cupid",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": null
     },
     "rust:paritytech/jsonrpsee": {
       "url": "https://github.com/paritytech/jsonrpsee",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 813
     },
     "rust:pascalkuthe/imara-diff": {
       "url": "https://github.com/pascalkuthe/imara-diff",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 191
     },
     "rust:pepperoni21/ollama-rs": {
       "url": "https://github.com/pepperoni21/ollama-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 952
     },
     "rust:phsym/prettytable-rs": {
       "url": "https://github.com/phsym/prettytable-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1034
     },
     "rust:prometheus/client_rust": {
       "url": "https://github.com/prometheus/client_rust",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 577
     },
     "rust:prometheus/procfs-rs": {
       "url": "https://github.com/prometheus/procfs-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": null
     },
     "rust:pulldown-cmark/pulldown-cmark": {
       "url": "https://github.com/pulldown-cmark/pulldown-cmark",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 2420
     },
     "rust:quinn-rs/quinn": {
       "url": "https://github.com/quinn-rs/quinn",
       "lang": "rust",
-      "unsafe": "2 vulns including GHSA-fhv4-fx3v-77w6"
+      "unsafe": "2 vulns including GHSA-fhv4-fx3v-77w6",
+      "stars": 4759
     },
     "rust:ramosbugs/oauth2-rs": {
       "url": "https://github.com/ramosbugs/oauth2-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1125
     },
     "rust:ratatui/ratatui": {
       "url": "https://github.com/ratatui/ratatui",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 16776
     },
     "rust:redis-rs/redis-rs": {
       "url": "https://github.com/redis-rs/redis-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 4127
     },
     "rust:rosetta-rs/struct-patch": {
       "url": "https://github.com/rosetta-rs/struct-patch",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": null
     },
     "rust:rusqlite/rusqlite": {
       "url": "https://github.com/rusqlite/rusqlite",
       "lang": "rust",
-      "unsafe": "18 vulns including GHSA-28ph-f7gx-fqj8"
+      "unsafe": "18 vulns including GHSA-28ph-f7gx-fqj8",
+      "stars": 3969
     },
     "rust:rust-ammonia/ammonia": {
       "url": "https://github.com/rust-ammonia/ammonia",
       "lang": "rust",
-      "unsafe": "8 vulns including GHSA-5325-xw5m-phm3"
+      "unsafe": "8 vulns including GHSA-5325-xw5m-phm3",
+      "stars": 619
     },
     "rust:rust-cli/config-rs": {
       "url": "https://github.com/rust-cli/config-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3062
     },
     "rust:rust-db/refinery": {
       "url": "https://github.com/rust-db/refinery",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1583
     },
     "rust:rust-itertools/itertools": {
       "url": "https://github.com/rust-itertools/itertools",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 3062
     },
     "rust:rust-lang/libc": {
       "url": "https://github.com/rust-lang/libc",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 2424
     },
     "rust:rust-netlink/netlink": {
       "url": "https://github.com/rust-netlink/netlink",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 4
     },
     "rust:rust-scraper/scraper": {
       "url": "https://github.com/rust-scraper/scraper",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 2279
     },
     "rust:rustls/rustls": {
       "url": "https://github.com/rustls/rustls",
       "lang": "rust",
-      "unsafe": "4 vulns including GHSA-6g7w-8wpp-frhj"
+      "unsafe": "4 vulns including GHSA-6g7w-8wpp-frhj",
+      "stars": 7130
     },
     "rust:serde-rs/json": {
       "url": "https://github.com/serde-rs/json",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 5409
     },
     "rust:serde-rs/serde": {
       "url": "https://github.com/serde-rs/serde",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 10242
     },
     "rust:servo/rust-cssparser": {
       "url": "https://github.com/servo/rust-cssparser",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 823
     },
     "rust:shepmaster/twox-hash": {
       "url": "https://github.com/shepmaster/twox-hash",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 420
     },
     "rust:snapview/tokio-tungstenite": {
       "url": "https://github.com/snapview/tokio-tungstenite",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 2329
     },
     "rust:softprops/atty": {
       "url": "https://github.com/softprops/atty",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 288
     },
     "rust:tikv/pprof-rs": {
       "url": "https://github.com/tikv/pprof-rs",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1568
     },
     "rust:tokio-rs/axum": {
       "url": "https://github.com/tokio-rs/axum",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 24233
     },
     "rust:tokio-rs/prost": {
       "url": "https://github.com/tokio-rs/prost",
       "lang": "rust",
-      "unsafe": "2 vulns including GHSA-gv73-9mwv-fwgq"
+      "unsafe": "2 vulns including GHSA-gv73-9mwv-fwgq",
+      "stars": 4520
     },
     "rust:tokio-rs/tokio": {
       "url": "https://github.com/tokio-rs/tokio",
       "lang": "rust",
-      "unsafe": "10 vulns including GHSA-2grh-hm3w-w7hv"
+      "unsafe": "10 vulns including GHSA-2grh-hm3w-w7hv",
+      "stars": 30571
     },
     "rust:tokio-rs/tracing": {
       "url": "https://github.com/tokio-rs/tracing",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 6414
     },
     "rust:tokio-rs/tracing/tree/master/tracing-appender": {
       "url": "https://github.com/tokio-rs/tracing/tree/master/tracing-appender",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 6414
     },
     "rust:toml-rs/toml": {
       "url": "https://github.com/toml-rs/toml",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 944
     },
     "rust:tower-rs/tower-http": {
       "url": "https://github.com/tower-rs/tower-http",
       "lang": "rust",
-      "unsafe": "3 vulns including GHSA-qrqq-9c63-xfrg"
+      "unsafe": "3 vulns including GHSA-qrqq-9c63-xfrg",
+      "stars": 832
     },
     "rust:trishume/syntect": {
       "url": "https://github.com/trishume/syntect",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 2211
     },
     "rust:unicode-rs/unicode-normalization": {
       "url": "https://github.com/unicode-rs/unicode-normalization",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 182
     },
     "rust:unicode-rs/unicode-segmentation": {
       "url": "https://github.com/unicode-rs/unicode-segmentation",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 640
     },
     "rust:unicode-rs/unicode-width": {
       "url": "https://github.com/unicode-rs/unicode-width",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 282
     },
     "rust:uom/uom": {
       "url": "https://github.com/uom/uom",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": null
     },
     "rust:uuid-rs/uuid": {
       "url": "https://github.com/uuid-rs/uuid",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1154
     },
     "rust:wilsonzlin/minify-html": {
       "url": "https://github.com/wilsonzlin/minify-html",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 1079
     },
     "rust:zonyitoo/rust-ini": {
       "url": "https://github.com/zonyitoo/rust-ini",
-      "lang": "rust"
+      "lang": "rust",
+      "stars": 338
     }
   }
 }

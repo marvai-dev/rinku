@@ -8,6 +8,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/spf13/afero"
 	"github.com/stephan/rinku/internal/gomod"
 	urlpkg "github.com/stephan/rinku/internal/url"
 )
@@ -213,4 +214,15 @@ func GenerateCargoToml(w io.Writer, moduleName string, result *GenerateResult) e
 	}
 
 	return nil
+}
+
+// WriteCargoTomlFS writes a Cargo.toml file to the given filesystem.
+func WriteCargoTomlFS(fs afero.Fs, path string, moduleName string, result *GenerateResult) error {
+	file, err := fs.Create(path)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return GenerateCargoToml(file, moduleName, result)
 }

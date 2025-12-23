@@ -4,9 +4,10 @@ package gomod
 import (
 	"bufio"
 	"io"
-	"os"
 	"regexp"
 	"strings"
+
+	"github.com/spf13/afero"
 )
 
 // Dependency represents a Go module dependency.
@@ -25,7 +26,12 @@ type ParseResult struct {
 
 // Parse reads and parses a go.mod file from the given path.
 func Parse(path string) (*ParseResult, error) {
-	file, err := os.Open(path)
+	return ParseFS(afero.NewOsFs(), path)
+}
+
+// ParseFS reads and parses a go.mod file from the given filesystem.
+func ParseFS(fs afero.Fs, path string) (*ParseResult, error) {
+	file, err := fs.Open(path)
 	if err != nil {
 		return nil, err
 	}

@@ -3,6 +3,8 @@ package gomod
 import (
 	"strings"
 	"testing"
+
+	"github.com/spf13/afero"
 )
 
 func TestParseReader(t *testing.T) {
@@ -173,5 +175,82 @@ func TestDirectDependencies(t *testing.T) {
 
 	if direct[1].Path != "github.com/direct/dep" {
 		t.Errorf("DirectDependencies()[1].Path = %v, want github.com/direct/dep", direct[1].Path)
+	}
+}
+
+func TestParseFS(t *testing.T) {
+	fs := afero.NewMemMapFs()
+
+	content := `module example.com/test
+go 1.22
+
+require (
+	github.com/spf13/cobra v1.8.0
+	github.com/gin-gonic/gin v1.9.0 // indirect
+)`
+	if err := afero.WriteFile(fs, "go.mod", []byte(content), 0644); err != nil {
+		t.Fatalf("failed to write test file: %v", err)
+	}
+
+	result, err := ParseFS(fs, "go.mod")
+	if err != nil {
+		t.Fatalf("ParseFS() error = %v", err)
+	}
+
+	if result.Module != "example.com/test" {
+		t.Errorf("Module = %v, want example.com/test", result.Module)
+	}
+
+	if result.GoVersion != "1.22" {
+		t.Errorf("GoVersion = %v, want 1.22", result.GoVersion)
+	}
+
+	if len(result.Dependencies) != 2 {
+		t.Fatalf("Dependencies count = %d, want 2", len(result.Dependencies))
+	}
+
+	if result.Dependencies[0].Path != "github.com/spf13/cobra" {
+		t.Errorf("Dependencies[0].Path = %v, want github.com/spf13/cobra", result.Dependencies[0].Path)
+	}
+
+	if result.Dependencies[1].Indirect != true {
+		t.Errorf("Dependencies[1].Indirect = %v, want true", result.Dependencies[1].Indirect)
+	}
+}
+
+func TestParseFS_FileNotFound(t *testing.T) {
+	fs := afero.NewMemMapFs()
+
+	_, err := ParseFS(fs, "nonexistent.mod")
+	if err == nil {
+		t.Error("expected error for missing file")
+	}
+}
+
+func TestParseFS_NestedPath(t *testing.T) {
+	fs := afero.NewMemMapFs()
+
+	content := `module nested/module
+go 1.21
+require github.com/foo/bar v1.0.0`
+
+	if err := fs.MkdirAll("subdir/nested", 0755); err != nil {
+		t.Fatalf("failed to create directory: %v", err)
+	}
+	if err := afero.WriteFile(fs, "subdir/nested/go.mod", []byte(content), 0644); err != nil {
+		t.Fatalf("failed to write test file: %v", err)
+	}
+
+	result, err := ParseFS(fs, "subdir/nested/go.mod")
+	if err != nil {
+		t.Fatalf("ParseFS() error = %v", err)
+	}
+
+	if result.Module != "nested/module" {
+		t.Errorf("Module = %v, want nested/module", result.Module)
+	}
+
+	if len(result.Dependencies) != 1 {
+		t.Errorf("Dependencies count = %d, want 1", len(result.Dependencies))
 	}
 }

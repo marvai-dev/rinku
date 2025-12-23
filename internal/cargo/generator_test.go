@@ -5,6 +5,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/spf13/afero"
 	"github.com/stephan/rinku/internal/gomod"
 )
 
@@ -191,5 +192,86 @@ func TestGenerateCargoToml(t *testing.T) {
 	// Check unmapped dependencies as TODO
 	if !strings.Contains(output, "# TODO: find equivalent for github.com/unmapped/lib") {
 		t.Error("Output should contain TODO for unmapped dependency")
+	}
+}
+
+func TestWriteCargoTomlFS(t *testing.T) {
+	fs := afero.NewMemMapFs()
+
+	result := &GenerateResult{
+		Mapped: []MappedDependency{
+			{
+				GoDep:       gomod.Dependency{Path: "github.com/spf13/cobra", Version: "v1.8.0"},
+				RustTargets: []string{"https://github.com/clap-rs/clap"},
+				CrateNames:  []string{"clap"},
+			},
+		},
+		Unmapped: []UnmappedDependency{
+			{GoDep: gomod.Dependency{Path: "github.com/unmapped/lib", Version: "v1.0.0"}},
+		},
+	}
+
+	err := WriteCargoTomlFS(fs, "Cargo.toml", "test-module", result)
+	if err != nil {
+		t.Fatalf("WriteCargoTomlFS() error = %v", err)
+	}
+
+	// Verify file exists
+	exists, err := afero.Exists(fs, "Cargo.toml")
+	if err != nil {
+		t.Fatalf("failed to check file existence: %v", err)
+	}
+	if !exists {
+		t.Fatal("Cargo.toml was not created")
+	}
+
+	// Read and verify content
+	content, err := afero.ReadFile(fs, "Cargo.toml")
+	if err != nil {
+		t.Fatalf("failed to read Cargo.toml: %v", err)
+	}
+
+	output := string(content)
+
+	if !strings.Contains(output, "[package]") {
+		t.Error("Output should contain [package] section")
+	}
+
+	if !strings.Contains(output, "[dependencies]") {
+		t.Error("Output should contain [dependencies] section")
+	}
+
+	if !strings.Contains(output, `clap = "*"`) {
+		t.Error("Output should contain clap dependency")
+	}
+}
+
+func TestWriteCargoTomlFS_NestedPath(t *testing.T) {
+	fs := afero.NewMemMapFs()
+
+	result := &GenerateResult{
+		Mapped: []MappedDependency{
+			{
+				GoDep:       gomod.Dependency{Path: "github.com/foo/bar", Version: "v1.0.0"},
+				RustTargets: []string{"https://github.com/owner/crate"},
+				CrateNames:  []string{"crate"},
+			},
+		},
+	}
+
+	// Create nested directory
+	if err := fs.MkdirAll("output/rust", 0755); err != nil {
+		t.Fatalf("failed to create directory: %v", err)
+	}
+
+	err := WriteCargoTomlFS(fs, "output/rust/Cargo.toml", "nested-module", result)
+	if err != nil {
+		t.Fatalf("WriteCargoTomlFS() error = %v", err)
+	}
+
+	// Verify file exists at nested path
+	exists, _ := afero.Exists(fs, "output/rust/Cargo.toml")
+	if !exists {
+		t.Fatal("Cargo.toml was not created at nested path")
 	}
 }

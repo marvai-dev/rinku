@@ -95,20 +95,6 @@ Generate a Cargo.toml from a go.mod file.
 rinku convert ./go.mod > Cargo.toml
 ```
 
-## Security
-
-Rinku excludes libraries with known security vulnerabilities by default. Use `--unsafe` to include them.
-
-To validate all library mappings for security issues:
-
-```bash
-make validate
-```
-
-This checks all Rust library targets for:
-- Repository existence and health (via GitHub API)
-- Known vulnerabilities (via OSV API)
-
 ## Coverage
 
 **160+ library mappings** covering 270+ libraries across 25+ categories:

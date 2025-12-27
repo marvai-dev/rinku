@@ -1,7 +1,5 @@
 # rinku
 
-![Rinku Mascot](rinku-mascot.webp)
-
 **160+ curated Go-to-Rust library mappings** — one of the largest open databases of equivalent libraries for migrating Go projects to Rust.
 
 A CLI tool that instantly finds equivalents for libraries. Give it a GitHub URL, get back the best  alternative in your target language.

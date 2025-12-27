@@ -8,6 +8,8 @@ import (
 	"os"
 	"sort"
 	"strings"
+
+	"github.com/stephan/rinku/internal/types"
 )
 
 func main() {
@@ -18,7 +20,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	var libsFile LibsFile
+	var libsFile types.LibsFile
 	if err := json.Unmarshal(libsData, &libsFile); err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing libs.json: %v\n", err)
 		os.Exit(1)
@@ -31,7 +33,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	var mappingsFile MappingsFile
+	var mappingsFile types.MappingsFile
 	if err := json.Unmarshal(mappingsData, &mappingsFile); err != nil {
 		fmt.Fprintf(os.Stderr, "Error parsing mappings.json: %v\n", err)
 		os.Exit(1)

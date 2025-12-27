@@ -3,10 +3,12 @@ package main
 import (
 	"reflect"
 	"testing"
+
+	"github.com/stephan/rinku/internal/types"
 )
 
 func TestBuildIndexes(t *testing.T) {
-	libs := map[string]Library{
+	libs := map[string]types.Library{
 		"go:spf13/cobra": {
 			URL:  "https://github.com/spf13/cobra",
 			Lang: "go",
@@ -26,7 +28,7 @@ func TestBuildIndexes(t *testing.T) {
 		},
 	}
 
-	mappings := []Mapping{
+	mappings := []types.Mapping{
 		{
 			Source:   "go:spf13/cobra",
 			Targets:  []string{"rust:clap-rs/clap"},
@@ -88,7 +90,7 @@ func TestBuildIndexes(t *testing.T) {
 }
 
 func TestBuildIndexes_NormalizesURLs(t *testing.T) {
-	libs := map[string]Library{
+	libs := map[string]types.Library{
 		"go:Foo/Bar": {
 			URL:  "HTTPS://GitHub.com/Foo/Bar/",
 			Lang: "go",
@@ -99,7 +101,7 @@ func TestBuildIndexes_NormalizesURLs(t *testing.T) {
 		},
 	}
 
-	mappings := []Mapping{
+	mappings := []types.Mapping{
 		{
 			Source:  "go:Foo/Bar",
 			Targets: []string{"rust:example/lib"},
@@ -115,14 +117,14 @@ func TestBuildIndexes_NormalizesURLs(t *testing.T) {
 }
 
 func TestBuildIndexes_SkipsNonePlaceholder(t *testing.T) {
-	libs := map[string]Library{
+	libs := map[string]types.Library{
 		"go:foo/bar": {
 			URL:  "https://github.com/foo/bar",
 			Lang: "go",
 		},
 	}
 
-	mappings := []Mapping{
+	mappings := []types.Mapping{
 		{
 			Source:  "go:foo/bar",
 			Targets: []string{"<None>"},
@@ -141,7 +143,7 @@ func TestBuildIndexes_SkipsNonePlaceholder(t *testing.T) {
 }
 
 func TestBuildIndexes_MultipleTargets(t *testing.T) {
-	libs := map[string]Library{
+	libs := map[string]types.Library{
 		"go:foo/bar": {
 			URL:  "https://github.com/foo/bar",
 			Lang: "go",
@@ -156,7 +158,7 @@ func TestBuildIndexes_MultipleTargets(t *testing.T) {
 		},
 	}
 
-	mappings := []Mapping{
+	mappings := []types.Mapping{
 		{
 			Source:  "go:foo/bar",
 			Targets: []string{"rust:target1/lib", "rust:target2/lib"},
@@ -184,7 +186,7 @@ func TestBuildIndexes_MultipleTargets(t *testing.T) {
 }
 
 func TestBuildIndexes_UnsafeTarget(t *testing.T) {
-	libs := map[string]Library{
+	libs := map[string]types.Library{
 		"go:safe/source": {
 			URL:  "https://github.com/safe/source",
 			Lang: "go",
@@ -196,7 +198,7 @@ func TestBuildIndexes_UnsafeTarget(t *testing.T) {
 		},
 	}
 
-	mappings := []Mapping{
+	mappings := []types.Mapping{
 		{
 			Source:  "go:safe/source",
 			Targets: []string{"rust:unsafe/target"},

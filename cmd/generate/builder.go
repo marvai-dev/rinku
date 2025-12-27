@@ -3,32 +3,9 @@ package main
 import (
 	"strings"
 
+	"github.com/stephan/rinku/internal/types"
 	"github.com/stephan/rinku/internal/url"
 )
-
-// LibsFile represents the libs.json structure
-type LibsFile struct {
-	Libs map[string]Library `json:"libs"`
-}
-
-// Library represents a library entry
-type Library struct {
-	URL    string `json:"url"`
-	Lang   string `json:"lang"`
-	Unsafe string `json:"unsafe,omitempty"`
-}
-
-// MappingsFile represents the mappings.json structure
-type MappingsFile struct {
-	Mappings []Mapping `json:"mappings"`
-}
-
-// Mapping represents a directional library mapping entry
-type Mapping struct {
-	Source   string   `json:"source"`
-	Targets  []string `json:"targets"`
-	Category string   `json:"category"`
-}
 
 // IndexResult contains all generated indexes
 type IndexResult struct {
@@ -41,9 +18,7 @@ type IndexResult struct {
 	LibrariesCount int
 }
 
-// BuildIndexes creates lookup indexes from libs and mappings.
-// Returns forward and reverse indexes for both safe and all entries.
-func BuildIndexes(libs map[string]Library, mappings []Mapping) IndexResult {
+func BuildIndexes(libs map[string]types.Library, mappings []types.Mapping) IndexResult {
 	result := IndexResult{
 		Forward:        make(map[string][]string),
 		ForwardAll:     make(map[string][]string),

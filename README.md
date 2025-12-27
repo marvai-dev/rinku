@@ -4,7 +4,14 @@
 
 **160+ curated Go-to-Rust library mappings** — one of the largest open databases of equivalent libraries for migrating Go projects to Rust.
 
-A CLI tool that instantly finds Rust equivalents for Go libraries. Give it a GitHub URL, get back the best Rust alternative.
+A CLI tool that instantly finds equivalents for libraries. Give it a GitHub URL, get back the best  alternative in your target language.
+
+Currently Works on:
+* Go -> Rust
+* JavaScript -> Go
+
+In the works:
+* Python -> Rust
 
 ## Installation
 

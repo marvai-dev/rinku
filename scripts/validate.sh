@@ -4,7 +4,7 @@
 
 set -euo pipefail
 
-MAPPINGS_FILE="${1:-cmd/rinku/mappings.json}"
+LIBS_FILE="${1:-cmd/rinku/libs.json}"
 PASS_COUNT=0
 WARN_COUNT=0
 FAIL_COUNT=0
@@ -110,25 +110,29 @@ check_vulns() {
 }
 
 # Main validation loop
-echo "Validating Rust library targets from $MAPPINGS_FILE..."
+echo "Validating Rust libraries from $LIBS_FILE..."
 echo ""
 
-# Get unique target URLs (skip <None>)
-urls=$(jq -r '.mappings[].target[]' "$MAPPINGS_FILE" 2>/dev/null | grep -v '<None>' | sort -u)
+# Get rust libraries (key and url)
+targets=$(jq -r '.libs | to_entries[] | select(.value.lang == "rust") | "\(.key)|\(.value.url)"' "$LIBS_FILE" 2>/dev/null | sort -u)
 
-total=$(echo "$urls" | wc -l)
+total=$(echo "$targets" | wc -l)
 current=0
 
-while IFS= read -r url; do
-    [[ -z "$url" ]] && continue
+while IFS= read -r line; do
+    [[ -z "$line" ]] && continue
     current=$((current + 1))
+
+    # Parse key|url format
+    key=$(echo "$line" | cut -d'|' -f1)
+    url=$(echo "$line" | cut -d'|' -f2)
 
     repo=$(parse_repo "$url")
     crate=$(parse_crate_name "$url")
 
     # Skip org pages (no repo)
     if [[ ! "$repo" =~ / ]] || [[ "$repo" =~ /$ ]]; then
-        echo -e "${YELLOW}[SKIP]${NC} $url (org page, not a repo)"
+        echo -e "${YELLOW}[SKIP]${NC} $key (org page, not a repo)"
         continue
     fi
 
@@ -163,7 +167,7 @@ while IFS= read -r url; do
     # Rate limiting: be nice to APIs
     sleep 0.5
 
-done <<< "$urls"
+done <<< "$targets"
 
 # Summary
 echo ""

@@ -5,26 +5,28 @@
       "targets": [
         "rust:Azure/azure-sdk-for-rust"
       ],
-      "category": "azure_sdk"
+      "category": "azure_sdk",
+      "confidence": 0.95
     },
     {
       "source": "go:BurntSushi/toml",
       "targets": [
         "rust:toml-rs/toml"
       ],
-      "category": "toml"
+      "category": "toml",
+      "confidence": 0.85
     },
     {
       "source": "go:JohannesKaufmann/html-to-markdown",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "html_to_markdown"
     },
     {
       "source": "go:MakeNowJust/heredoc",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "heredoc"
     },
@@ -33,306 +35,349 @@
       "targets": [
         "rust:rust-scraper/scraper"
       ],
-      "category": "html_parsing"
+      "category": "html_parsing",
+      "confidence": 0.8
     },
     {
       "source": "go:alecthomas/chroma",
       "targets": [
         "rust:trishume/syntect"
       ],
-      "category": "syntax_highlighting"
+      "category": "syntax_highlighting",
+      "confidence": 0.85
     },
     {
       "source": "go:alecthomas/kong",
       "targets": [
         "rust:clap-rs/clap"
       ],
-      "category": "kong_cli"
+      "category": "kong_cli",
+      "confidence": 0.8
     },
     {
       "source": "go:atotto/clipboard",
       "targets": [
         "rust:1Password/arboard"
       ],
-      "category": "clipboard"
+      "category": "clipboard",
+      "confidence": 0.9
     },
     {
       "source": "go:aws/aws-sdk-go-v2",
       "targets": [
         "rust:awslabs/aws-sdk-rust"
       ],
-      "category": "aws_sdk"
+      "category": "aws_sdk",
+      "confidence": 0.9
     },
     {
       "source": "go:aymanbagabas/go-udiff",
       "targets": [
         "rust:pascalkuthe/imara-diff"
       ],
-      "category": "unified_diff"
+      "category": "unified_diff",
+      "confidence": 0.85
     },
     {
       "source": "go:bmatcuk/doublestar",
       "targets": [
         "rust:BurntSushi/globset"
       ],
-      "category": "glob_matching"
+      "category": "glob_matching",
+      "confidence": 0.8
     },
     {
       "source": "go:bytedance/sonic",
       "targets": [
         "rust:cloudwego/sonic-rs"
       ],
-      "category": "simd_json"
+      "category": "simd_json",
+      "confidence": 0.85
     },
     {
       "source": "go:cespare/xxhash",
       "targets": [
         "rust:shepmaster/twox-hash"
       ],
-      "category": "xxhash"
+      "category": "xxhash",
+      "confidence": 0.9
     },
     {
       "source": "go:charlievieth/fastwalk",
       "targets": [
         "rust:BurntSushi/walkdir"
       ],
-      "category": "directory_walking"
+      "category": "directory_walking",
+      "confidence": 0.8
     },
     {
       "source": "go:charmbracelet/bubbles",
       "targets": [
         "rust:ratatui/ratatui"
       ],
-      "category": "tui_components"
+      "category": "tui_components",
+      "confidence": 0.85
     },
     {
       "source": "go:charmbracelet/bubbletea",
       "targets": [
         "rust:ratatui/ratatui"
       ],
-      "category": "tui_framework"
+      "category": "tui_framework",
+      "confidence": 0.85
     },
     {
       "source": "go:charmbracelet/colorprofile",
       "targets": [
         "rust:crossterm-rs/crossterm"
       ],
-      "category": "terminal_detection"
+      "category": "terminal_detection",
+      "confidence": 0.8
     },
     {
       "source": "go:charmbracelet/glamour",
       "targets": [
         "rust:kivikakk/comrak"
       ],
-      "category": "markdown_rendering"
+      "category": "markdown_rendering",
+      "confidence": 0.85
     },
     {
       "source": "go:charmbracelet/lipgloss",
       "targets": [
         "rust:ratatui/ratatui"
       ],
-      "category": "tui_styling"
+      "category": "tui_styling",
+      "confidence": 0.85
     },
     {
       "source": "go:charmbracelet/log",
       "targets": [
         "rust:tokio-rs/tracing"
       ],
-      "category": "logging"
+      "category": "logging",
+      "confidence": 0.85
     },
     {
       "source": "go:charmbracelet/x",
       "targets": [
         "rust:crossterm-rs/crossterm"
       ],
-      "category": "ansi_sequences"
+      "category": "ansi_sequences",
+      "confidence": 0.8
     },
     {
       "source": "go:cloudflare/cfssl",
       "targets": [
         "rust:rustls/rustls"
       ],
-      "category": "pki_tls"
+      "category": "pki_tls",
+      "confidence": 0.8
     },
     {
       "source": "go:containerd/containerd",
       "targets": [
         "rust:containerd/rust-extensions"
       ],
-      "category": "containerd"
+      "category": "containerd",
+      "confidence": 0.95
     },
     {
       "source": "go:coreos/go-systemd",
       "targets": [
         "rust:lucab/libsystemd-rs"
       ],
-      "category": "systemd"
+      "category": "systemd",
+      "confidence": 0.8
     },
     {
       "source": "go:denisbrodbeck/machineid",
       "targets": [
         "rust:Hanaasagi/machine-uid"
       ],
-      "category": "machine_id"
+      "category": "machine_id",
+      "confidence": 0.8
     },
     {
       "source": "go:disintegration/gift",
       "targets": [
         "rust:image-rs/imageproc"
       ],
-      "category": "image_filter"
+      "category": "image_filter",
+      "confidence": 0.8
     },
     {
       "source": "go:disintegration/imageorient",
       "targets": [
         "rust:image-rs/image"
       ],
-      "category": "exif_orientation"
+      "category": "exif_orientation",
+      "confidence": 0.8
     },
     {
       "source": "go:dlclark/regexp2",
       "targets": [
         "rust:fancy-regex/fancy-regex"
       ],
-      "category": "regex"
+      "category": "regex",
+      "confidence": 0.9
     },
     {
       "source": "go:docker/docker",
       "targets": [
         "rust:fussybeaver/bollard"
       ],
-      "category": "docker"
+      "category": "docker",
+      "confidence": 0.9
     },
     {
       "source": "go:dustin/go-humanize",
       "targets": [
         "rust:chronotope/humantime"
       ],
-      "category": "humanize"
+      "category": "humanize",
+      "confidence": 0.8
     },
     {
       "source": "go:etcd-io/bbolt",
       "targets": [
         "rust:cberner/redb"
       ],
-      "category": "embedded_kv"
+      "category": "embedded_kv",
+      "confidence": 0.8
     },
     {
       "source": "go:etcd-io/etcd",
       "targets": [
         "rust:etcdv3/etcd-client"
       ],
-      "category": "etcd_client"
+      "category": "etcd_client",
+      "confidence": 0.9
     },
     {
       "source": "go:fatih/color",
       "targets": [
         "rust:ogham/rust-ansi-term"
       ],
-      "category": "color_output"
+      "category": "color_output",
+      "confidence": 0.8
     },
     {
       "source": "go:felixge/httpsnoop",
       "targets": [
         "rust:tower-rs/tower-http"
       ],
-      "category": "http_snoop"
+      "category": "http_snoop",
+      "confidence": 0.8
     },
     {
       "source": "go:fsnotify/fsnotify",
       "targets": [
         "rust:notify-rs/notify"
       ],
-      "category": "fsnotify"
+      "category": "fsnotify",
+      "confidence": 0.9
     },
     {
       "source": "go:gin-gonic/gin",
       "targets": [
         "rust:tokio-rs/axum"
       ],
-      "category": "web_framework"
+      "category": "web_framework",
+      "confidence": 0.85
     },
     {
       "source": "go:go-chi/chi",
       "targets": [
         "rust:tokio-rs/axum"
       ],
-      "category": "lightweight_router"
+      "category": "lightweight_router",
+      "confidence": 0.85
     },
     {
       "source": "go:go-gorm/gorm",
       "targets": [
         "rust:SeaQL/sea-orm"
       ],
-      "category": "orm"
+      "category": "orm",
+      "confidence": 0.85
     },
     {
       "source": "go:go-ini/ini",
       "targets": [
         "rust:zonyitoo/rust-ini"
       ],
-      "category": "ini"
+      "category": "ini",
+      "confidence": 0.8
     },
     {
       "source": "go:go-redis/redis",
       "targets": [
         "rust:redis-rs/redis-rs"
       ],
-      "category": "redis_client"
+      "category": "redis_client",
+      "confidence": 0.85
     },
     {
       "source": "go:go-yaml/yaml",
       "targets": [
         "rust:dtolnay/serde-yaml"
       ],
-      "category": "yaml"
+      "category": "yaml",
+      "confidence": 0.85
     },
     {
       "source": "go:goccy/go-json",
       "targets": [
         "rust:cloudwego/sonic-rs"
       ],
-      "category": "fast_json"
+      "category": "fast_json",
+      "confidence": 0.85
     },
     {
       "source": "go:goccy/go-yaml",
       "targets": [
         "rust:dtolnay/serde-yaml"
       ],
-      "category": "yaml"
+      "category": "yaml",
+      "confidence": 0.85
     },
     {
       "source": "go:gogo/protobuf",
       "targets": [
         "rust:tokio-rs/prost"
       ],
-      "category": "protobuf_alt"
+      "category": "protobuf_alt",
+      "confidence": 0.85
     },
     {
       "source": "go:golang/crypto",
       "targets": [
         "rust:RustCrypto/traits"
       ],
-      "category": "crypto"
+      "category": "crypto",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/image",
       "targets": [
         "rust:image-rs/image"
       ],
-      "category": "image_processing"
+      "category": "image_processing",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/mock",
       "targets": [
         "rust:asomers/mockall"
       ],
-      "category": "mock_generation"
+      "category": "mock_generation",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/mod",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "module_utilities"
     },
@@ -341,61 +386,68 @@
       "targets": [
         "rust:hyperium/hyper"
       ],
-      "category": "http_client"
+      "category": "http_client",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/oauth2",
       "targets": [
         "rust:ramosbugs/oauth2-rs"
       ],
-      "category": "oauth2"
+      "category": "oauth2",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/sync",
       "targets": [
         "rust:tokio-rs/tokio"
       ],
-      "category": "sync_primitives"
+      "category": "sync_primitives",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/sys",
       "targets": [
         "rust:rust-lang/libc"
       ],
-      "category": "system_calls"
+      "category": "system_calls",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/term",
       "targets": [
         "rust:crossterm-rs/crossterm"
       ],
-      "category": "terminal"
+      "category": "terminal",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/text",
       "targets": [
         "rust:unicode-rs/unicode-normalization"
       ],
-      "category": "text_processing"
+      "category": "text_processing",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/time",
       "targets": [
         "rust:chronotope/chrono"
       ],
-      "category": "time_utilities"
+      "category": "time_utilities",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/tools",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "dev_tools"
     },
     {
       "source": "go:google/go-cmp",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "comparison"
     },
@@ -404,54 +456,61 @@
       "targets": [
         "rust:uuid-rs/uuid"
       ],
-      "category": "uuid"
+      "category": "uuid",
+      "confidence": 0.95
     },
     {
       "source": "go:googleapis/google-api-go-client",
       "targets": [
         "rust:googleapis/google-cloud-rust"
       ],
-      "category": "google_api"
+      "category": "google_api",
+      "confidence": 0.95
     },
     {
       "source": "go:googleapis/google-cloud-go",
       "targets": [
         "rust:googleapis/google-cloud-rust"
       ],
-      "category": "gcp_sdk"
+      "category": "gcp_sdk",
+      "confidence": 0.95
     },
     {
       "source": "go:gorilla/css",
       "targets": [
         "rust:servo/rust-cssparser"
       ],
-      "category": "css_parsing"
+      "category": "css_parsing",
+      "confidence": 0.8
     },
     {
       "source": "go:gorilla/mux",
       "targets": [
         "rust:tokio-rs/axum"
       ],
-      "category": "http_router"
+      "category": "http_router",
+      "confidence": 0.85
     },
     {
       "source": "go:gorilla/websocket",
       "targets": [
         "rust:snapview/tokio-tungstenite"
       ],
-      "category": "websocket"
+      "category": "websocket",
+      "confidence": 0.85
     },
     {
       "source": "go:grpc/grpc-go",
       "targets": [
         "rust:hyperium/tonic"
       ],
-      "category": "grpc"
+      "category": "grpc",
+      "confidence": 0.85
     },
     {
       "source": "go:hashicorp/go-memdb",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "in_memory_db"
     },
@@ -460,131 +519,148 @@
       "targets": [
         "rust:jeromefroe/lru-rs"
       ],
-      "category": "lru_cache"
+      "category": "lru_cache",
+      "confidence": 0.8
     },
     {
       "source": "go:invopop/jsonschema",
       "targets": [
         "rust:GREsau/schemars"
       ],
-      "category": "json_schema"
+      "category": "json_schema",
+      "confidence": 0.8
     },
     {
       "source": "go:joho/godotenv",
       "targets": [
         "rust:allan2/dotenvy"
       ],
-      "category": "dotenv"
+      "category": "dotenv",
+      "confidence": 0.9
     },
     {
       "source": "go:json-iterator/go",
       "targets": [
         "rust:serde-rs/json"
       ],
-      "category": "json_iterator"
+      "category": "json_iterator",
+      "confidence": 0.8
     },
     {
       "source": "go:klauspost/compress",
       "targets": [
         "rust:gyscos/zstd-rs"
       ],
-      "category": "compression_zstd"
+      "category": "compression_zstd",
+      "confidence": 0.85
     },
     {
       "source": "go:kolesa-team/go-webp",
       "targets": [
         "rust:image-rs/image-webp"
       ],
-      "category": "webp_encoding"
+      "category": "webp_encoding",
+      "confidence": 0.8
     },
     {
       "source": "go:kubernetes/api",
       "targets": [
         "rust:kube-rs/kube"
       ],
-      "category": "kubernetes_api"
+      "category": "kubernetes_api",
+      "confidence": 0.9
     },
     {
       "source": "go:kubernetes/apimachinery",
       "targets": [
         "rust:kube-rs/kube"
       ],
-      "category": "kubernetes_types"
+      "category": "kubernetes_types",
+      "confidence": 0.9
     },
     {
       "source": "go:kubernetes/client-go",
       "targets": [
         "rust:kube-rs/kube"
       ],
-      "category": "kubernetes_client"
+      "category": "kubernetes_client",
+      "confidence": 0.9
     },
     {
       "source": "go:labstack/echo",
       "targets": [
         "rust:tokio-rs/axum"
       ],
-      "category": "web_framework_alt"
+      "category": "web_framework_alt",
+      "confidence": 0.85
     },
     {
       "source": "go:lucasb-eyer/go-colorful",
       "targets": [
         "rust:Ogeon/palette"
       ],
-      "category": "color_manipulation"
+      "category": "color_manipulation",
+      "confidence": 0.8
     },
     {
       "source": "go:mattn/go-isatty",
       "targets": [
         "rust:softprops/atty"
       ],
-      "category": "terminal_isatty"
+      "category": "terminal_isatty",
+      "confidence": 0.8
     },
     {
       "source": "go:mattn/go-runewidth",
       "targets": [
         "rust:unicode-rs/unicode-width"
       ],
-      "category": "runewidth"
+      "category": "runewidth",
+      "confidence": 0.8
     },
     {
       "source": "go:mattn/go-sqlite3",
       "targets": [
         "rust:rusqlite/rusqlite"
       ],
-      "category": "sqlite"
+      "category": "sqlite",
+      "confidence": 0.85
     },
     {
       "source": "go:microcosm-cc/bluemonday",
       "targets": [
         "rust:rust-ammonia/ammonia"
       ],
-      "category": "html_sanitization"
+      "category": "html_sanitization",
+      "confidence": 0.8
     },
     {
       "source": "go:miekg/dns",
       "targets": [
         "rust:hickory-dns/hickory-dns"
       ],
-      "category": "dns"
+      "category": "dns",
+      "confidence": 0.8
     },
     {
       "source": "go:mitchellh/mapstructure",
       "targets": [
         "rust:serde-rs/serde"
       ],
-      "category": "struct_mapping"
+      "category": "struct_mapping",
+      "confidence": 0.8
     },
     {
       "source": "go:moby/buildkit",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "buildkit"
     },
     {
       "source": "go:modelcontextprotocol/go-sdk",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "mcp_sdk"
     },
@@ -593,68 +669,76 @@
       "targets": [
         "rust:crossterm-rs/crossterm"
       ],
-      "category": "terminal_environment"
+      "category": "terminal_environment",
+      "confidence": 0.8
     },
     {
       "source": "go:mvdan/sh",
       "targets": [
         "rust:nushell/nushell/tree/main/crates/nu-parser"
       ],
-      "category": "shell_parser"
+      "category": "shell_parser",
+      "confidence": 0.8
     },
     {
       "source": "go:natefinch/lumberjack",
       "targets": [
         "rust:tokio-rs/tracing/tree/master/tracing-appender"
       ],
-      "category": "log_rotation"
+      "category": "log_rotation",
+      "confidence": 0.8
     },
     {
       "source": "go:ncruces/go-sqlite3",
       "targets": [
         "rust:rusqlite/rusqlite"
       ],
-      "category": "sqlite"
+      "category": "sqlite",
+      "confidence": 0.85
     },
     {
       "source": "go:nfnt/resize",
       "targets": [
         "rust:image-rs/image"
       ],
-      "category": "image_resizing"
+      "category": "image_resizing",
+      "confidence": 0.8
     },
     {
       "source": "go:nxadm/tail",
       "targets": [
         "rust:jmagnuson/linemux"
       ],
-      "category": "file_tailing"
+      "category": "file_tailing",
+      "confidence": 0.8
     },
     {
       "source": "go:olekukonko/tablewriter",
       "targets": [
         "rust:phsym/prettytable-rs"
       ],
-      "category": "table_writer"
+      "category": "table_writer",
+      "confidence": 0.8
     },
     {
       "source": "go:ollama/ollama",
       "targets": [
         "rust:pepperoni21/ollama-rs"
       ],
-      "category": "ollama_api"
+      "category": "ollama_api",
+      "confidence": 0.8
     },
     {
       "source": "go:onsi/ginkgo",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "bdd_testing"
     },
     {
       "source": "go:onsi/gomega",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "test_matchers"
     },
@@ -663,61 +747,69 @@
       "targets": [
         "rust:open-telemetry/opentelemetry-rust"
       ],
-      "category": "opentelemetry"
+      "category": "opentelemetry",
+      "confidence": 0.95
     },
     {
       "source": "go:openai/openai-go",
       "targets": [
         "rust:64bit/async-openai"
       ],
-      "category": "openai_client"
+      "category": "openai_client",
+      "confidence": 0.8
     },
     {
       "source": "go:opencontainers/image-spec",
       "targets": [
         "rust:containers/oci-spec-rs"
       ],
-      "category": "oci_image_spec"
+      "category": "oci_image_spec",
+      "confidence": 0.8
     },
     {
       "source": "go:pelletier/go-toml",
       "targets": [
         "rust:toml-rs/toml"
       ],
-      "category": "toml_parsing"
+      "category": "toml_parsing",
+      "confidence": 0.85
     },
     {
       "source": "go:pierrec/lz4",
       "targets": [
         "rust:PSeitz/lz4_flex"
       ],
-      "category": "compression_lz4"
+      "category": "compression_lz4",
+      "confidence": 0.85
     },
     {
       "source": "go:pires/go-proxyproto",
       "targets": [
         "rust:misalcedo/ppp"
       ],
-      "category": "proxy_protocol"
+      "category": "proxy_protocol",
+      "confidence": 0.8
     },
     {
       "source": "go:pkg/browser",
       "targets": [
         "rust:amodm/webbrowser-rs"
       ],
-      "category": "open_browser"
+      "category": "open_browser",
+      "confidence": 0.8
     },
     {
       "source": "go:pkg/errors",
       "targets": [
         "rust:dtolnay/anyhow"
       ],
-      "category": "errors"
+      "category": "errors",
+      "confidence": 0.85
     },
     {
       "source": "go:posthog/posthog-go",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "analytics"
     },
@@ -726,103 +818,117 @@
       "targets": [
         "rust:rust-db/refinery"
       ],
-      "category": "database_migrations"
+      "category": "database_migrations",
+      "confidence": 0.8
     },
     {
       "source": "go:prometheus/client_golang",
       "targets": [
         "rust:prometheus/client_rust"
       ],
-      "category": "metrics"
+      "category": "metrics",
+      "confidence": 0.95
     },
     {
       "source": "go:protocolbuffers/protobuf-go",
       "targets": [
         "rust:tokio-rs/prost"
       ],
-      "category": "protobuf"
+      "category": "protobuf",
+      "confidence": 0.85
     },
     {
       "source": "go:quic-go/quic-go",
       "targets": [
         "rust:quinn-rs/quinn"
       ],
-      "category": "quic_protocol"
+      "category": "quic_protocol",
+      "confidence": 0.8
     },
     {
       "source": "go:rivo/uniseg",
       "targets": [
         "rust:unicode-rs/unicode-segmentation"
       ],
-      "category": "unicode_segmentation"
+      "category": "unicode_segmentation",
+      "confidence": 0.8
     },
     {
       "source": "go:rs/zerolog",
       "targets": [
         "rust:tokio-rs/tracing"
       ],
-      "category": "zero_alloc_logging"
+      "category": "zero_alloc_logging",
+      "confidence": 0.8
     },
     {
       "source": "go:sabhiram/go-gitignore",
       "targets": [
         "rust:BurntSushi/ripgrep/tree/master/crates/ignore"
       ],
-      "category": "gitignore_parsing"
+      "category": "gitignore_parsing",
+      "confidence": 0.8
     },
     {
       "source": "go:sahilm/fuzzy",
       "targets": [
         "rust:lotabout/fuzzy-matcher"
       ],
-      "category": "fuzzy_matching"
+      "category": "fuzzy_matching",
+      "confidence": 0.8
     },
     {
       "source": "go:samber/lo",
       "targets": [
         "rust:rust-itertools/itertools"
       ],
-      "category": "functional"
+      "category": "functional",
+      "confidence": 0.8
     },
     {
       "source": "go:sashabaranov/go-openai",
       "targets": [
         "rust:64bit/async-openai"
       ],
-      "category": "openai_client"
+      "category": "openai_client",
+      "confidence": 0.8
     },
     {
       "source": "go:sergi/go-diff",
       "targets": [
         "rust:pascalkuthe/imara-diff"
       ],
-      "category": "diff"
+      "category": "diff",
+      "confidence": 0.85
     },
     {
       "source": "go:sirupsen/logrus",
       "targets": [
         "rust:tokio-rs/tracing"
       ],
-      "category": "logging"
+      "category": "logging",
+      "confidence": 0.85
     },
     {
       "source": "go:sourcegraph/jsonrpc2",
       "targets": [
         "rust:paritytech/jsonrpsee"
       ],
-      "category": "jsonrpc"
+      "category": "jsonrpc",
+      "confidence": 0.8
     },
     {
       "source": "go:spf13/afero",
       "targets": [
         "rust:manuel-woelker/rust-vfs"
       ],
-      "category": "filesystem_abstraction"
+      "category": "filesystem_abstraction",
+      "confidence": 0.8
     },
     {
       "source": "go:spf13/cast",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "type_casting"
     },
@@ -831,40 +937,45 @@
       "targets": [
         "rust:clap-rs/clap"
       ],
-      "category": "cli_framework"
+      "category": "cli_framework",
+      "confidence": 0.9
     },
     {
       "source": "go:spf13/pflag",
       "targets": [
         "rust:clap-rs/clap"
       ],
-      "category": "cli_flags"
+      "category": "cli_flags",
+      "confidence": 0.8
     },
     {
       "source": "go:spf13/viper",
       "targets": [
         "rust:rust-cli/config-rs"
       ],
-      "category": "config_management"
+      "category": "config_management",
+      "confidence": 0.85
     },
     {
       "source": "go:srwiley/oksvg",
       "targets": [
         "rust:linebender/resvg"
       ],
-      "category": "svg_parsing"
+      "category": "svg_parsing",
+      "confidence": 0.8
     },
     {
       "source": "go:srwiley/rasterx",
       "targets": [
         "rust:linebender/resvg"
       ],
-      "category": "svg_rasterization"
+      "category": "svg_rasterization",
+      "confidence": 0.8
     },
     {
       "source": "go:stretchr/testify",
       "targets": [
-        "<None>"
+        "\u003cNone\u003e"
       ],
       "category": "testing"
     },
@@ -874,393 +985,452 @@
         "rust:wilsonzlin/minify-html",
         "rust:GuillaumeGomez/minifier-rs"
       ],
-      "category": "minification"
+      "category": "minification",
+      "confidence": 0.76
     },
     {
       "source": "go:tetratelabs/wazero",
       "targets": [
         "rust:bytecodealliance/wasmtime"
       ],
-      "category": "wasm_runtime"
+      "category": "wasm_runtime",
+      "confidence": 0.8
     },
     {
       "source": "go:tidwall/gjson",
       "targets": [
         "rust:serde-rs/json"
       ],
-      "category": "json_parsing"
+      "category": "json_parsing",
+      "confidence": 0.85
     },
     {
       "source": "go:tidwall/sjson",
       "targets": [
         "rust:serde-rs/json"
       ],
-      "category": "json_modification"
+      "category": "json_modification",
+      "confidence": 0.85
     },
     {
       "source": "go:tmc/langchaingo",
       "targets": [
         "rust:Abraxas-365/langchain-rust"
       ],
-      "category": "langchain"
+      "category": "langchain",
+      "confidence": 0.9
     },
     {
       "source": "go:uber-go/zap",
       "targets": [
         "rust:tokio-rs/tracing"
       ],
-      "category": "high_perf_logging"
+      "category": "high_perf_logging",
+      "confidence": 0.8
     },
     {
       "source": "go:valyala/fasthttp",
       "targets": [
         "rust:hyperium/hyper"
       ],
-      "category": "fast_http"
+      "category": "fast_http",
+      "confidence": 0.8
     },
     {
       "source": "go:vishvananda/netlink",
       "targets": [
         "rust:rust-netlink/netlink"
       ],
-      "category": "linux_networking"
+      "category": "linux_networking",
+      "confidence": 0.8
     },
     {
       "source": "go:yuin/goldmark",
       "targets": [
         "rust:pulldown-cmark/pulldown-cmark"
       ],
-      "category": "markdown_parser"
+      "category": "markdown_parser",
+      "confidence": 0.85
     },
     {
       "source": "go:zeebo/xxh3",
       "targets": [
         "rust:shepmaster/twox-hash"
       ],
-      "category": "xxhash"
+      "category": "xxhash",
+      "confidence": 0.9
     },
     {
       "source": "go:pmezard/go-difflib",
       "targets": [
         "rust:mitsuhiko/similar"
       ],
-      "category": "diff"
+      "category": "diff",
+      "confidence": 0.85
     },
     {
       "source": "go:mattn/go-colorable",
       "targets": [
         "rust:BurntSushi/termcolor"
       ],
-      "category": "terminal"
+      "category": "terminal",
+      "confidence": 0.8
     },
     {
       "source": "go:go-logr/logr",
       "targets": [
         "rust:tokio-rs/tracing"
       ],
-      "category": "logging"
+      "category": "logging",
+      "confidence": 0.85
     },
     {
       "source": "go:go-logr/stdr",
       "targets": [
         "rust:tokio-rs/tracing"
       ],
-      "category": "logging"
+      "category": "logging",
+      "confidence": 0.85
     },
     {
       "source": "go:googleapis/go-genproto",
       "targets": [
         "rust:hyperium/tonic"
       ],
-      "category": "general"
+      "category": "general",
+      "confidence": 0.8
     },
     {
       "source": "go:beorn7/perks",
       "targets": [
         "rust:prometheus/client_rust"
       ],
-      "category": "general"
+      "category": "general",
+      "confidence": 0.8
     },
     {
       "source": "go:prometheus/client_model",
       "targets": [
         "rust:prometheus/client_rust"
       ],
-      "category": "metrics"
+      "category": "metrics",
+      "confidence": 0.95
     },
     {
       "source": "go:prometheus/procfs",
       "targets": [
         "rust:eminence/procfs"
       ],
-      "category": "metrics"
+      "category": "metrics",
+      "confidence": 0.8
     },
     {
       "source": "go:prometheus/common",
       "targets": [
         "rust:prometheus/client_rust"
       ],
-      "category": "metrics"
+      "category": "metrics",
+      "confidence": 0.95
     },
     {
       "source": "go:munnerz/goautoneg",
       "targets": [
         "rust:hyperium/headers"
       ],
-      "category": "general"
+      "category": "general",
+      "confidence": 0.8
     },
     {
       "source": "go:golang/protobuf",
       "targets": [
         "rust:tokio-rs/prost"
       ],
-      "category": "protobuf"
+      "category": "protobuf",
+      "confidence": 0.85
     },
     {
       "source": "go:golang-jwt/jwt",
       "targets": [
         "rust:keats/jsonwebtoken"
       ],
-      "category": "jwt"
+      "category": "jwt",
+      "confidence": 0.8
     },
     {
       "source": "go:modern-go/concurrent",
       "targets": [
         "rust:tokio-rs/tokio"
       ],
-      "category": "general"
+      "category": "general",
+      "confidence": 0.8
     },
     {
       "source": "go:uber-go/multierr",
       "targets": [
         "rust:dtolnay/anyhow"
       ],
-      "category": "general"
+      "category": "general",
+      "confidence": 0.8
     },
     {
       "source": "go:klauspost/cpuid",
       "targets": [
         "rust:gz/rust-cpuid"
       ],
-      "category": "cpu_detection"
+      "category": "cpu_detection",
+      "confidence": 0.8
     },
     {
       "source": "go:Microsoft/go-winio",
       "targets": [
         "rust:microsoft/windows-rs"
       ],
-      "category": "windows"
+      "category": "windows",
+      "confidence": 0.95
     },
     {
       "source": "go:mailru/easyjson",
       "targets": [
         "rust:serde-rs/json"
       ],
-      "category": "json"
+      "category": "json",
+      "confidence": 0.85
     },
     {
       "source": "go:golang/snappy",
       "targets": [
         "rust:BurntSushi/rust-snappy"
       ],
-      "category": "compression"
+      "category": "compression",
+      "confidence": 0.85
     },
     {
       "source": "go:docker/go-units",
       "targets": [
         "rust:iliekturtles/uom"
       ],
-      "category": "units"
+      "category": "units",
+      "confidence": 0.8
     },
     {
       "source": "go:opencontainers/go-digest",
       "targets": [
         "rust:RustCrypto/traits"
       ],
-      "category": "crypto"
+      "category": "crypto",
+      "confidence": 0.8
     },
     {
       "source": "go:grpc-ecosystem/grpc-gateway",
       "targets": [
         "rust:hyperium/tonic"
       ],
-      "category": "grpc"
+      "category": "grpc",
+      "confidence": 0.85
     },
     {
       "source": "go:kubernetes-sigs/yaml",
       "targets": [
         "rust:dtolnay/serde-yaml"
       ],
-      "category": "yaml"
+      "category": "yaml",
+      "confidence": 0.85
     },
     {
       "source": "go:josharian/intern",
       "targets": [
         "rust:droundy/internment"
       ],
-      "category": "string_interning"
+      "category": "string_interning",
+      "confidence": 0.8
     },
     {
       "source": "go:russross/blackfriday",
       "targets": [
         "rust:pulldown-cmark/pulldown-cmark"
       ],
-      "category": "general"
+      "category": "general",
+      "confidence": 0.8
     },
     {
       "source": "go:go-openapi/jsonpointer",
       "targets": [
         "rust:chanced/jsonptr"
       ],
-      "category": "openapi"
+      "category": "openapi",
+      "confidence": 0.8
     },
     {
       "source": "go:google/pprof",
       "targets": [
         "rust:tikv/pprof-rs"
       ],
-      "category": "profiling"
+      "category": "profiling",
+      "confidence": 0.8
     },
     {
       "source": "go:darccio/mergo",
       "targets": [
         "rust:yanganto/struct-patch"
       ],
-      "category": "struct_merge"
+      "category": "struct_merge",
+      "confidence": 0.8
     },
     {
       "source": "go:go-openapi/swag",
       "targets": [
         "rust:juhaku/utoipa"
       ],
-      "category": "openapi"
+      "category": "openapi",
+      "confidence": 0.8
     },
     {
       "source": "go:googleapis/gax-go",
       "targets": [
         "rust:googleapis/google-cloud-rust"
       ],
-      "category": "general"
+      "category": "general",
+      "confidence": 0.95
     },
     {
       "source": "js:expressjs/express",
       "targets": [
         "go:labstack/echo"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:fastify/fastify",
       "targets": [
         "go:gofiber/fiber"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:nestjs/nest",
       "targets": [
         "go:uber-go/fx"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:prisma/prisma",
       "targets": [
         "go:ent/ent"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:typeorm/typeorm",
       "targets": [
         "go:go-gorm/gorm"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:knex/knex",
       "targets": [
         "go:Masterminds/squirrel"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:brianc/node-postgres",
       "targets": [
         "go:jackc/pgx"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:colinhacks/zod",
       "targets": [
         "go:go-playground/validator"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:lodash/lodash",
       "targets": [
         "go:samber/lo"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:moment/moment",
       "targets": [
         "go:dromara/carbon"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:jestjs/jest",
       "targets": [
         "go:stretchr/testify"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:winstonjs/winston",
       "targets": [
         "go:golang/go"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:pinojs/pino",
       "targets": [
         "go:rs/zerolog"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:taskforcesh/bullmq",
       "targets": [
         "go:hibiken/asynq"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:motdotla/dotenv",
       "targets": [
         "go:joho/godotenv"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:lorenwest/node-config",
       "targets": [
         "go:knadh/koanf"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:axios/axios",
       "targets": [
         "go:go-resty/resty"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:socketio/socket.io",
       "targets": [
         "go:olahol/melody"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:jaredhanson/passport",
       "targets": [
         "go:markbates/goth"
-      ]
+      ],
+      "confidence": 0.8
     },
     {
       "source": "js:auth0/node-jsonwebtoken",
       "targets": [
         "go:golang-jwt/jwt"
-      ]
+      ],
+      "confidence": 0.8
     }
   ]
 }

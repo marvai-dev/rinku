@@ -1,4 +1,4 @@
-.PHONY: build run clean generate release validate last-release test goreleaser snapshot
+.PHONY: build run clean generate release validate last-release test goreleaser snapshot confidence confidence-reset confidence-dry
 
 BINARY=bin/rinku
 
@@ -40,3 +40,12 @@ goreleaser:
 
 snapshot:
 	goreleaser release --snapshot --clean
+
+confidence:
+	go run ./cmd/confidence
+
+confidence-reset:
+	go run ./cmd/confidence --reset
+
+confidence-dry:
+	go run ./cmd/confidence --dry-run

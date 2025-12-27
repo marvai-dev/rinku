@@ -1,5 +1,7 @@
 # rinku
 
+*Disclaimer: This software is mostly written by an AI. I understand this might change your feelings about the software and not use it.*
+
 **160+ curated Go-to-Rust library mappings** — one of the largest open databases of equivalent libraries for migrating Go projects to Rust.
 
 A CLI tool that instantly finds equivalents for libraries. Give it a GitHub URL, get back the best  alternative in your target language.
@@ -48,38 +50,49 @@ make build
 
 ## Usage
 
+### `lookup` - Find equivalent library
+
 ```bash
-rinku <github-url> [flags]
+rinku lookup <url> [language]
 ```
 
-### Flags
-
-| Flag | Description |
-|------|-------------|
-| `--unsafe` | Include libraries with known vulnerabilities in results |
-| `-h, --help` | Show help |
-
-### Examples
-
-Find the Rust equivalent of a Go CLI framework:
+Look up an equivalent library for a GitHub URL. Defaults to Rust target.
 
 ```bash
-rinku https://github.com/spf13/cobra
+# Go → Rust (default)
+rinku lookup https://github.com/spf13/cobra
 # Output: https://github.com/clap-rs/clap
+
+# JavaScript → Go
+rinku lookup https://github.com/lodash/lodash go
+# Output: https://github.com/samber/lo
+
+# Include libraries with known vulnerabilities
+rinku lookup https://github.com/golang/net --unsafe
 ```
 
-Find the Rust equivalent of a Go web framework:
+### `scan` - Analyze go.mod
 
 ```bash
-rinku https://github.com/gin-gonic/gin
-# Output: https://github.com/tokio-rs/axum
+rinku scan <path>
 ```
 
-Include libraries with known vulnerabilities:
+Parse a go.mod file and show equivalents for each dependency.
 
 ```bash
-rinku https://github.com/golang/net --unsafe
-# Output: https://github.com/hyperium/hyper
+rinku scan ./go.mod
+```
+
+### `convert` - Generate Cargo.toml
+
+```bash
+rinku convert <path>
+```
+
+Generate a Cargo.toml from a go.mod file.
+
+```bash
+rinku convert ./go.mod > Cargo.toml
 ```
 
 ## Security

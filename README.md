@@ -6,7 +6,7 @@
 
 A CLI tool that instantly finds equivalents for libraries. Give it a GitHub URL, get back the best  alternative in your target language.
 
-Currently Works on:
+Currently works for:
 * Go -> Rust
 * JavaScript -> Go
 

@@ -1,8 +1,8 @@
 # rinku
 
-*Disclaimer: This software is mostly written by an AI. I understand this might change your feelings about the software and not use it.*
+*Disclaimer: This software is mostly written by an AI. I understand this might change your feelings about the software and you might not want to use it.*
 
-**160+ curated Go-to-Rust library mappings** — one of the largest open databases of equivalent libraries for migrating Go projects to Rust.
+**180+ curated Go-to-Rust library mappings** — one of the largest open databases of equivalent libraries for migrating Go projects to Rust.
 
 A CLI tool that instantly finds equivalents for libraries. Give it a GitHub URL, get back the best  alternative in your target language.
 
@@ -97,7 +97,7 @@ rinku convert ./go.mod > Cargo.toml
 
 ## Coverage
 
-**160+ library mappings** covering 270+ libraries across 25+ categories:
+**180+ library mappings** covering 300+ libraries across 25+ categories:
 
 | Category | Examples |
 |----------|----------|

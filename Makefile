@@ -1,4 +1,4 @@
-.PHONY: build run clean generate release validate last-release test goreleaser snapshot confidence confidence-reset confidence-dry
+.PHONY: build run clean generate release validate last-release test goreleaser snapshot confidence confidence-reset confidence-dry lint
 
 BINARY=bin/rinku
 
@@ -7,10 +7,15 @@ generate:
 
 build: generate
 	@mkdir -p bin
-	go build -o $(BINARY) ./cmd/rinku
+	go build -ldflags="-s -w" -o $(BINARY) ./cmd/rinku
 
 test: generate
 	go test ./...
+
+lint:
+	go vet ./...
+	go tool staticcheck ./...
+	go tool golangci-lint run ./...
 
 release:
 ifndef TAG

@@ -53,33 +53,35 @@ func TestModulePathToGitHubURL(t *testing.T) {
 }
 
 func TestExtractCrateName(t *testing.T) {
+	// ExtractCrateName now only does heuristic extraction.
+	// Known crate name lookups are handled by the Lookup interface.
 	tests := []struct {
 		name  string
 		input string
 		want  string
 	}{
 		{
-			name:  "known crate - clap",
+			name:  "simple repo name",
 			input: "https://github.com/clap-rs/clap",
 			want:  "clap",
 		},
 		{
-			name:  "known crate - tokio",
+			name:  "repo with -rs suffix in org",
 			input: "https://github.com/tokio-rs/tokio",
 			want:  "tokio",
 		},
 		{
-			name:  "known crate - serde_json",
+			name:  "repo name becomes crate name",
 			input: "https://github.com/serde-rs/json",
-			want:  "serde_json",
+			want:  "json",
 		},
 		{
-			name:  "unknown crate - heuristic",
+			name:  "hyphens become underscores",
 			input: "https://github.com/owner/some-crate",
 			want:  "some_crate",
 		},
 		{
-			name:  "unknown crate with -rs suffix",
+			name:  "repo with -rs suffix stripped",
 			input: "https://github.com/owner/mycrate-rs",
 			want:  "mycrate",
 		},
@@ -102,12 +104,20 @@ func TestExtractCrateName(t *testing.T) {
 
 // mockLookup is a test double for the Lookup interface.
 type mockLookup struct {
-	mappings map[string][]string
+	mappings   map[string][]string
+	crateNames map[string]string
 }
 
 func (m *mockLookup) Lookup(sourceURL, targetLang string, unsafe bool) []string {
 	key := targetLang + ":" + sourceURL
 	return m.mappings[key]
+}
+
+func (m *mockLookup) CrateName(rustURL string) string {
+	if m.crateNames != nil {
+		return m.crateNames[rustURL]
+	}
+	return ""
 }
 
 func TestMapDependencies(t *testing.T) {

@@ -6,40 +6,37 @@ import (
 	"github.com/stephan/rinku/internal/url"
 )
 
-// Rinku provides library lookup functionality.
+// Rinku provides cross-language library lookup.
 type Rinku struct {
-	index           map[string][]string
-	indexAll        map[string][]string
-	reverseIndex    map[string][]string
-	reverseIndexAll map[string][]string
+	safe        map[string][]string // excludes vulnerable libraries
+	all         map[string][]string // includes vulnerable libraries
+	reverseSafe map[string][]string
+	reverseAll  map[string][]string
+	crateNames  map[string]string // normalized_url -> crate_name
 }
 
-// New creates a new Rinku instance with the given indexes.
-func New(index, indexAll, reverseIndex, reverseIndexAll map[string][]string) *Rinku {
-	return &Rinku{
-		index:           index,
-		indexAll:        indexAll,
-		reverseIndex:    reverseIndex,
-		reverseIndexAll: reverseIndexAll,
-	}
+func New(safe, all, reverseSafe, reverseAll map[string][]string, crateNames map[string]string) *Rinku {
+	return &Rinku{safe: safe, all: all, reverseSafe: reverseSafe, reverseAll: reverseAll, crateNames: crateNames}
 }
 
-// Lookup finds equivalent libraries for the given source URL and target language.
-// If unsafe is true, includes libraries with known vulnerabilities.
-func (r *Rinku) Lookup(sourceURL, targetLang string, unsafe bool) []string {
+// CrateName returns the known crate name for a Rust library URL.
+// Returns empty string if no explicit crate name is configured.
+func (r *Rinku) CrateName(rustURL string) string {
+	return r.crateNames[url.Normalize(rustURL)]
+}
+
+func (r *Rinku) Lookup(sourceURL, targetLang string, includeUnsafe bool) []string {
 	key := strings.ToLower(targetLang) + ":" + url.Normalize(sourceURL)
-	if unsafe {
-		return r.indexAll[key]
+	if includeUnsafe {
+		return r.all[key]
 	}
-	return r.index[key]
+	return r.safe[key]
 }
 
-// ReverseLookup finds source libraries that map to the given target URL in the specified source language.
-// If unsafe is true, includes libraries with known vulnerabilities.
-func (r *Rinku) ReverseLookup(targetURL, sourceLang string, unsafe bool) []string {
+func (r *Rinku) ReverseLookup(targetURL, sourceLang string, includeUnsafe bool) []string {
 	key := strings.ToLower(sourceLang) + ":" + url.Normalize(targetURL)
-	if unsafe {
-		return r.reverseIndexAll[key]
+	if includeUnsafe {
+		return r.reverseAll[key]
 	}
-	return r.reverseIndex[key]
+	return r.reverseSafe[key]
 }

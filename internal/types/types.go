@@ -5,9 +5,10 @@ type LibsFile struct {
 }
 
 type Library struct {
-	URL    string `json:"url"`
-	Lang   string `json:"lang"`
-	Unsafe string `json:"unsafe,omitempty"`
+	URL       string `json:"url"`
+	Lang      string `json:"lang"`
+	Unsafe    string `json:"unsafe,omitempty"`
+	CrateName string `json:"crate_name,omitempty"`
 }
 
 type MappingsFile struct {

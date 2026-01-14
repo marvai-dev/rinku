@@ -15,6 +15,12 @@ func TestNormalize(t *testing.T) {
 		{"strips www prefix", "www.github.com/foo/bar", "github.com/foo/bar"},
 		{"handles all transformations", "HTTPS://www.GitHub.com/Foo/Bar/", "github.com/foo/bar"},
 		{"no changes needed", "github.com/foo/bar", "github.com/foo/bar"},
+		// Edge cases for security fixes
+		{"empty string", "", ""},
+		{"protocol only", "https://", ""},
+		{"preserves www in path", "github.com/www.example/repo", "github.com/www.example/repo"},
+		{"strips www from host only", "www.github.com/www.foo/bar", "github.com/www.foo/bar"},
+		{"host without path", "www.github.com", "github.com"},
 	}
 
 	for _, tt := range tests {

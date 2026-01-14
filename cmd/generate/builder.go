@@ -9,29 +9,36 @@ import (
 
 // IndexResult contains all generated indexes
 type IndexResult struct {
-	Forward        map[string][]string // target_lang:source_url -> target_urls (safe only)
-	ForwardAll     map[string][]string // target_lang:source_url -> target_urls (including unsafe)
-	Reverse        map[string][]string // source_lang:target_url -> source_urls (safe only)
-	ReverseAll     map[string][]string // source_lang:target_url -> source_urls (including unsafe)
-	UnsafeCount    int
-	MappingsCount  int
-	LibrariesCount int
+	Forward         map[string][]string // target_lang:source_url -> target_urls (safe only)
+	ForwardAll      map[string][]string // target_lang:source_url -> target_urls (including unsafe)
+	Reverse         map[string][]string // source_lang:target_url -> source_urls (safe only)
+	ReverseAll      map[string][]string // source_lang:target_url -> source_urls (including unsafe)
+	KnownCrateNames map[string]string   // normalized_url -> crate_name (for Rust libraries)
+	UnsafeCount     int
+	MappingsCount   int
+	LibrariesCount  int
 }
 
 func BuildIndexes(libs map[string]types.Library, mappings []types.Mapping) IndexResult {
 	result := IndexResult{
-		Forward:        make(map[string][]string),
-		ForwardAll:     make(map[string][]string),
-		Reverse:        make(map[string][]string),
-		ReverseAll:     make(map[string][]string),
-		LibrariesCount: len(libs),
-		MappingsCount:  len(mappings),
+		Forward:         make(map[string][]string),
+		ForwardAll:      make(map[string][]string),
+		Reverse:         make(map[string][]string),
+		ReverseAll:      make(map[string][]string),
+		KnownCrateNames: make(map[string]string),
+		LibrariesCount:  len(libs),
+		MappingsCount:   len(mappings),
 	}
 
-	// Count unsafe libraries
+	// Count unsafe libraries and build crate names map
 	for _, lib := range libs {
 		if lib.Unsafe != "" {
 			result.UnsafeCount++
+		}
+		// Build crate names map for Rust libraries with explicit crate names
+		if lib.Lang == "rust" && lib.CrateName != "" {
+			normalizedURL := url.Normalize(lib.URL)
+			result.KnownCrateNames[normalizedURL] = lib.CrateName
 		}
 	}
 

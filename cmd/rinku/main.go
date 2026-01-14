@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
+	"strings"
 
 	"github.com/alecthomas/kong"
 	"github.com/stephan/rinku/internal/cargo"
@@ -51,43 +53,42 @@ MORE INFO:
   Repository: https://github.com/marvai-dev/rinku
   Database:   160+ Go-to-Rust library mappings across 140+ categories`
 
-// CLI defines the command-line interface with subcommands.
 var CLI struct {
-	Scan    ScanCmd    `cmd:"" help:"Parse go.mod and show Rust equivalents for each dependency. Outputs: module name, go version, each dependency with its Rust crate name(s) and URL(s), summary of mapped/total count."`
-	Convert ConvertCmd `cmd:"" help:"Generate a Cargo.toml file from go.mod. Mapped dependencies use version \"*\". Unmapped dependencies are listed as TODO comments."`
-	Lookup  LookupCmd  `cmd:"" default:"withargs" help:"Look up Rust equivalent for a single GitHub URL. Outputs the Rust library URL(s), one per line. Returns empty if no mapping exists."`
+	Scan    ScanCmd    `cmd:"" help:"Parse go.mod and show Rust equivalents for each dependency."`
+	Convert ConvertCmd `cmd:"" help:"Generate a Cargo.toml file from go.mod."`
+	Lookup  LookupCmd  `cmd:"" default:"withargs" help:"Look up equivalent for a single GitHub URL."`
 }
 
-// LookupCmd handles the original URL lookup behavior.
 type LookupCmd struct {
-	URL      string `arg:"" help:"GitHub URL of the Go library (e.g., https://github.com/spf13/cobra)."`
-	Language string `arg:"" optional:"" default:"rust" help:"Target language (default: rust). Currently only 'rust' is supported."`
-	Unsafe   bool   `help:"Include libraries with known security vulnerabilities in results."`
+	URL      string `arg:"" help:"GitHub URL of the library."`
+	Language string `arg:"" optional:"" default:"rust" help:"Target language (default: rust)."`
+	Unsafe   bool   `help:"Include libraries with known vulnerabilities."`
 }
 
-// ScanCmd handles scanning go.mod files.
 type ScanCmd struct {
-	Path   string `arg:"" type:"existingfile" help:"Path to go.mod file to scan."`
-	Unsafe bool   `help:"Include libraries with known security vulnerabilities in results."`
+	Path   string `arg:"" type:"existingfile" help:"Path to go.mod file."`
+	Unsafe bool   `help:"Include libraries with known vulnerabilities."`
 }
 
-// ConvertCmd handles generating Cargo.toml from go.mod.
 type ConvertCmd struct {
-	Path   string `arg:"" type:"existingfile" help:"Path to go.mod file to convert."`
-	Output string `short:"o" default:"-" help:"Output file path. Use '-' for stdout (default: -)."`
-	Unsafe bool   `help:"Include libraries with known security vulnerabilities in results."`
+	Path   string `arg:"" type:"existingfile" help:"Path to go.mod file."`
+	Output string `short:"o" default:"-" help:"Output file (- for stdout)."`
+	Unsafe bool   `help:"Include libraries with known vulnerabilities."`
 }
 
-// Run executes the lookup command.
 func (c *LookupCmd) Run(r *rinku.Rinku) error {
-	results := r.Lookup(c.URL, c.Language, c.Unsafe)
-	for _, result := range results {
+	if c.URL == "" {
+		return fmt.Errorf("URL is required")
+	}
+	if !strings.HasPrefix(c.URL, "http://") && !strings.HasPrefix(c.URL, "https://") {
+		return fmt.Errorf("invalid URL: must start with http:// or https://")
+	}
+	for _, result := range r.Lookup(c.URL, c.Language, c.Unsafe) {
 		fmt.Println(result)
 	}
 	return nil
 }
 
-// Run executes the scan command.
 func (c *ScanCmd) Run(r *rinku.Rinku) error {
 	result, err := gomod.Parse(c.Path)
 	if err != nil {
@@ -109,7 +110,10 @@ func (c *ScanCmd) Run(r *rinku.Rinku) error {
 		if len(rustURLs) > 0 {
 			mapped++
 			for _, rustURL := range rustURLs {
-				crateName := cargo.ExtractCrateName(rustURL)
+				crateName := r.CrateName(rustURL)
+				if crateName == "" {
+					crateName = cargo.ExtractCrateName(rustURL)
+				}
 				fmt.Printf("  -> %s (%s)\n", crateName, rustURL)
 			}
 		} else {
@@ -121,8 +125,7 @@ func (c *ScanCmd) Run(r *rinku.Rinku) error {
 	return nil
 }
 
-// Run executes the convert command.
-func (c *ConvertCmd) Run(r *rinku.Rinku) error {
+func (c *ConvertCmd) Run(r *rinku.Rinku) (err error) {
 	result, err := gomod.Parse(c.Path)
 	if err != nil {
 		return fmt.Errorf("failed to parse go.mod: %w", err)
@@ -131,16 +134,22 @@ func (c *ConvertCmd) Run(r *rinku.Rinku) error {
 	deps := result.DirectDependencies()
 	genResult := cargo.MapDependencies(deps, r, c.Unsafe)
 
-	// Determine output writer
 	var w *os.File
 	if c.Output == "-" {
 		w = os.Stdout
 	} else {
+		if err := validateOutputPath(c.Output); err != nil {
+			return err
+		}
 		w, err = os.Create(c.Output)
 		if err != nil {
 			return fmt.Errorf("failed to create output file: %w", err)
 		}
-		defer w.Close()
+		defer func() {
+			if cerr := w.Close(); cerr != nil && err == nil {
+				err = fmt.Errorf("failed to close output file: %w", cerr)
+			}
+		}()
 	}
 
 	if err := cargo.GenerateCargoToml(w, result.Module, genResult); err != nil {
@@ -151,18 +160,26 @@ func (c *ConvertCmd) Run(r *rinku.Rinku) error {
 		fmt.Fprintf(os.Stderr, "Generated %s with %d dependencies (%d mapped, %d unmapped)\n",
 			c.Output, len(deps), len(genResult.Mapped), len(genResult.Unmapped))
 	}
+	return nil
+}
 
+func validateOutputPath(path string) error {
+	if filepath.IsAbs(path) {
+		return fmt.Errorf("absolute paths not allowed: %s", path)
+	}
+	if strings.HasPrefix(filepath.Clean(path), "..") {
+		return fmt.Errorf("path traversal not allowed: %s", path)
+	}
 	return nil
 }
 
 func main() {
-	// Show comprehensive help if no arguments provided
 	if len(os.Args) == 1 {
 		fmt.Println(description)
 		os.Exit(0)
 	}
 
-	r := rinku.New(index, indexAll, reverseIndex, reverseIndexAll)
+	r := rinku.New(index, indexAll, reverseIndex, reverseIndexAll, knownCrateNames)
 
 	ctx := kong.Parse(&CLI,
 		kong.Name("rinku"),

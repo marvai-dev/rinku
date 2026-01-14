@@ -833,6 +833,7 @@
     "rust:Azure/azure-sdk-for-rust": {
       "url": "https://github.com/Azure/azure-sdk-for-rust",
       "lang": "rust",
+      "crate_name": "azure_core",
       "stars": 861
     },
     "rust:BurntSushi/globset": {
@@ -894,6 +895,7 @@
     "rust:SeaQL/sea-orm": {
       "url": "https://github.com/SeaQL/sea-orm",
       "lang": "rust",
+      "crate_name": "sea_orm",
       "stars": 9165
     },
     "rust:allan2/dotenvy": {
@@ -914,11 +916,13 @@
     "rust:awslabs/aws-sdk-rust": {
       "url": "https://github.com/awslabs/aws-sdk-rust",
       "lang": "rust",
+      "crate_name": "aws_sdk_config",
       "stars": 3257
     },
     "rust:bytecodealliance/wasmtime": {
       "url": "https://github.com/bytecodealliance/wasmtime",
       "lang": "rust",
+      "crate_name": "wasmtime",
       "unsafe": "45 vulns including GHSA-44mr-8vmm-wjhg",
       "stars": 17331
     },
@@ -935,6 +939,7 @@
     "rust:chronotope/chrono": {
       "url": "https://github.com/chronotope/chrono",
       "lang": "rust",
+      "crate_name": "chrono",
       "stars": 3739
     },
     "rust:chronotope/humantime": {
@@ -945,6 +950,7 @@
     "rust:clap-rs/clap": {
       "url": "https://github.com/clap-rs/clap",
       "lang": "rust",
+      "crate_name": "clap",
       "stars": 15868
     },
     "rust:cloudwego/sonic-rs": {
@@ -975,11 +981,13 @@
     "rust:dtolnay/anyhow": {
       "url": "https://github.com/dtolnay/anyhow",
       "lang": "rust",
+      "crate_name": "anyhow",
       "stars": 6341
     },
     "rust:dtolnay/serde-yaml": {
       "url": "https://github.com/dtolnay/serde-yaml",
       "lang": "rust",
+      "crate_name": "serde_yaml",
       "stars": 1009
     },
     "rust:etcdv3/etcd-client": {
@@ -1000,6 +1008,7 @@
     "rust:googleapis/google-cloud-rust": {
       "url": "https://github.com/googleapis/google-cloud-rust",
       "lang": "rust",
+      "crate_name": "google_cloud_storage",
       "stars": 857
     },
     "rust:gyscos/zstd-rs": {
@@ -1020,17 +1029,20 @@
     "rust:hyperium/hyper": {
       "url": "https://github.com/hyperium/hyper",
       "lang": "rust",
+      "crate_name": "hyper",
       "unsafe": "14 vulns including GHSA-5h46-h7hh-c6x9",
       "stars": 15787
     },
     "rust:hyperium/tonic": {
       "url": "https://github.com/hyperium/tonic",
       "lang": "rust",
+      "crate_name": "tonic",
       "stars": 11641
     },
     "rust:image-rs/image": {
       "url": "https://github.com/image-rs/image",
       "lang": "rust",
+      "crate_name": "image",
       "unsafe": "4 vulns including GHSA-9wgh-vjj7-7433",
       "stars": 5580
     },
@@ -1188,6 +1200,7 @@
     "rust:redis-rs/redis-rs": {
       "url": "https://github.com/redis-rs/redis-rs",
       "lang": "rust",
+      "crate_name": "redis",
       "stars": 4127
     },
     "rust:yanganto/struct-patch": {
@@ -1198,6 +1211,7 @@
     "rust:rusqlite/rusqlite": {
       "url": "https://github.com/rusqlite/rusqlite",
       "lang": "rust",
+      "crate_name": "rusqlite",
       "unsafe": "18 vulns including GHSA-28ph-f7gx-fqj8",
       "stars": 3969
     },
@@ -1240,17 +1254,20 @@
     "rust:rustls/rustls": {
       "url": "https://github.com/rustls/rustls",
       "lang": "rust",
+      "crate_name": "rustls",
       "unsafe": "4 vulns including GHSA-6g7w-8wpp-frhj",
       "stars": 7130
     },
     "rust:serde-rs/json": {
       "url": "https://github.com/serde-rs/json",
       "lang": "rust",
+      "crate_name": "serde_json",
       "stars": 5409
     },
     "rust:serde-rs/serde": {
       "url": "https://github.com/serde-rs/serde",
       "lang": "rust",
+      "crate_name": "serde",
       "stars": 10242
     },
     "rust:servo/rust-cssparser": {
@@ -1281,23 +1298,27 @@
     "rust:tokio-rs/axum": {
       "url": "https://github.com/tokio-rs/axum",
       "lang": "rust",
+      "crate_name": "axum",
       "stars": 24233
     },
     "rust:tokio-rs/prost": {
       "url": "https://github.com/tokio-rs/prost",
       "lang": "rust",
+      "crate_name": "prost",
       "unsafe": "2 vulns including GHSA-gv73-9mwv-fwgq",
       "stars": 4520
     },
     "rust:tokio-rs/tokio": {
       "url": "https://github.com/tokio-rs/tokio",
       "lang": "rust",
+      "crate_name": "tokio",
       "unsafe": "10 vulns including GHSA-2grh-hm3w-w7hv",
       "stars": 30571
     },
     "rust:tokio-rs/tracing": {
       "url": "https://github.com/tokio-rs/tracing",
       "lang": "rust",
+      "crate_name": "tracing",
       "stars": 6414
     },
     "rust:tokio-rs/tracing/tree/master/tracing-appender": {
@@ -1308,11 +1329,13 @@
     "rust:toml-rs/toml": {
       "url": "https://github.com/toml-rs/toml",
       "lang": "rust",
+      "crate_name": "toml",
       "stars": 944
     },
     "rust:tower-rs/tower-http": {
       "url": "https://github.com/tower-rs/tower-http",
       "lang": "rust",
+      "crate_name": "tower_http",
       "unsafe": "3 vulns including GHSA-qrqq-9c63-xfrg",
       "stars": 832
     },
@@ -1344,6 +1367,7 @@
     "rust:uuid-rs/uuid": {
       "url": "https://github.com/uuid-rs/uuid",
       "lang": "rust",
+      "crate_name": "uuid",
       "stars": 1154
     },
     "rust:wilsonzlin/minify-html": {

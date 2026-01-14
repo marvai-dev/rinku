@@ -1,8 +1,9 @@
-// Package gomod provides parsing functionality for go.mod files.
+// Package gomod parses go.mod files.
 package gomod
 
 import (
 	"bufio"
+	"errors"
 	"io"
 	"regexp"
 	"strings"
@@ -10,110 +11,111 @@ import (
 	"github.com/spf13/afero"
 )
 
-// Dependency represents a Go module dependency.
+const MaxDependencies = 10000
+
+var (
+	ErrTooManyDependencies = errors.New("too many dependencies (limit: 10000)")
+	ErrUnclosedRequireBlock = errors.New("unclosed require block")
+
+	moduleRe          = regexp.MustCompile(`^module\s+(\S+)`)
+	goVersionRe       = regexp.MustCompile(`^go\s+(\S+)`)
+	requireSingleRe   = regexp.MustCompile(`^require\s+(\S+)\s+(\S+)(.*)`)
+	requireBlockStart = regexp.MustCompile(`^require\s*\(`)
+	depLineRe         = regexp.MustCompile(`^\s*(\S+)\s+(\S+)(.*)`)
+)
+
 type Dependency struct {
-	Path     string // e.g., "github.com/spf13/cobra"
-	Version  string // e.g., "v1.10.2"
-	Indirect bool   // true if marked "// indirect"
+	Path     string
+	Version  string
+	Indirect bool
 }
 
-// ParseResult contains parsed go.mod data.
 type ParseResult struct {
-	Module       string       // e.g., "github.com/stephan/rinku"
-	GoVersion    string       // e.g., "1.25.5"
-	Dependencies []Dependency // all require dependencies
+	Module       string
+	GoVersion    string
+	Dependencies []Dependency
 }
 
-// Parse reads and parses a go.mod file from the given path.
 func Parse(path string) (*ParseResult, error) {
 	return ParseFS(afero.NewOsFs(), path)
 }
 
-// ParseFS reads and parses a go.mod file from the given filesystem.
+// ParseFS parses a go.mod from a filesystem (useful for testing).
 func ParseFS(fs afero.Fs, path string) (*ParseResult, error) {
 	file, err := fs.Open(path)
 	if err != nil {
 		return nil, err
 	}
 	defer file.Close()
-
 	return ParseReader(file)
 }
 
-// ParseReader parses go.mod content from an io.Reader.
 func ParseReader(r io.Reader) (*ParseResult, error) {
 	result := &ParseResult{}
 	scanner := bufio.NewScanner(r)
-	inRequireBlock := false
-
-	// Regex patterns
-	moduleRe := regexp.MustCompile(`^module\s+(\S+)`)
-	goVersionRe := regexp.MustCompile(`^go\s+(\S+)`)
-	requireSingleRe := regexp.MustCompile(`^require\s+(\S+)\s+(\S+)(.*)`)
-	requireBlockStartRe := regexp.MustCompile(`^require\s*\(`)
-	depLineRe := regexp.MustCompile(`^\s*(\S+)\s+(\S+)(.*)`)
+	inBlock := false
 
 	for scanner.Scan() {
-		line := scanner.Text()
-		trimmedLine := strings.TrimSpace(line)
-
-		// Skip empty lines and comments
-		if trimmedLine == "" || strings.HasPrefix(trimmedLine, "//") {
+		line := strings.TrimSpace(scanner.Text())
+		if line == "" || strings.HasPrefix(line, "//") {
 			continue
 		}
 
-		// Handle require block end
-		if inRequireBlock && trimmedLine == ")" {
-			inRequireBlock = false
+		if inBlock && line == ")" {
+			inBlock = false
 			continue
 		}
 
-		// Parse module declaration
-		if matches := moduleRe.FindStringSubmatch(trimmedLine); matches != nil {
-			result.Module = matches[1]
+		if m := moduleRe.FindStringSubmatch(line); m != nil {
+			result.Module = m[1]
 			continue
 		}
 
-		// Parse go version
-		if matches := goVersionRe.FindStringSubmatch(trimmedLine); matches != nil {
-			result.GoVersion = matches[1]
+		if m := goVersionRe.FindStringSubmatch(line); m != nil {
+			result.GoVersion = m[1]
 			continue
 		}
 
-		// Parse require block start
-		if requireBlockStartRe.MatchString(trimmedLine) {
-			inRequireBlock = true
+		if requireBlockStart.MatchString(line) {
+			inBlock = true
 			continue
 		}
 
-		// Parse single-line require
-		if matches := requireSingleRe.FindStringSubmatch(trimmedLine); matches != nil {
-			dep := Dependency{
-				Path:     matches[1],
-				Version:  matches[2],
-				Indirect: strings.Contains(matches[3], "indirect"),
+		if m := requireSingleRe.FindStringSubmatch(line); m != nil {
+			result.Dependencies = append(result.Dependencies, Dependency{
+				Path:     m[1],
+				Version:  m[2],
+				Indirect: strings.Contains(m[3], "// indirect"),
+			})
+			if len(result.Dependencies) >= MaxDependencies {
+				return nil, ErrTooManyDependencies
 			}
-			result.Dependencies = append(result.Dependencies, dep)
 			continue
 		}
 
-		// Parse dependency line in block
-		if inRequireBlock {
-			if matches := depLineRe.FindStringSubmatch(trimmedLine); matches != nil {
-				dep := Dependency{
-					Path:     matches[1],
-					Version:  matches[2],
-					Indirect: strings.Contains(matches[3], "indirect"),
+		if inBlock {
+			if m := depLineRe.FindStringSubmatch(line); m != nil {
+				result.Dependencies = append(result.Dependencies, Dependency{
+					Path:     m[1],
+					Version:  m[2],
+					Indirect: strings.Contains(m[3], "// indirect"),
+				})
+				if len(result.Dependencies) >= MaxDependencies {
+					return nil, ErrTooManyDependencies
 				}
-				result.Dependencies = append(result.Dependencies, dep)
 			}
 		}
 	}
 
-	return result, scanner.Err()
+	if err := scanner.Err(); err != nil {
+		return nil, err
+	}
+	if inBlock {
+		return nil, ErrUnclosedRequireBlock
+	}
+	return result, nil
 }
 
-// DirectDependencies returns only the non-indirect dependencies.
 func (p *ParseResult) DirectDependencies() []Dependency {
 	var direct []Dependency
 	for _, dep := range p.Dependencies {

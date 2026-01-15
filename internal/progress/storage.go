@@ -41,7 +41,7 @@ func Load(projectDir string) (*Migration, error) {
 // Save atomically writes progress to disk.
 func (m *Migration) Save(projectDir string) error {
 	dir := filepath.Join(projectDir, ProgressDir)
-	if err := os.MkdirAll(dir, 0755); err != nil {
+	if err := os.MkdirAll(dir, 0750); err != nil {
 		return fmt.Errorf("creating %s directory: %w", ProgressDir, err)
 	}
 

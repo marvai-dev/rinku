@@ -2,9 +2,9 @@
 
 *Disclaimer: This software is mostly written by an AI. I understand this might change your feelings about the software and you might not want to use it.*
 
-**180+ curated Go-to-Rust library mappings** — one of the largest open databases of equivalent libraries for migrating Go projects to Rust.
+A CLI tool for migrating Go projects to Rust. Additionally it can instantly find equivalents for libraries. Give it a GitHub URL, get back the best  alternative in your target language.
 
-A CLI tool that instantly finds equivalents for libraries. Give it a GitHub URL, get back the best  alternative in your target language.
+**180+ curated Go-to-Rust library mappings** — one of the largest open databases of equivalent libraries for migrating Go projects to Rust.
 
 Currently works for:
 * Go -> Rust
@@ -50,6 +50,20 @@ make build
 
 ## Usage
 
+### `migrate` - AI-assisted migration workflow
+
+```bash
+rinku migrate
+```
+
+A guided multi-step workflow for migrating Go projects to Rust with an AI assistant. Run your agent in your Go project directory and give your AI this prompt:
+
+```
+Execute `rinku migrate` and follow instructions.
+```
+
+The workflow guides the AI through analyzing the project, creating the Rust structure, converting types and functions, migrating tests and APIs and verifying the migration.
+
 ### `lookup` - Find equivalent library
 
 ```bash
@@ -94,20 +108,6 @@ Generate a Cargo.toml from a go.mod file.
 ```bash
 rinku convert ./go.mod > Cargo.toml
 ```
-
-### `migrate` - AI-assisted migration workflow
-
-```bash
-rinku migrate
-```
-
-A guided multi-step workflow for migrating Go projects to Rust with an AI assistant. Run your agent in your Go project directory and give your AI this prompt:
-
-```
-Execute `rinku migrate` and follow instructions.
-```
-
-The workflow guides the AI through analyzing the project, creating the Rust structure, converting types and functions, migrating tests and APIs and verifying the migration.
 
 ## Coverage
 

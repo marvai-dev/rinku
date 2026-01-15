@@ -1,7 +1,14 @@
 # Before
 
 Check requirements: `rinku req list`
-Mark done after implementing: `rinku req done <path>`
+
+# After
+
+**IMPORTANT:** Mark completed requirements as done:
+
+  rinku req done <path>
+
+Run `rinku req list` to verify all requirements show [x].
 
 # Introduction
 
@@ -33,13 +40,13 @@ Use requirements to track what must work in Rust:
 
 Suggested paths:
 - `<binary>/cli` - command line flags
-- `<binary>/web/routes/<resource>` - HTTP endpoints
+- `<binary>/api/<resource>` - HTTP endpoints
 - `<binary>/jobs/<job>` - background jobs
 - `db/models/<model>` - database schemas
 - `tests/<area>` - test requirements
 
 Example:
-  rinku req set api/cli <<EOF
+  rinku req set myapp/cli <<EOF
   --port PORT (default: 8080)
   --config FILE (required)
   --verbose
@@ -57,31 +64,48 @@ When done, proceed to Step 2.
 
 # Step 2
 
-Create the new project in a IMPORTANT new sub-directory.
+Create the Rust project in a new sub-directory:
 
-When done, proceed to Step 2a.
+```bash
+cargo new <project-name>
+cd <project-name>
+```
 
-# Step 2a
+When done, proceed to Step 3.
 
-Analyze all CLI arguments and options. Capture them as requirements:
+# Step 3
+
+Capture CLI arguments and options as requirements:
 
   rinku req set <binary>/cli <<EOF
   <flags and options>
   EOF
 
-When done, proceed to Step 2b.
+When done, proceed to Step 4.
 
-# Step 2b
+# Step 4
 
-Analyze all existing tests. Capture them as requirements:
+Capture HTTP/API endpoints as requirements (skip if no web server):
+
+  rinku req set <binary>/api/<resource> <<EOF
+  GET /users - list users
+  POST /users - create user
+  ...
+  EOF
+
+When done, proceed to Step 5.
+
+# Step 5
+
+Capture existing tests as requirements:
 
   rinku req set tests/<area> <<EOF
   <test names and descriptions>
   EOF
 
-When done, proceed to Step 10.
+When done, proceed to Step 6.
 
-# Step 10
+# Step 6
 
 Generate the initial Cargo.toml:
 
@@ -89,9 +113,9 @@ Run `rinku convert go.mod -o Cargo.toml`
 
 Review the generated file. Note any unmapped dependencies that need manual research.
 
-When done, proceed to Step 20.
+When done, proceed to Step 7.
 
-# Step 20
+# Step 7
 
 Create the Rust project structure. For each Go package, create a corresponding Rust module:
 
@@ -99,9 +123,10 @@ Create the Rust project structure. For each Go package, create a corresponding R
 - `pkg/foo/foo.go` → `src/foo/mod.rs` or `src/foo.rs`
 - `internal/bar/` → `src/bar/` (private module)
 
-When done, proceed to Step 30.
+When done, proceed to Step 8.
 
-# Step 30
+# Step 8
+
 Migrate type definitions. Convert Go structs to Rust structs:
 
 - `type Foo struct` → `struct Foo`
@@ -109,27 +134,48 @@ Migrate type definitions. Convert Go structs to Rust structs:
 - Slices `[]T` → `Vec<T>`
 - Maps `map[K]V` → `HashMap<K, V>`
 
-When done, proceed to Step 40.
+When done, proceed to Step 9.
 
-# Step 40
+# Step 9
+
 Migrate function signatures. Convert Go functions to Rust:
 
 - `func Foo() error` → `fn foo() -> Result<(), Error>`
 - `func Bar(x int) string` → `fn bar(x: i32) -> String`
 - Methods `func (f *Foo) Bar()` → `impl Foo { fn bar(&mut self) }`
 
-When done, proceed to Step 50.
+When done, proceed to Step 10.
 
-# Step 50
+# Step 10
+
 Implement error handling. Replace Go error patterns with Rust:
 
 - `if err != nil { return err }` → `?` operator
 - Custom errors → implement `std::error::Error` trait
 - `panic/recover` → `panic!` / `catch_unwind` (rarely needed)
 
-When done, proceed to Step 55.
+When done, proceed to Step 11.
 
-# Step 55
+# Step 11
+
+Migrate concurrency patterns. Convert Go concurrency to Rust:
+
+- `go func()` → `tokio::spawn(async {})` or `std::thread::spawn()`
+- `chan T` → `tokio::sync::mpsc` or `std::sync::mpsc`
+- `sync.Mutex` → `std::sync::Mutex` or `tokio::sync::Mutex`
+- `sync.WaitGroup` → `tokio::join!` or thread handles with `.join()`
+- `select {}` → `tokio::select!`
+
+If the project uses goroutines, add `tokio` to Cargo.toml:
+```toml
+tokio = { version = "1", features = ["full"] }
+```
+
+Skip if no concurrency in the Go project.
+
+When done, proceed to Step 12.
+
+# Step 12
 
 Implement CLI based on requirements:
 
@@ -139,26 +185,45 @@ After implementing, mark as done:
 
   rinku req done <binary>/cli
 
-Verify with `rinku req list` - all CLI requirements should show [x].
+When done, proceed to Step 13.
 
-When all CLI requirements are done, proceed to Step 60.
+# Step 13
 
-# Step 60
-Run `cargo build` and fix compilation errors. Address each error systematically.
+Implement API endpoints based on requirements (skip if no web server):
 
-Run `cargo clippy` for additional linting suggestions.
+  rinku req list <binary>/api/
+  rinku req get <binary>/api/<resource>
 
-Decide if warnings and errors are migration gaps or due to language differences.
-Fix all warnings and errors.
+After implementing each, mark as done:
 
-When the project compiles, proceed to Step 65.
+  rinku req done <binary>/api/<resource>
 
-# Step 65
+When done, proceed to Step 14.
 
-Implement tests based on requirements:
+# Step 14
+
+Build and verify. Run these commands and fix ALL errors and warnings:
+
+```bash
+cargo build
+cargo clippy -- -D warnings
+```
+
+Do NOT proceed until both commands pass with zero errors and zero warnings.
+
+When the project compiles cleanly, proceed to Step 15.
+
+# Step 15
+
+Implement and run tests based on requirements:
 
   rinku req list tests/
   rinku req get tests/<area>
+
+Convert Go tests to Rust:
+- `func TestFoo(t *testing.T)` → `#[test] fn test_foo()`
+- `t.Errorf()` → `assert!` / `assert_eq!`
+- Table-driven tests → use loops or `#[test_case]` macro
 
 After implementing each, mark as done:
 
@@ -166,22 +231,19 @@ After implementing each, mark as done:
 
 Run `cargo test` to verify all tests pass.
 
-If tests fail, decide whether to fix the tests or the code.
+When all test requirements are done, proceed to Step 16.
 
-Verify all test requirements show [x] in `rinku req list tests/`.
+# Step 16
 
-When all test requirements are done, proceed to Step 70.
+Review the migrated code for:
+- Wrongly translated idioms
+- Error handling issues
+- Missing edge cases
+- Non-idiomatic Rust patterns
 
-# Step 70
-Add tests. Convert Go tests to Rust:
+Fix all problems found.
 
-- `func TestFoo(t *testing.T)` → `#[test] fn test_foo()`
-- `t.Errorf()` → `assert!` / `assert_eq!`
-- Table-driven tests → use loops or `#[test_case]` macro
-
-Run `cargo test` to verify.
-
-When done, go to steph Finish.
+When done, proceed to Step Finish.
 
 # Step Finish
 
@@ -192,11 +254,3 @@ Create a README-<project>.md file that describes the migrated project (architect
 for easier onboarding.
 
 When done, migration is complete.
-
-# After
-
-**IMPORTANT:** Mark completed requirements as done:
-
-  rinku req done <path>
-
-Run `rinku req list` to verify all requirements show [x].

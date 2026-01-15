@@ -23,7 +23,7 @@ func ProgressPath(projectDir string) string {
 // Load reads progress from disk. Returns nil, nil if no progress file exists.
 func Load(projectDir string) (*Migration, error) {
 	path := ProgressPath(projectDir)
-	data, err := os.ReadFile(path)
+	data, err := os.ReadFile(path) //#nosec G304 -- projectDir from os.Getwd(), not user input
 	if os.IsNotExist(err) {
 		return nil, nil
 	}

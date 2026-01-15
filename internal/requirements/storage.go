@@ -19,9 +19,28 @@ const (
 	RequirementsDir = "requirements"
 )
 
-// requirementsPath returns the full path for a requirement file.
-func requirementsPath(projectDir, reqPath string) string {
-	return filepath.Join(projectDir, progress.ProgressDir, RequirementsDir, reqPath+".json")
+// SafeReqPath represents a validated requirement file path.
+// Can only be constructed via newSafeReqPath, which ensures the path
+// doesn't escape the requirements directory.
+type SafeReqPath struct {
+	p string
+}
+
+// newSafeReqPath creates a SafeReqPath after validating the path doesn't escape baseDir.
+func newSafeReqPath(projectDir, reqPath string) (SafeReqPath, error) {
+	baseDir := filepath.Join(projectDir, progress.ProgressDir, RequirementsDir)
+	fullPath := filepath.Join(baseDir, filepath.Clean(reqPath)+".json")
+
+	// Ensure the path is still under baseDir (prevent directory traversal)
+	if !strings.HasPrefix(fullPath, baseDir+string(filepath.Separator)) {
+		return SafeReqPath{}, fmt.Errorf("invalid path: %s", reqPath)
+	}
+	return SafeReqPath{p: fullPath}, nil
+}
+
+// Path returns the validated path string.
+func (s SafeReqPath) Path() string {
+	return s.p
 }
 
 // Set creates or updates a requirement.
@@ -48,8 +67,11 @@ func Set(projectDir, reqPath, content string) error {
 
 // Get retrieves a requirement by path.
 func Get(projectDir, reqPath string) (*Requirement, error) {
-	path := requirementsPath(projectDir, reqPath)
-	data, err := os.ReadFile(path)
+	safePath, err := newSafeReqPath(projectDir, reqPath)
+	if err != nil {
+		return nil, err
+	}
+	data, err := os.ReadFile(safePath.Path()) //#nosec G304 -- path validated by newSafeReqPath
 	if os.IsNotExist(err) {
 		return nil, nil
 	}
@@ -110,8 +132,11 @@ func List(projectDir, prefix string) ([]string, error) {
 
 // Delete removes a requirement.
 func Delete(projectDir, reqPath string) error {
-	path := requirementsPath(projectDir, reqPath)
-	if err := os.Remove(path); err != nil && !os.IsNotExist(err) {
+	safePath, err := newSafeReqPath(projectDir, reqPath)
+	if err != nil {
+		return err
+	}
+	if err := os.Remove(safePath.Path()); err != nil && !os.IsNotExist(err) {
 		return err
 	}
 	return nil
@@ -137,11 +162,13 @@ func Done(projectDir, reqPath string) error {
 
 // save writes a requirement to disk atomically.
 func save(projectDir string, req *Requirement) error {
-	path := requirementsPath(projectDir, req.Path)
+	safePath, err := newSafeReqPath(projectDir, req.Path)
+	if err != nil {
+		return err
+	}
 
 	// Ensure directory exists
-	dir := filepath.Dir(path)
-	if err := os.MkdirAll(dir, 0750); err != nil {
+	if err := os.MkdirAll(filepath.Dir(safePath.Path()), 0750); err != nil {
 		return fmt.Errorf("creating directory: %w", err)
 	}
 
@@ -150,7 +177,7 @@ func save(projectDir string, req *Requirement) error {
 		return fmt.Errorf("marshaling requirement: %w", err)
 	}
 
-	return atomic.WriteFile(path, bytes.NewReader(append(data, '\n')))
+	return atomic.WriteFile(safePath.Path(), bytes.NewReader(append(data, '\n')))
 }
 
 // getCurrentStep reads the current step from progress.json.

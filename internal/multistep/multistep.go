@@ -144,7 +144,7 @@ func parseStepHeader(line string) (string, bool) {
 
 // ParseFile parses steps from a file path.
 func ParseFile(path string) (*Prompt, error) {
-	content, err := os.ReadFile(path)
+	content, err := os.ReadFile(path) //#nosec G304 -- caller provides trusted path
 	if err != nil {
 		return nil, fmt.Errorf("reading file: %w", err)
 	}

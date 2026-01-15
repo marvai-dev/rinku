@@ -61,7 +61,7 @@ func main() {
 	writeStringMap(&sb, result.KnownCrateNames)
 	sb.WriteString("}\n")
 
-	if err := os.WriteFile("index_gen.go", []byte(sb.String()), 0644); err != nil { // #nosec G306 -- source code should be world-readable
+	if err := os.WriteFile("index_gen.go", []byte(sb.String()), 0600); err != nil {
 		fmt.Fprintf(os.Stderr, "Error writing index_gen.go: %v\n", err)
 		os.Exit(1)
 	}

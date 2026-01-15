@@ -2,12 +2,12 @@
 
 BINARY=bin/rinku
 
-generate:
-	go generate ./cmd/rinku/...
-
 build: generate
 	@mkdir -p bin
 	go build -ldflags="-s -w" -o $(BINARY) ./cmd/rinku
+
+generate:
+	go generate ./cmd/rinku/...
 
 test: generate
 	go test ./...

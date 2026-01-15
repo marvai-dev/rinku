@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -9,53 +10,70 @@ import (
 	"github.com/alecthomas/kong"
 	"github.com/stephan/rinku/internal/cargo"
 	"github.com/stephan/rinku/internal/gomod"
+	"github.com/stephan/rinku/internal/progress"
+	"github.com/stephan/rinku/internal/prompt"
+	"github.com/stephan/rinku/internal/requirements"
 	"github.com/stephan/rinku/internal/rinku"
 )
 
 //go:generate go run ../generate
 
-const description = `Rinku finds equivalent Rust libraries for Go dependencies.
+const description = `Rinku - Go to Rust library mapper
+
+USAGE:
+  rinku <command> [arguments] [flags]
 
 COMMANDS:
-  scan <go.mod>                 Parse go.mod and show Rust equivalents for each dependency
-  convert <go.mod> [-o file]    Generate a Cargo.toml file from go.mod
-  <url>                         Look up Rust equivalent for a single GitHub URL
+  rinku <github-url>                    Look up Rust equivalent for a Go library
+  rinku scan <path-to-go.mod>           List Rust equivalents for all dependencies
+  rinku convert <path-to-go.mod>        Generate Cargo.toml from go.mod
+
+FLAGS:
+  --unsafe    Include libraries with known security vulnerabilities
+  -o <file>   Output file for convert command (default: stdout)
+  --help      Show this help message
 
 EXAMPLES:
-  # Look up a single library
   rinku https://github.com/spf13/cobra
-  # Output: https://github.com/clap-rs/clap
+  Output: https://github.com/clap-rs/clap
 
-  # Scan a go.mod file and list all mappings
+  rinku https://github.com/sirupsen/logrus
+  Output: https://github.com/rust-lang/log
+
   rinku scan go.mod
-  # Output: Lists each dependency with its Rust equivalent(s)
+  Output:
+    Module: myproject
+    Go version: 1.21
+    Direct dependencies: 5
 
-  # Generate Cargo.toml from go.mod (prints to stdout)
+    github.com/spf13/cobra
+      -> clap (https://github.com/clap-rs/clap)
+    github.com/sirupsen/logrus
+      -> log (https://github.com/rust-lang/log)
+    ...
+
   rinku convert go.mod
+  Output: [Cargo.toml content to stdout]
 
-  # Generate Cargo.toml to a file
   rinku convert go.mod -o Cargo.toml
-
-  # Include libraries with known vulnerabilities
-  rinku scan go.mod --unsafe
-  rinku convert go.mod --unsafe
-
-OUTPUT FORMATS:
-  lookup:   Prints GitHub URL(s) of Rust equivalent(s), one per line
-  scan:     Prints each Go dependency followed by its Rust mapping(s)
-  convert:  Prints valid Cargo.toml with [dependencies] section
+  Output: Writes Cargo.toml file
 
 EXIT CODES:
   0  Success
-  1  Error (invalid input, file not found, etc.)
+  1  Error (invalid input, file not found, no mapping found)
 
-MORE INFO:
-  Repository: https://github.com/marvai-dev/rinku
-  Database:   160+ Go-to-Rust library mappings across 140+ categories`
+NOTES:
+  - Input URLs must be full GitHub URLs (https://github.com/owner/repo)
+  - The database contains 160+ Go-to-Rust mappings across 140+ categories
+  - Use --unsafe only if you need libraries flagged for vulnerabilities
+
+Repository: https://github.com/marvai-dev/rinku`
 
 var CLI struct {
 	Scan    ScanCmd    `cmd:"" help:"Parse go.mod and show Rust equivalents for each dependency."`
 	Convert ConvertCmd `cmd:"" help:"Generate a Cargo.toml file from go.mod."`
+	Migrate MigrateCmd `cmd:"" help:"Output migration workflow steps."`
+	Req     ReqCmd     `cmd:"" help:"Manage migration requirements."`
 	Lookup  LookupCmd  `cmd:"" default:"withargs" help:"Look up equivalent for a single GitHub URL."`
 }
 
@@ -76,17 +94,263 @@ type ConvertCmd struct {
 	Unsafe bool   `help:"Include libraries with known vulnerabilities."`
 }
 
+type MigrateCmd struct {
+	Step   string `arg:"" optional:"" help:"Step ID to retrieve."`
+	Start  string `help:"Mark step as in_progress."`
+	Finish string `help:"Mark step as completed."`
+	Status bool   `help:"Show current migration status."`
+	Reset  bool   `help:"Reset migration progress."`
+	Note   string `help:"Add note when finishing a step."`
+}
+
+type ReqCmd struct {
+	Set  ReqSetCmd  `cmd:"" help:"Set a requirement."`
+	Get  ReqGetCmd  `cmd:"" help:"Get a requirement."`
+	List ReqListCmd `cmd:"" help:"List requirements."`
+	Done ReqDoneCmd `cmd:"" help:"Mark a requirement as done."`
+}
+
+type ReqSetCmd struct {
+	Path    string `arg:"" help:"Requirement path (e.g., api/cli)."`
+	Content string `arg:"" optional:"" help:"Requirement content (reads from stdin if omitted)."`
+}
+
+type ReqGetCmd struct {
+	Path string `arg:"" help:"Requirement path."`
+}
+
+type ReqListCmd struct {
+	Prefix string `arg:"" optional:"" help:"Optional prefix filter."`
+}
+
+type ReqDoneCmd struct {
+	Path string `arg:"" help:"Requirement path."`
+}
+
+func (c *ReqSetCmd) Run() error {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("getting current directory: %w", err)
+	}
+
+	content := c.Content
+	if content == "" {
+		// Read from stdin
+		data, err := io.ReadAll(os.Stdin)
+		if err != nil {
+			return fmt.Errorf("reading from stdin: %w", err)
+		}
+		content = strings.TrimSpace(string(data))
+	}
+
+	if content == "" {
+		return fmt.Errorf("content is required (provide as argument or via stdin)")
+	}
+
+	if err := requirements.Set(cwd, c.Path, content); err != nil {
+		return fmt.Errorf("setting requirement: %w", err)
+	}
+	fmt.Printf("Set %s\n", c.Path)
+	return nil
+}
+
+func (c *ReqGetCmd) Run() error {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("getting current directory: %w", err)
+	}
+
+	req, err := requirements.Get(cwd, c.Path)
+	if err != nil {
+		return fmt.Errorf("getting requirement: %w", err)
+	}
+	if req == nil {
+		return fmt.Errorf("requirement '%s' not found", c.Path)
+	}
+	fmt.Println(req.Content)
+	return nil
+}
+
+func (c *ReqListCmd) Run() error {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("getting current directory: %w", err)
+	}
+
+	paths, err := requirements.List(cwd, c.Prefix)
+	if err != nil {
+		return fmt.Errorf("listing requirements: %w", err)
+	}
+
+	if len(paths) == 0 {
+		fmt.Println("No requirements found.")
+		return nil
+	}
+
+	for _, p := range paths {
+		req, _ := requirements.Get(cwd, p)
+		if req != nil && req.Done {
+			fmt.Printf("[x] %s\n", p)
+		} else {
+			fmt.Printf("[ ] %s\n", p)
+		}
+	}
+	return nil
+}
+
+func (c *ReqDoneCmd) Run() error {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("getting current directory: %w", err)
+	}
+
+	if err := requirements.Done(cwd, c.Path); err != nil {
+		return err
+	}
+	fmt.Printf("Marked %s as done\n", c.Path)
+	return nil
+}
+
 func (c *LookupCmd) Run(r *rinku.Rinku) error {
 	if c.URL == "" {
 		return fmt.Errorf("URL is required")
 	}
-	if !strings.HasPrefix(c.URL, "http://") && !strings.HasPrefix(c.URL, "https://") {
+	if !isValidURL(c.URL) {
 		return fmt.Errorf("invalid URL: must start with http:// or https://")
 	}
 	for _, result := range r.Lookup(c.URL, c.Language, c.Unsafe) {
 		fmt.Println(result)
 	}
 	return nil
+}
+
+func (c *MigrateCmd) Run() error {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("getting current directory: %w", err)
+	}
+
+	p, err := prompt.Migration()
+	if err != nil {
+		return fmt.Errorf("failed to load migration prompt: %w", err)
+	}
+
+	// Handle --reset first
+	if c.Reset {
+		if err := progress.Delete(cwd); err != nil {
+			return fmt.Errorf("resetting progress: %w", err)
+		}
+		fmt.Println("Migration progress reset.")
+		return nil
+	}
+
+	// Load or create progress
+	m, err := progress.Load(cwd)
+	if err != nil {
+		return fmt.Errorf("loading progress: %w", err)
+	}
+	if m == nil {
+		m = progress.New(cwd, p.Steps())
+		if err := m.Save(cwd); err != nil {
+			return fmt.Errorf("saving initial progress: %w", err)
+		}
+	}
+
+	// Handle --status
+	if c.Status {
+		showMigrationStatus(m)
+		return nil
+	}
+
+	// Handle --start <step>
+	if c.Start != "" {
+		if err := m.StartStep(c.Start); err != nil {
+			return err
+		}
+		if err := m.Save(cwd); err != nil {
+			return fmt.Errorf("saving progress: %w", err)
+		}
+		content, ok := p.GetStep(c.Start)
+		if !ok {
+			return fmt.Errorf("step '%s' not found", c.Start)
+		}
+		// Show Before section if present
+		if before := p.Before(); before != "" {
+			fmt.Println(before)
+			fmt.Println()
+		}
+		fmt.Println(content)
+		// Show After section if present
+		if after := p.After(); after != "" {
+			fmt.Println()
+			fmt.Println(after)
+		}
+		return nil
+	}
+
+	// Handle --finish <step>
+	if c.Finish != "" {
+		if err := m.CompleteStep(c.Finish, c.Note); err != nil {
+			return err
+		}
+		if err := m.Save(cwd); err != nil {
+			return fmt.Errorf("saving progress: %w", err)
+		}
+		fmt.Printf("Completed step %s\n", c.Finish)
+		return nil
+	}
+
+	// Default: show step content
+	// No args = show introduction (entry point)
+	// Explicit step = show that step
+	if c.Step == "" {
+		if intro := p.Introduction(); intro != "" {
+			fmt.Println(intro)
+			return nil
+		}
+		// Fallback to first step if no introduction
+		c.Step = p.FirstStep()
+	}
+
+	content, ok := p.GetStep(c.Step)
+	if !ok {
+		return fmt.Errorf("step '%s' not found", c.Step)
+	}
+	fmt.Println(content)
+	return nil
+}
+
+func showMigrationStatus(m *progress.Migration) {
+	completed, total := m.Progress()
+	fmt.Printf("Migration Progress: %d/%d steps\n", completed, total)
+	fmt.Printf("Current step: %s\n", m.CurrentStep)
+	fmt.Printf("Started: %s\n\n", m.StartedAt.Format("2006-01-02 15:04:05"))
+
+	for _, id := range m.StepOrder {
+		step := m.Steps[id]
+		symbol := statusSymbol(step.Status)
+		fmt.Printf("  %s Step %s", symbol, id)
+		if step.Status == progress.StepCompleted && step.CompletedAt != nil {
+			fmt.Printf(" (completed %s)", step.CompletedAt.Format("Jan 2 15:04"))
+		}
+		if step.Notes != "" {
+			fmt.Printf("\n      Note: %s", step.Notes)
+		}
+		fmt.Println()
+	}
+}
+
+func statusSymbol(s progress.StepStatus) string {
+	switch s {
+	case progress.StepCompleted:
+		return "[x]"
+	case progress.StepInProgress:
+		return "[>]"
+	case progress.StepSkipped:
+		return "[-]"
+	default:
+		return "[ ]"
+	}
 }
 
 func (c *ScanCmd) Run(r *rinku.Rinku) error {
@@ -173,8 +437,22 @@ func validateOutputPath(path string) error {
 	return nil
 }
 
+func isValidURL(url string) bool {
+	return strings.HasPrefix(url, "http://") || strings.HasPrefix(url, "https://")
+}
+
+func shouldShowHelp(args []string) bool {
+	if len(args) == 1 {
+		return true
+	}
+	if len(args) == 2 && (args[1] == "--help" || args[1] == "-h") {
+		return true
+	}
+	return false
+}
+
 func main() {
-	if len(os.Args) == 1 {
+	if shouldShowHelp(os.Args) {
 		fmt.Println(description)
 		os.Exit(0)
 	}

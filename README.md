@@ -8,9 +8,9 @@ A CLI tool that instantly finds equivalents for libraries. Give it a GitHub URL,
 
 Currently works for:
 * Go -> Rust
-* JavaScript -> Go
 
 In the works:
+* JavaScript -> Go
 * Python -> Rust
 
 ## Installation
@@ -94,6 +94,20 @@ Generate a Cargo.toml from a go.mod file.
 ```bash
 rinku convert ./go.mod > Cargo.toml
 ```
+
+### `migrate` - AI-assisted migration workflow
+
+```bash
+rinku migrate
+```
+
+A guided multi-step workflow for migrating Go projects to Rust with an AI assistant. Run your agent in your Go project directory and give your AI this prompt:
+
+```
+Execute `rinku migrate` and follow instructions.
+```
+
+The workflow guides the AI through analyzing the project, creating the Rust structure, converting types and functions, migrating tests and APIs and verifying the migration.
 
 ## Coverage
 

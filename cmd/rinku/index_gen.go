@@ -602,3 +602,79 @@ var knownCrateNames = map[string]string{
 	"github.com/tower-rs/tower-http": "tower_http",
 	"github.com/uuid-rs/uuid": "uuid",
 }
+
+var tags = map[string][]string{
+	"github.com/alecthomas/kong": {"cli"},
+	"github.com/aws/aws-sdk-go-v2": {"cloud"},
+	"github.com/azure/azure-sdk-for-go": {"cloud"},
+	"github.com/charmbracelet/bubbles": {"cli"},
+	"github.com/charmbracelet/bubbletea": {"cli"},
+	"github.com/charmbracelet/lipgloss": {"cli"},
+	"github.com/charmbracelet/log": {"logging"},
+	"github.com/containerd/containerd": {"container"},
+	"github.com/docker/docker": {"container"},
+	"github.com/ent/ent": {"orm"},
+	"github.com/etcd-io/bbolt": {"sql"},
+	"github.com/gin-gonic/gin": {"web"},
+	"github.com/go-chi/chi": {"web"},
+	"github.com/go-gorm/gorm": {"sql", "orm"},
+	"github.com/go-redis/redis": {"sql"},
+	"github.com/go-resty/resty": {"http"},
+	"github.com/gofiber/fiber": {"web"},
+	"github.com/golang-jwt/jwt": {"auth"},
+	"github.com/golang/mock": {"testing"},
+	"github.com/golang/oauth2": {"auth"},
+	"github.com/googleapis/google-cloud-go": {"cloud"},
+	"github.com/gorilla/mux": {"web"},
+	"github.com/gorilla/websocket": {"websocket"},
+	"github.com/grpc-ecosystem/grpc-gateway": {"grpc"},
+	"github.com/grpc/grpc-go": {"grpc"},
+	"github.com/hibiken/asynq": {"async"},
+	"github.com/jackc/pgx": {"sql"},
+	"github.com/joho/godotenv": {"config"},
+	"github.com/knadh/koanf": {"config"},
+	"github.com/kubernetes/client-go": {"container"},
+	"github.com/labstack/echo": {"web"},
+	"github.com/markbates/goth": {"auth"},
+	"github.com/masterminds/squirrel": {"orm"},
+	"github.com/mattn/go-sqlite3": {"sql"},
+	"github.com/ncruces/go-sqlite3": {"sql"},
+	"github.com/olahol/melody": {"websocket"},
+	"github.com/ollama/ollama": {"ai"},
+	"github.com/onsi/ginkgo": {"testing"},
+	"github.com/onsi/gomega": {"testing"},
+	"github.com/open-telemetry/opentelemetry-go": {"observability"},
+	"github.com/openai/openai-go": {"ai"},
+	"github.com/pressly/goose": {"orm"},
+	"github.com/prometheus/client_golang": {"observability"},
+	"github.com/rs/zerolog": {"logging"},
+	"github.com/sashabaranov/go-openai": {"ai"},
+	"github.com/sirupsen/logrus": {"logging"},
+	"github.com/spf13/cobra": {"cli"},
+	"github.com/spf13/viper": {"config"},
+	"github.com/stretchr/testify": {"testing"},
+	"github.com/tmc/langchaingo": {"ai"},
+	"github.com/uber-go/zap": {"logging"},
+	"github.com/valyala/fasthttp": {"web"},
+}
+
+type requiredDep struct {
+	Crate    string
+	Features []string
+	Reason   string
+}
+
+var requiredDeps = map[string][]requiredDep{
+	"rust:github.com/gin-gonic/gin": {
+		{Crate: "tokio", Features: []string{"full"}, Reason: "async runtime for axum"},
+	},
+	"rust:github.com/go-chi/chi": {
+		{Crate: "tokio", Features: []string{"full"}, Reason: "async runtime for axum"},
+	},
+	"rust:github.com/gorilla/mux": {
+		{Crate: "tokio", Features: []string{"full"}, Reason: "async runtime for axum"},
+	},
+	"rust:github.com/labstack/echo": {
+		{Crate: "tokio", Features: []string{"full"}, Reason: "async runtime for axum"},
+	},
+}

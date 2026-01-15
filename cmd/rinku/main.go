@@ -14,6 +14,7 @@ import (
 	"github.com/stephan/rinku/internal/prompt"
 	"github.com/stephan/rinku/internal/requirements"
 	"github.com/stephan/rinku/internal/rinku"
+	"github.com/stephan/rinku/internal/types"
 )
 
 //go:generate go run ../generate
@@ -72,6 +73,7 @@ Repository: https://github.com/marvai-dev/rinku`
 var CLI struct {
 	Scan    ScanCmd    `cmd:"" help:"Parse go.mod and show Rust equivalents for each dependency."`
 	Convert ConvertCmd `cmd:"" help:"Generate a Cargo.toml file from go.mod."`
+	Analyze AnalyzeCmd `cmd:"" help:"Analyze go.mod and output detected project type tags."`
 	Migrate MigrateCmd `cmd:"" help:"Output migration workflow steps."`
 	Req     ReqCmd     `cmd:"" help:"Manage migration requirements."`
 	Lookup  LookupCmd  `cmd:"" default:"withargs" help:"Look up equivalent for a single GitHub URL."`
@@ -86,6 +88,10 @@ type LookupCmd struct {
 type ScanCmd struct {
 	Path   string `arg:"" type:"existingfile" help:"Path to go.mod file."`
 	Unsafe bool   `help:"Include libraries with known vulnerabilities."`
+}
+
+type AnalyzeCmd struct {
+	Path string `arg:"" type:"existingfile" help:"Path to go.mod file."`
 }
 
 type ConvertCmd struct {
@@ -389,6 +395,30 @@ func (c *ScanCmd) Run(r *rinku.Rinku) error {
 	return nil
 }
 
+func (c *AnalyzeCmd) Run(r *rinku.Rinku) error {
+	result, err := gomod.Parse(c.Path)
+	if err != nil {
+		return fmt.Errorf("failed to parse go.mod: %w", err)
+	}
+
+	deps := result.DirectDependencies()
+	tagSet := make(map[string]struct{})
+
+	for _, dep := range deps {
+		ghURL := cargo.ModulePathToGitHubURL(dep.Path)
+		for _, tag := range r.Tags(ghURL) {
+			tagSet[tag] = struct{}{}
+		}
+	}
+
+	// Output unique tags, one per line
+	for tag := range tagSet {
+		fmt.Println(tag)
+	}
+
+	return nil
+}
+
 func (c *ConvertCmd) Run(r *rinku.Rinku) (err error) {
 	result, err := gomod.Parse(c.Path)
 	if err != nil {
@@ -451,13 +481,29 @@ func shouldShowHelp(args []string) bool {
 	return false
 }
 
+func convertRequiredDeps(m map[string][]requiredDep) map[string][]types.RequiredDep {
+	result := make(map[string][]types.RequiredDep, len(m))
+	for k, deps := range m {
+		converted := make([]types.RequiredDep, len(deps))
+		for i, d := range deps {
+			converted[i] = types.RequiredDep{
+				Crate:    d.Crate,
+				Features: d.Features,
+				Reason:   d.Reason,
+			}
+		}
+		result[k] = converted
+	}
+	return result
+}
+
 func main() {
 	if shouldShowHelp(os.Args) {
 		fmt.Println(description)
 		os.Exit(0)
 	}
 
-	r := rinku.New(index, indexAll, reverseIndex, reverseIndexAll, knownCrateNames)
+	r := rinku.New(index, indexAll, reverseIndex, reverseIndexAll, knownCrateNames, tags, convertRequiredDeps(requiredDeps))
 
 	ctx := kong.Parse(&CLI,
 		kong.Name("rinku"),

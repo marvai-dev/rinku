@@ -59,6 +59,20 @@ func main() {
 
 	sb.WriteString("var knownCrateNames = map[string]string{\n")
 	writeStringMap(&sb, result.KnownCrateNames)
+	sb.WriteString("}\n\n")
+
+	sb.WriteString("var tags = map[string][]string{\n")
+	writeMap(&sb, result.Tags)
+	sb.WriteString("}\n\n")
+
+	sb.WriteString("type requiredDep struct {\n")
+	sb.WriteString("\tCrate    string\n")
+	sb.WriteString("\tFeatures []string\n")
+	sb.WriteString("\tReason   string\n")
+	sb.WriteString("}\n\n")
+
+	sb.WriteString("var requiredDeps = map[string][]requiredDep{\n")
+	writeRequiredDepsMap(&sb, result.RequiredDeps)
 	sb.WriteString("}\n")
 
 	if err := os.WriteFile("index_gen.go", []byte(sb.String()), 0600); err != nil {
@@ -72,6 +86,8 @@ func main() {
 	fmt.Printf("  Forward index: %d entries (safe), %d entries (all)\n", len(result.Forward), len(result.ForwardAll))
 	fmt.Printf("  Reverse index: %d entries (safe), %d entries (all)\n", len(result.Reverse), len(result.ReverseAll))
 	fmt.Printf("  Known crate names: %d\n", len(result.KnownCrateNames))
+	fmt.Printf("  Tagged libraries: %d\n", len(result.Tags))
+	fmt.Printf("  Required deps: %d entries\n", len(result.RequiredDeps))
 }
 
 func writeMap(sb *strings.Builder, m map[string][]string) {
@@ -103,5 +119,36 @@ func writeStringMap(sb *strings.Builder, m map[string]string) {
 
 	for _, key := range keys {
 		sb.WriteString(fmt.Sprintf("\t%q: %q,\n", key, m[key]))
+	}
+}
+
+func writeRequiredDepsMap(sb *strings.Builder, m map[string][]types.RequiredDep) {
+	keys := make([]string, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
+	for _, key := range keys {
+		deps := m[key]
+		sb.WriteString(fmt.Sprintf("\t%q: {\n", key))
+		for _, dep := range deps {
+			sb.WriteString(fmt.Sprintf("\t\t{Crate: %q", dep.Crate))
+			if len(dep.Features) > 0 {
+				sb.WriteString(", Features: []string{")
+				for i, f := range dep.Features {
+					if i > 0 {
+						sb.WriteString(", ")
+					}
+					sb.WriteString(fmt.Sprintf("%q", f))
+				}
+				sb.WriteString("}")
+			}
+			if dep.Reason != "" {
+				sb.WriteString(fmt.Sprintf(", Reason: %q", dep.Reason))
+			}
+			sb.WriteString("},\n")
+		}
+		sb.WriteString("\t},\n")
 	}
 }

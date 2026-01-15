@@ -26,7 +26,7 @@ func TestLookup(t *testing.T) {
 		"go:github.com/hyperium/hyper":  {"https://github.com/golang/net"}, // disabled in reverseIndex
 	}
 
-	r := New(index, indexAll, reverseIndex, reverseIndexAll, nil)
+	r := New(index, indexAll, reverseIndex, reverseIndexAll, nil, nil, nil)
 
 	tests := []struct {
 		name       string
@@ -121,7 +121,7 @@ func TestReverseLookup(t *testing.T) {
 		"go:github.com/hyperium/hyper": {"https://github.com/golang/net"},
 	}
 
-	r := New(index, indexAll, reverseIndex, reverseIndexAll, nil)
+	r := New(index, indexAll, reverseIndex, reverseIndexAll, nil, nil, nil)
 
 	tests := []struct {
 		name       string

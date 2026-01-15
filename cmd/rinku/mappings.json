@@ -284,7 +284,10 @@
         "rust:tokio-rs/axum"
       ],
       "category": "web_framework",
-      "confidence": 0.85
+      "confidence": 0.85,
+      "requires": [
+        {"crate": "tokio", "features": ["full"], "reason": "async runtime for axum"}
+      ]
     },
     {
       "source": "go:go-chi/chi",
@@ -292,7 +295,10 @@
         "rust:tokio-rs/axum"
       ],
       "category": "lightweight_router",
-      "confidence": 0.85
+      "confidence": 0.85,
+      "requires": [
+        {"crate": "tokio", "features": ["full"], "reason": "async runtime for axum"}
+      ]
     },
     {
       "source": "go:go-gorm/gorm",
@@ -489,7 +495,10 @@
         "rust:tokio-rs/axum"
       ],
       "category": "http_router",
-      "confidence": 0.85
+      "confidence": 0.85,
+      "requires": [
+        {"crate": "tokio", "features": ["full"], "reason": "async runtime for axum"}
+      ]
     },
     {
       "source": "go:gorilla/websocket",
@@ -592,7 +601,10 @@
         "rust:tokio-rs/axum"
       ],
       "category": "web_framework_alt",
-      "confidence": 0.85
+      "confidence": 0.85,
+      "requires": [
+        {"crate": "tokio", "features": ["full"], "reason": "async runtime for axum"}
+      ]
     },
     {
       "source": "go:lucasb-eyer/go-colorful",

@@ -10,18 +10,21 @@ import (
 
 	"github.com/spf13/afero"
 	"github.com/stephan/rinku/internal/gomod"
+	"github.com/stephan/rinku/internal/types"
 	urlpkg "github.com/stephan/rinku/internal/url"
 )
 
 type Lookup interface {
 	Lookup(sourceURL, targetLang string, unsafe bool) []string
 	CrateName(rustURL string) string
+	RequiredDeps(sourceURL, targetLang string) []types.RequiredDep
 }
 
 type MappedDependency struct {
-	GoDep       gomod.Dependency
-	RustTargets []string
-	CrateNames  []string
+	GoDep        gomod.Dependency
+	RustTargets  []string
+	CrateNames   []string
+	RequiredDeps []types.RequiredDep
 }
 
 type UnmappedDependency struct {
@@ -49,6 +52,8 @@ func MapDependencies(deps []gomod.Dependency, lookup Lookup, unsafe bool) *Gener
 				}
 				mapped.CrateNames = append(mapped.CrateNames, crateName)
 			}
+			// Collect required dependencies for this mapping
+			mapped.RequiredDeps = lookup.RequiredDeps(ghURL, "rust")
 			result.Mapped = append(result.Mapped, mapped)
 		} else {
 			result.Unmapped = append(result.Unmapped, UnmappedDependency{GoDep: dep})
@@ -125,15 +130,61 @@ func GenerateCargoToml(w io.Writer, moduleName string, result *GenerateResult) e
 		return false
 	})
 
+	// Track which crates we've already output to avoid duplicates
+	outputCrates := make(map[string]bool)
+
 	for _, mapped := range result.Mapped {
 		n := min(len(mapped.CrateNames), len(mapped.RustTargets))
 		for i := 0; i < n; i++ {
 			if safeName, ok := sanitizeCrateName(mapped.CrateNames[i]); ok {
 				fmt.Fprintf(w, "%s = \"*\"  # from %s -> %s\n",
 					safeName, mapped.GoDep.Path, mapped.RustTargets[i])
+				outputCrates[safeName] = true
 			} else {
 				fmt.Fprintf(w, "# WARNING: invalid crate name skipped for %s\n", mapped.GoDep.Path)
 			}
+		}
+	}
+
+	// Collect and deduplicate required dependencies
+	requiredDeps := make(map[string]types.RequiredDep)
+	for _, mapped := range result.Mapped {
+		for _, dep := range mapped.RequiredDeps {
+			if safeName, ok := sanitizeCrateName(dep.Crate); ok {
+				if !outputCrates[safeName] {
+					requiredDeps[safeName] = dep
+				}
+			}
+		}
+	}
+
+	// Output required dependencies
+	if len(requiredDeps) > 0 {
+		// Sort for deterministic output
+		var reqNames []string
+		for name := range requiredDeps {
+			reqNames = append(reqNames, name)
+		}
+		sort.Strings(reqNames)
+
+		for _, name := range reqNames {
+			dep := requiredDeps[name]
+			if len(dep.Features) > 0 {
+				fmt.Fprintf(w, "%s = { version = \"*\", features = [", name)
+				for i, f := range dep.Features {
+					if i > 0 {
+						fmt.Fprint(w, ", ")
+					}
+					fmt.Fprintf(w, "%q", f)
+				}
+				fmt.Fprint(w, "] }")
+			} else {
+				fmt.Fprintf(w, "%s = \"*\"", name)
+			}
+			if dep.Reason != "" {
+				fmt.Fprintf(w, "  # required: %s", dep.Reason)
+			}
+			fmt.Fprintln(w)
 		}
 	}
 

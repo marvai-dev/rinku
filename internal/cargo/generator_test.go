@@ -7,6 +7,7 @@ import (
 
 	"github.com/spf13/afero"
 	"github.com/stephan/rinku/internal/gomod"
+	"github.com/stephan/rinku/internal/types"
 )
 
 func TestModulePathToGitHubURL(t *testing.T) {
@@ -104,8 +105,9 @@ func TestExtractCrateName(t *testing.T) {
 
 // mockLookup is a test double for the Lookup interface.
 type mockLookup struct {
-	mappings   map[string][]string
-	crateNames map[string]string
+	mappings     map[string][]string
+	crateNames   map[string]string
+	requiredDeps map[string][]types.RequiredDep
 }
 
 func (m *mockLookup) Lookup(sourceURL, targetLang string, unsafe bool) []string {
@@ -118,6 +120,14 @@ func (m *mockLookup) CrateName(rustURL string) string {
 		return m.crateNames[rustURL]
 	}
 	return ""
+}
+
+func (m *mockLookup) RequiredDeps(sourceURL, targetLang string) []types.RequiredDep {
+	if m.requiredDeps != nil {
+		key := targetLang + ":" + sourceURL
+		return m.requiredDeps[key]
+	}
+	return nil
 }
 
 func TestMapDependencies(t *testing.T) {

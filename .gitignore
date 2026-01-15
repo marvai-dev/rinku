@@ -3,3 +3,4 @@ dist/
 scripts/analyze_deps.py
 confidence*
 fails.md
+.rinku/

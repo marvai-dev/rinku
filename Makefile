@@ -1,4 +1,4 @@
-.PHONY: build run clean generate release validate last-release test goreleaser snapshot confidence confidence-reset confidence-dry lint
+.PHONY: build run clean generate release validate last-release test goreleaser snapshot confidence confidence-reset confidence-dry lint audit sec
 
 BINARY=bin/rinku
 
@@ -16,6 +16,13 @@ lint:
 	go vet ./...
 	go tool staticcheck ./...
 	go tool golangci-lint run ./...
+
+audit:
+	go list -json -deps ./... | go tool github.com/sonatype-nexus-community/nancy sleuth --loud
+
+sec: audit
+	go tool gosec ./...
+	go tool govulncheck ./...
 
 release:
 ifndef TAG

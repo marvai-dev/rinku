@@ -78,8 +78,8 @@ func TestSet_AutoTagsStep(t *testing.T) {
 
 	// Create progress with current step
 	m := progress.New(dir, []string{"1", "2a", "2b"})
-	m.StartStep("2a")
-	m.Save(dir)
+	_ = m.StartStep("2a")
+	_ = m.Save(dir)
 
 	// Set requirement
 	err := Set(dir, "api/cli", "content")
@@ -119,10 +119,10 @@ func TestSet_NestedPath(t *testing.T) {
 func TestList(t *testing.T) {
 	dir := t.TempDir()
 
-	Set(dir, "api/cli", "cli")
-	Set(dir, "api/web/routes", "routes")
-	Set(dir, "worker/jobs", "jobs")
-	Set(dir, "db/models/user", "user")
+	_ = Set(dir, "api/cli", "cli")
+	_ = Set(dir, "api/web/routes", "routes")
+	_ = Set(dir, "worker/jobs", "jobs")
+	_ = Set(dir, "db/models/user", "user")
 
 	paths, err := List(dir, "")
 	if err != nil {
@@ -143,9 +143,9 @@ func TestList(t *testing.T) {
 func TestList_WithPrefix(t *testing.T) {
 	dir := t.TempDir()
 
-	Set(dir, "api/cli", "cli")
-	Set(dir, "api/web/routes", "routes")
-	Set(dir, "worker/jobs", "jobs")
+	_ = Set(dir, "api/cli", "cli")
+	_ = Set(dir, "api/web/routes", "routes")
+	_ = Set(dir, "worker/jobs", "jobs")
 
 	paths, err := List(dir, "api/")
 	if err != nil {
@@ -175,7 +175,7 @@ func TestList_Empty(t *testing.T) {
 func TestDelete(t *testing.T) {
 	dir := t.TempDir()
 
-	Set(dir, "api/cli", "cli")
+	_ = Set(dir, "api/cli", "cli")
 
 	err := Delete(dir, "api/cli")
 	if err != nil {

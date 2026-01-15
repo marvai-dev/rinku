@@ -148,9 +148,9 @@ func TestSaveAndLoad(t *testing.T) {
 	dir := t.TempDir()
 	steps := []string{"1", "2", "3"}
 	m := New(dir, steps)
-	m.StartStep("1")
-	m.CompleteStep("1", "first done")
-	m.StartStep("2")
+	_ = m.StartStep("1")
+	_ = m.CompleteStep("1", "first done")
+	_ = m.StartStep("2")
 
 	err := m.Save(dir)
 	if err != nil {
@@ -201,7 +201,7 @@ func TestLoad_NoFile(t *testing.T) {
 func TestDelete(t *testing.T) {
 	dir := t.TempDir()
 	m := New(dir, []string{"1"})
-	m.Save(dir)
+	_ = m.Save(dir)
 
 	if !Exists(dir) {
 		t.Fatal("progress file should exist after save")
@@ -234,7 +234,7 @@ func TestExists(t *testing.T) {
 	}
 
 	m := New(dir, []string{"1"})
-	m.Save(dir)
+	_ = m.Save(dir)
 
 	if !Exists(dir) {
 		t.Error("Exists should return true after save")

@@ -62,6 +62,8 @@ A guided multi-step workflow for migrating Go projects to Rust with an AI assist
 Execute `rinku migrate` and follow instructions.
 ```
 
+*Use a dev container, VM or sandbox to run the workflow.*
+
 The workflow guides the AI through analyzing the project, creating the Rust structure, converting types and functions, migrating tests and APIs and verifying the migration.
 
 ### `lookup` - Find equivalent library

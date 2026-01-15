@@ -227,6 +227,14 @@ func (c *LookupCmd) Run(r *rinku.Rinku) error {
 	for _, result := range r.Lookup(c.URL, c.Language, c.Unsafe) {
 		fmt.Println(result)
 	}
+	// Show required dependencies if any
+	for _, dep := range r.RequiredDeps(c.URL, c.Language) {
+		if len(dep.Features) > 0 {
+			fmt.Printf("  requires: %s (features: %v)\n", dep.Crate, dep.Features)
+		} else {
+			fmt.Printf("  requires: %s\n", dep.Crate)
+		}
+	}
 	return nil
 }
 

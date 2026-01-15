@@ -1,5 +1,9 @@
 # rinku
 
+[![Latest Release](https://img.shields.io/github/v/release/marvai-dev/rinku)](https://github.com/marvai-dev/rinku/releases)
+[![GoDoc](https://pkg.go.dev/badge/github.com/marvai-dev/rinku)](https://pkg.go.dev/github.com/marvai-dev/rinku)
+[![Build Status](https://github.com/marvai-dev/rinku/actions/workflows/test.yaml/badge.svg)](https://github.com/marvai-dev/rinku/actions/workflows/test.yaml)
+
 *Disclaimer: This software is mostly written by an AI. I understand this might change your feelings about the software and you might not want to use it.*
 
 A CLI tool for migrating Go projects to Rust. Additionally it can instantly find equivalents for libraries. Give it a GitHub URL, get back the best  alternative in your target language.

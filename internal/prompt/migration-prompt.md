@@ -21,8 +21,12 @@ and files in them, **NEVER** its parents or any other directory outside the curr
 
 This is a multi-step process.
 
-Use todos and a plan to guide your work.
+- Use 'rinku lookup <dependency>' to lookup dependency replacements, for example: 
 
+  rinku lookup https://github.com/labstack/echo  
+  https://github.com/tokio-rs/axum    
+    requires: tokio (features: [full])  
+  
 - Use `rinku migrate --start <step>` to start a step (shows instructions).
 - Use `rinku migrate --finish <step>` to mark a step as complete.
 - Use `rinku migrate --status` to see progress.
@@ -69,8 +73,6 @@ Run `rinku analyze go.mod` to detect project type. The output shows which featur
 - `web` - has web framework (Steps 4-8, 17-21 relevant)
 - `sql`, `orm` - has database layer
 - `grpc` - has gRPC
-
-Skip steps for features not detected (e.g., if no `web` tag, skip Steps 5-8 and 18-21).
 
 When done, proceed to Step 2.
 
@@ -262,10 +264,7 @@ When done, proceed to Step 18.
 
 # Step 18
 
-Implement web templates based on requirements (skip if no templates):
-
-- Go `html/template` → Rust `askama`, `tera`, or `minijinja`
-- Go `text/template` → Rust `tera` or `minijinja`
+Implement web templates based on requirements:
 
   rinku req list <binary>/templates/
 
@@ -296,11 +295,6 @@ When done, proceed to Step 20.
 
 Implement middleware based on requirements (skip if no middleware):
 
-- Auth: Go middleware → Rust `tower` layers or framework extractors
-- CORS: `rs/cors` → `tower-http::cors::CorsLayer`
-- Logging: Go middleware → `tower-http::trace::TraceLayer`
-- Rate limiting: Go middleware → `tower::limit` or `governor`
-
   rinku req get <binary>/middleware
 
 Implement each middleware layer and mark as done:
@@ -312,9 +306,6 @@ When done, proceed to Step 21.
 # Step 21
 
 Implement session handling based on requirements (skip if no session management):
-
-- `gorilla/sessions` → `tower-sessions`
-- Cookie-based auth → `axum-extra::extract::CookieJar` or `actix-web::cookie`
 
   rinku req get <binary>/sessions
 

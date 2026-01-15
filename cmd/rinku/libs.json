@@ -1,5 +1,11 @@
 {
   "libs": {
+    "go:a-h/templ": {
+      "url": "https://github.com/a-h/templ",
+      "lang": "go",
+      "stars": 9000,
+      "tags": ["templating"]
+    },
     "go:Azure/azure-sdk-for-go": {
       "url": "https://github.com/Azure/azure-sdk-for-go",
       "lang": "go",
@@ -1020,6 +1026,13 @@
       "url": "https://github.com/droundy/internment",
       "lang": "rust",
       "stars": 115
+    },
+    "rust:djc/askama": {
+      "url": "https://github.com/djc/askama",
+      "lang": "rust",
+      "crate_name": "askama",
+      "stars": 3400,
+      "tags": ["templating"]
     },
     "rust:dtolnay/anyhow": {
       "url": "https://github.com/dtolnay/anyhow",

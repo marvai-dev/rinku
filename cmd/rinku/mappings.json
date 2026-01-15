@@ -1,6 +1,14 @@
 {
   "mappings": [
     {
+      "source": "go:a-h/templ",
+      "targets": [
+        "rust:djc/askama"
+      ],
+      "category": "templating",
+      "confidence": 0.85
+    },
+    {
       "source": "go:Azure/azure-sdk-for-go",
       "targets": [
         "rust:Azure/azure-sdk-for-rust"

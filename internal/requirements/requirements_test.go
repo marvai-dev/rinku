@@ -196,3 +196,46 @@ func TestDelete_NotFound(t *testing.T) {
 		t.Errorf("Delete should not error for missing: %v", err)
 	}
 }
+
+func TestList_WithWildcard(t *testing.T) {
+	dir := t.TempDir()
+
+	_ = Set(dir, "api/cli", "cli")
+	_ = Set(dir, "api/web/routes", "routes")
+	_ = Set(dir, "worker/cli", "worker cli")
+	_ = Set(dir, "db/models", "models")
+
+	// Test */cli pattern - should match api/cli and worker/cli
+	paths, err := List(dir, "*/cli")
+	if err != nil {
+		t.Fatalf("List failed: %v", err)
+	}
+
+	if len(paths) != 2 {
+		t.Fatalf("expected 2 paths, got %d: %v", len(paths), paths)
+	}
+	if paths[0] != "api/cli" || paths[1] != "worker/cli" {
+		t.Errorf("paths = %v, want [api/cli worker/cli]", paths)
+	}
+}
+
+func TestList_WildcardMiddle(t *testing.T) {
+	dir := t.TempDir()
+
+	_ = Set(dir, "api/v1/users", "v1 users")
+	_ = Set(dir, "api/v2/users", "v2 users")
+	_ = Set(dir, "api/v1/posts", "v1 posts")
+
+	// Test api/*/users pattern
+	paths, err := List(dir, "api/*/users")
+	if err != nil {
+		t.Fatalf("List failed: %v", err)
+	}
+
+	if len(paths) != 2 {
+		t.Fatalf("expected 2 paths, got %d: %v", len(paths), paths)
+	}
+	if paths[0] != "api/v1/users" || paths[1] != "api/v2/users" {
+		t.Errorf("paths = %v, want [api/v1/users api/v2/users]", paths)
+	}
+}

@@ -86,8 +86,9 @@ func Get(projectDir, reqPath string) (*Requirement, error) {
 	return &req, nil
 }
 
-// List returns all requirement paths, optionally filtered by prefix.
-func List(projectDir, prefix string) ([]string, error) {
+// List returns all requirement paths, optionally filtered by pattern.
+// Pattern supports * as a wildcard for a single path segment.
+func List(projectDir, pattern string) ([]string, error) {
 	baseDir := filepath.Join(projectDir, progress.ProgressDir, RequirementsDir)
 
 	if _, err := os.Stat(baseDir); os.IsNotExist(err) {
@@ -113,8 +114,8 @@ func List(projectDir, prefix string) ([]string, error) {
 		}
 		reqPath := strings.TrimSuffix(relPath, ".json")
 
-		// Filter by prefix if provided
-		if prefix != "" && !strings.HasPrefix(reqPath, prefix) {
+		// Filter by pattern if provided
+		if pattern != "" && !matchPattern(pattern, reqPath) {
 			return nil
 		}
 
@@ -187,4 +188,35 @@ func getCurrentStep(projectDir string) string {
 		return ""
 	}
 	return m.GetCurrentStep()
+}
+
+// matchPattern checks if a requirement path matches the pattern.
+// * matches any single path segment (not including /).
+// Pattern acts as a prefix match (pattern can be shorter than path).
+// Trailing slashes are handled for prefix matching (e.g., "api/" matches "api/cli").
+func matchPattern(pattern, path string) bool {
+	// Handle trailing slash for prefix matching
+	pattern = strings.TrimSuffix(pattern, "/")
+	if pattern == "" {
+		return true // Empty pattern matches all
+	}
+
+	patternParts := strings.Split(pattern, "/")
+	pathParts := strings.Split(path, "/")
+
+	// Pattern must be a prefix match
+	if len(patternParts) > len(pathParts) {
+		return false
+	}
+
+	for i, pp := range patternParts {
+		if pp == "*" {
+			continue // Wildcard matches anything
+		}
+		if pp != pathParts[i] {
+			return false
+		}
+	}
+
+	return true
 }

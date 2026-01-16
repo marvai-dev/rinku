@@ -15,6 +15,7 @@ import (
 	"github.com/stephan/rinku/internal/requirements"
 	"github.com/stephan/rinku/internal/rinku"
 	"github.com/stephan/rinku/internal/types"
+	"github.com/stephan/rinku/internal/verify"
 )
 
 //go:generate go run ../generate
@@ -76,6 +77,7 @@ var CLI struct {
 	Analyze AnalyzeCmd `cmd:"" help:"Analyze go.mod and output detected project type tags."`
 	Migrate MigrateCmd `cmd:"" help:"Output migration workflow steps."`
 	Req     ReqCmd     `cmd:"" help:"Manage migration requirements."`
+	Verify  VerifyCmd  `cmd:"" help:"Check requirement coverage and implementation status."`
 	Lookup  LookupCmd  `cmd:"" default:"withargs" help:"Look up equivalent for a single GitHub URL."`
 }
 
@@ -126,11 +128,16 @@ type ReqGetCmd struct {
 }
 
 type ReqListCmd struct {
-	Prefix string `arg:"" optional:"" help:"Optional prefix filter."`
+	Pattern string `arg:"" optional:"" help:"Optional pattern filter (supports * wildcard for single path segment)."`
 }
 
 type ReqDoneCmd struct {
 	Path string `arg:"" help:"Requirement path."`
+}
+
+type VerifyCmd struct {
+	Path string `arg:"" optional:"" type:"existingfile" help:"Path to go.mod file (default: go.mod in cwd)."`
+	Impl bool   `help:"Check if requirements are implemented (done)."`
 }
 
 func (c *ReqSetCmd) Run() error {
@@ -183,7 +190,7 @@ func (c *ReqListCmd) Run() error {
 		return fmt.Errorf("getting current directory: %w", err)
 	}
 
-	paths, err := requirements.List(cwd, c.Prefix)
+	paths, err := requirements.List(cwd, c.Pattern)
 	if err != nil {
 		return fmt.Errorf("listing requirements: %w", err)
 	}
@@ -214,6 +221,102 @@ func (c *ReqDoneCmd) Run() error {
 		return err
 	}
 	fmt.Printf("Marked %s as done\n", c.Path)
+	return nil
+}
+
+func (c *VerifyCmd) Run(r *rinku.Rinku) error {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("getting current directory: %w", err)
+	}
+
+	// Handle --impl: show implementation status
+	if c.Impl {
+		done, pending, err := verify.CheckImplementation(cwd)
+		if err != nil {
+			return fmt.Errorf("checking implementation: %w", err)
+		}
+
+		fmt.Printf("Implementation Status\n")
+		fmt.Printf("=====================\n")
+		fmt.Printf("Done:    %d\n", len(done))
+		fmt.Printf("Pending: %d\n\n", len(pending))
+
+		if len(pending) > 0 {
+			fmt.Println("Pending requirements:")
+			for _, p := range pending {
+				fmt.Printf("  [ ] %s\n", p)
+			}
+		}
+
+		if len(done) > 0 {
+			fmt.Println("\nCompleted requirements:")
+			for _, p := range done {
+				fmt.Printf("  [x] %s\n", p)
+			}
+		}
+
+		return nil
+	}
+
+	// Coverage check: needs go.mod path
+	path := c.Path
+	if path == "" {
+		path = "go.mod"
+	}
+
+	// Parse go.mod to get dependencies
+	result, err := gomod.Parse(path)
+	if err != nil {
+		return fmt.Errorf("parsing go.mod: %w", err)
+	}
+
+	// Get tags from dependencies
+	deps := result.DirectDependencies()
+	tagSet := make(map[string]struct{})
+	for _, dep := range deps {
+		ghURL := cargo.ModulePathToGitHubURL(dep.Path)
+		for _, tag := range r.Tags(ghURL) {
+			tagSet[tag] = struct{}{}
+		}
+	}
+
+	// Convert to slice
+	var tags []string
+	for tag := range tagSet {
+		tags = append(tags, tag)
+	}
+
+	// Check coverage
+	statuses, err := verify.CheckCoverage(cwd, tags)
+	if err != nil {
+		return fmt.Errorf("checking coverage: %w", err)
+	}
+
+	fmt.Printf("Requirement Coverage\n")
+	fmt.Printf("====================\n")
+	fmt.Printf("Detected tags: %v\n\n", tags)
+
+	if len(statuses) == 0 {
+		fmt.Println("No expected requirement categories detected.")
+		return nil
+	}
+
+	allCovered := true
+	for _, s := range statuses {
+		status := "MISSING"
+		if s.HasRequirements {
+			status = fmt.Sprintf("OK (%d captured, %d done)", s.Count, s.DoneCount)
+		} else {
+			allCovered = false
+		}
+		fmt.Printf("  %-20s [%s] %s\n", s.Category, s.Pattern, status)
+	}
+
+	if !allCovered {
+		fmt.Println("\nHint: Capture requirements for missing categories before proceeding.")
+	}
+
 	return nil
 }
 
@@ -304,6 +407,11 @@ func (c *MigrateCmd) Run() error {
 
 	// Handle --finish <step>
 	if c.Finish != "" {
+		// Check gate before completing
+		if err := checkStepGate(cwd, c.Finish); err != nil {
+			return fmt.Errorf("cannot finish step %s: %w", c.Finish, err)
+		}
+
 		if err := m.CompleteStep(c.Finish, c.Note); err != nil {
 			return err
 		}
@@ -365,6 +473,39 @@ func statusSymbol(s progress.StepStatus) string {
 	default:
 		return "[ ]"
 	}
+}
+
+// stepRequirementPaths maps step IDs to required requirement path patterns.
+// For capture steps (3-9, Codegen): no gate - requirements are optional.
+// For implement steps (16-21, 23): all matching requirements must be done.
+var stepRequirementPaths = map[string][]string{
+	"16": {"*/cli"},
+	"17": {"*/api"},
+	"18": {"*/templates"},
+	"19": {"*/static"},
+	"20": {"*/middleware"},
+	"21": {"*/sessions"},
+	"23": {"tests"},
+}
+
+// checkStepGate verifies that gating requirements are met before completing a step.
+func checkStepGate(projectDir, stepID string) error {
+	patterns, ok := stepRequirementPaths[stepID]
+	if !ok {
+		return nil // No gate for this step
+	}
+
+	for _, pattern := range patterns {
+		allDone, pending, err := verify.GetRequirementStatus(projectDir, pattern)
+		if err != nil {
+			return fmt.Errorf("checking requirements: %w", err)
+		}
+
+		if !allDone && len(pending) > 0 {
+			return fmt.Errorf("requirements not done:\n  %s\nHint: Mark them as done with 'rinku req done <path>'", strings.Join(pending, "\n  "))
+		}
+	}
+	return nil
 }
 
 func (c *ScanCmd) Run(r *rinku.Rinku) error {

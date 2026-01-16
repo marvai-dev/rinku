@@ -4,7 +4,7 @@
       "url": "https://github.com/a-h/templ",
       "lang": "go",
       "stars": 9000,
-      "tags": ["templating"]
+      "tags": ["templating", "codegen:templ"]
     },
     "go:Azure/azure-sdk-for-go": {
       "url": "https://github.com/Azure/azure-sdk-for-go",
@@ -572,6 +572,12 @@
       "lang": "go",
       "stars": 8324
     },
+    "go:natefinch/atomic": {
+      "url": "https://github.com/natefinch/atomic",
+      "lang": "go",
+      "stars": 317,
+      "tags": ["filesystem"]
+    },
     "go:natefinch/lumberjack": {
       "url": "https://github.com/natefinch/lumberjack",
       "lang": "go",
@@ -703,7 +709,8 @@
     "go:protocolbuffers/protobuf-go": {
       "url": "https://github.com/protocolbuffers/protobuf-go",
       "lang": "go",
-      "stars": 3276
+      "stars": 3276,
+      "tags": ["codegen:protobuf"]
     },
     "go:quic-go/quic-go": {
       "url": "https://github.com/quic-go/quic-go",
@@ -1415,6 +1422,13 @@
       "lang": "rust",
       "stars": 282
     },
+    "rust:untitaker/atomicwrites-rs": {
+      "url": "https://github.com/untitaker/atomicwrites-rs",
+      "lang": "rust",
+      "crate_name": "atomicwrites",
+      "stars": 52,
+      "tags": ["filesystem"]
+    },
     "rust:iliekturtles/uom": {
       "url": "https://github.com/iliekturtles/uom",
       "lang": "rust",
@@ -1446,7 +1460,7 @@
       "lang": "go",
       "url": "https://github.com/ent/ent",
       "stars": 16792,
-      "tags": ["orm"]
+      "tags": ["orm", "codegen:ent"]
     },
     "go:go-playground/validator": {
       "lang": "go",
@@ -1609,6 +1623,24 @@
       "url": "https://github.com/dromara/carbon",
       "lang": "go",
       "stars": 5190
+    },
+    "go:google/wire": {
+      "url": "https://github.com/google/wire",
+      "lang": "go",
+      "stars": 13500,
+      "tags": ["di", "codegen:wire"]
+    },
+    "go:sqlc-dev/sqlc": {
+      "url": "https://github.com/sqlc-dev/sqlc",
+      "lang": "go",
+      "stars": 15000,
+      "tags": ["sql", "codegen:sqlc"]
+    },
+    "go:99designs/gqlgen": {
+      "url": "https://github.com/99designs/gqlgen",
+      "lang": "go",
+      "stars": 11000,
+      "tags": ["graphql", "codegen:gqlgen"]
     }
   }
 }

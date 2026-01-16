@@ -31,6 +31,8 @@ This is a multi-step process.
 - Use `rinku migrate --finish <step>` to mark a step as complete.
 - Use `rinku migrate --status` to see progress.
 - Use `rinku migrate --reset` to start over.
+- Use `rinku verify go.mod` to check requirement coverage against detected tags.
+- Use `rinku verify --impl` to see which requirements are done vs pending.
 
 The surface of the application (APIs) needs to be the same in Rust as in Go.
 Use requirements to track what must work in Rust:
@@ -73,6 +75,7 @@ Run `rinku analyze go.mod` to detect project type. The output shows which featur
 - `web` - has web framework (Steps 4-8, 17-21 relevant)
 - `sql`, `orm` - has database layer
 - `grpc` - has gRPC
+- `codegen:*` - has code generation (Step Codegen relevant)
 
 When done, proceed to Step 2.
 
@@ -89,35 +92,55 @@ When done, proceed to Step 3.
 
 # Step 3
 
-Capture CLI arguments and options as requirements:
+Capture CLI arguments and options as requirements.
 
-  rinku req set <binary>/cli <<EOF
-  <flags and options>
-  EOF
+Iteration (max 5 passes):
+1. Read CLI setup code (main.go, cmd/*.go, etc.)
+2. For each CLI feature found, record it:
+   rinku req set <binary>/cli <<EOF
+   <flags and options>
+   EOF
+3. Do another pass through the code
+4. If you found new features, go to step 2
+5. When a full pass finds nothing new, proceed
+
+Run `rinku verify go.mod` to confirm cli category is covered.
 
 When done, proceed to Step 4.
 
 # Step 4
 
-Capture HTTP/API endpoints as requirements (skip if no web server):
+Capture HTTP/API endpoints as requirements (skip if no web server).
 
-  rinku req set <binary>/api/<resource> <<EOF
-  GET /users - list users
-  POST /users - create user
-  ...
-  EOF
+Iteration (max 5 passes):
+1. Read router setup and handler code
+2. For each endpoint group found, record it:
+   rinku req set <binary>/api/<resource> <<EOF
+   GET /users - list users
+   POST /users - create user
+   ...
+   EOF
+3. Do another pass through the code
+4. If you found new endpoints, go to step 2
+5. When a full pass finds nothing new, proceed
 
 When done, proceed to Step 5.
 
 # Step 5
 
-Capture web templates as requirements (skip if no templates):
+Capture web templates as requirements (skip if no templates).
 
-  rinku req set <binary>/templates/<name> <<EOF
-  Source: templates/user.html
-  Variables: .Name, .Email, .Items[]
-  Layout: extends base.html
-  EOF
+Iteration (max 5 passes):
+1. Search for template files and template usage in handlers
+2. For each template found, record it:
+   rinku req set <binary>/templates/<name> <<EOF
+   Source: templates/user.html
+   Variables: .Name, .Email, .Items[]
+   Layout: extends base.html
+   EOF
+3. Do another pass through the code
+4. If you found new templates, go to step 2
+5. When a full pass finds nothing new, proceed
 
 When done, proceed to Step 6.
 
@@ -159,11 +182,52 @@ When done, proceed to Step 9.
 
 # Step 9
 
-Capture existing tests as requirements:
+Capture existing tests as requirements.
 
-  rinku req set tests/<area> <<EOF
-  <test names and descriptions>
-  EOF
+Iteration (max 5 passes):
+1. Search for test files (*_test.go) and test functions
+2. For each test area found, record it:
+   rinku req set tests/<area> <<EOF
+   <test names and descriptions>
+   EOF
+3. Do another pass through the test files
+4. If you found new test areas, go to step 2
+5. When a full pass finds nothing new, proceed
+
+When done, proceed to Step Codegen.
+
+# Step Codegen
+
+Capture code generation requirements (skip if no codegen detected by `rinku analyze`).
+
+Look for:
+- `//go:generate` directives in source files
+- *.proto files (protobuf)
+- ent/schema/*.go (ent ORM)
+- *.templ files (templ)
+- wire.go files (wire DI)
+- sqlc.yaml (sqlc)
+- gqlgen.yml (gqlgen)
+
+Iteration (max 5 passes):
+1. Search for codegen sources
+2. For each codegen source found, record it:
+   rinku req set codegen/<tool> <<EOF
+   Source files: <paths>
+   Generated files: <paths>
+   Purpose: <what it generates>
+   EOF
+3. Do another pass
+4. If new sources found, go to step 2
+5. When a full pass finds nothing new, proceed
+
+Rust equivalents (for reference when implementing):
+- protobuf -> prost + tonic-build (build.rs)
+- ent -> sea-orm or diesel
+- templ -> askama
+- wire -> manual DI or shaku
+- sqlc -> sqlx macros or sea-query
+- gqlgen -> async-graphql
 
 When done, proceed to Step 10.
 
@@ -239,79 +303,112 @@ When done, proceed to Step 16.
 
 # Step 16
 
-Implement CLI based on requirements:
+Implement CLI based on requirements.
 
-  rinku req get <binary>/cli
+Iteration:
+1. Run `rinku req list */cli`
+2. For each pending requirement:
+   - `rinku req get <binary>/cli`
+   - Implement in Rust
+   - `rinku req done <binary>/cli`
+3. Run `rinku verify --impl`
+4. If pending CLI requirements remain, go to step 1
+5. When all done, proceed
 
-After implementing, mark as done:
-
-  rinku req done <binary>/cli
+Gate: All `*/cli` requirements must be done before proceeding.
 
 When done, proceed to Step 17.
 
 # Step 17
 
-Implement API endpoints based on requirements (skip if no web server):
+Implement API endpoints based on requirements (skip if no web server).
 
-  rinku req list <binary>/api/
-  rinku req get <binary>/api/<resource>
+Iteration:
+1. Run `rinku req list */api/`
+2. For each pending requirement:
+   - `rinku req get <binary>/api/<resource>`
+   - Implement in Rust
+   - `rinku req done <binary>/api/<resource>`
+3. Run `rinku verify --impl`
+4. If pending API requirements remain, go to step 1
+5. When all done, proceed
 
-After implementing each, mark as done:
-
-  rinku req done <binary>/api/<resource>
+Gate: All `*/api/*` requirements must be done before proceeding.
 
 When done, proceed to Step 18.
 
 # Step 18
 
-Implement web templates based on requirements:
+Implement web templates based on requirements.
 
-  rinku req list <binary>/templates/
+Iteration:
+1. Run `rinku req list */templates/`
+2. For each pending requirement:
+   - `rinku req get <binary>/templates/<name>`
+   - Create the equivalent Rust template file (e.g., askama)
+   - Retain the original layout and structure
+   - Verify the rendered output matches the original
+   - Update the handler to use the new template
+   - `rinku req done <binary>/templates/<name>`
+3. Run `rinku verify --impl`
+4. If pending template requirements remain, go to step 1
+5. When all done, proceed
 
-For each template:
-1. Create the equivalent Rust template file
-2. Retain the original layout and structure even with a different templating engine
-3. Verify the rendered output matches the original
-4. Update the handler to use the new template
-5. Mark as done: `rinku req done <binary>/templates/<name>`
+Gate: All `*/templates/*` requirements must be done before proceeding.
 
 When done, proceed to Step 19.
 
 # Step 19
 
-Implement static file serving based on requirements (skip if no static files):
+Implement static file serving based on requirements (skip if no static files).
 
-- Go `http.FileServer` → Rust `tower-http::services::ServeDir`
+Iteration:
+1. Run `rinku req list */static`
+2. For each pending requirement:
+   - `rinku req get <binary>/static`
+   - Implement in Rust (Go `http.FileServer` -> `tower-http::services::ServeDir`)
+   - `rinku req done <binary>/static`
+3. Run `rinku verify --impl`
+4. If pending static requirements remain, go to step 1
+5. When all done, proceed
 
-  rinku req get <binary>/static
-
-Implement static file serving and mark as done:
-
-  rinku req done <binary>/static
+Gate: All `*/static` requirements must be done before proceeding.
 
 When done, proceed to Step 20.
 
 # Step 20
 
-Implement middleware based on requirements (skip if no middleware):
+Implement middleware based on requirements (skip if no middleware).
 
-  rinku req get <binary>/middleware
+Iteration:
+1. Run `rinku req list */middleware`
+2. For each pending requirement:
+   - `rinku req get <binary>/middleware`
+   - Implement each middleware layer in Rust
+   - `rinku req done <binary>/middleware`
+3. Run `rinku verify --impl`
+4. If pending middleware requirements remain, go to step 1
+5. When all done, proceed
 
-Implement each middleware layer and mark as done:
-
-  rinku req done <binary>/middleware
+Gate: All `*/middleware` requirements must be done before proceeding.
 
 When done, proceed to Step 21.
 
 # Step 21
 
-Implement session handling based on requirements (skip if no session management):
+Implement session handling based on requirements (skip if no session management).
 
-  rinku req get <binary>/sessions
+Iteration:
+1. Run `rinku req list */sessions`
+2. For each pending requirement:
+   - `rinku req get <binary>/sessions`
+   - Implement session handling in Rust
+   - `rinku req done <binary>/sessions`
+3. Run `rinku verify --impl`
+4. If pending session requirements remain, go to step 1
+5. When all done, proceed
 
-Implement session handling and mark as done:
-
-  rinku req done <binary>/sessions
+Gate: All `*/sessions` requirements must be done before proceeding.
 
 When done, proceed to Step 22.
 
@@ -330,21 +427,23 @@ When the project compiles cleanly, proceed to Step 23.
 
 # Step 23
 
-Implement and run tests based on requirements:
+Implement and run tests based on requirements.
 
-  rinku req list tests/
-  rinku req get tests/<area>
+Iteration:
+1. Run `rinku req list tests/`
+2. For each pending requirement:
+   - `rinku req get tests/<area>`
+   - Convert Go tests to Rust:
+     - `func TestFoo(t *testing.T)` -> `#[test] fn test_foo()`
+     - `t.Errorf()` -> `assert!` / `assert_eq!`
+     - Table-driven tests -> use loops or `#[test_case]` macro
+   - `rinku req done tests/<area>`
+3. Run `cargo test` to verify tests pass
+4. Run `rinku verify --impl`
+5. If pending test requirements remain, go to step 1
+6. When all done, proceed
 
-Convert Go tests to Rust:
-- `func TestFoo(t *testing.T)` → `#[test] fn test_foo()`
-- `t.Errorf()` → `assert!` / `assert_eq!`
-- Table-driven tests → use loops or `#[test_case]` macro
-
-After implementing each, mark as done:
-
-  rinku req done tests/<area>
-
-Run `cargo test` to verify all tests pass.
+Gate: All `tests/*` requirements must be done before proceeding.
 
 When all test requirements are done, proceed to Step 24.
 
@@ -366,6 +465,6 @@ Create a <project-name>/<project>-migration.md file that describes the migration
 for verification by the user.
 
 Create a <project-name>/README-<project>.md file that describes the migrated project (architecture, structure, frameworks)
-for easier onboarding.
+for easier onboarding of developers, after they take over from the Go project.
 
 When done, migration is complete.

@@ -701,6 +701,14 @@
       "confidence": 0.8
     },
     {
+      "source": "go:natefinch/atomic",
+      "targets": [
+        "rust:untitaker/atomicwrites-rs"
+      ],
+      "category": "atomic_file_writes",
+      "confidence": 0.85
+    },
+    {
       "source": "go:natefinch/lumberjack",
       "targets": [
         "rust:tokio-rs/tracing/tree/master/tracing-appender"
